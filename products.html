@@ -1,149 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products & Price List | Marmor Designs</title>
-<meta name="description" content="Full price list of natural agate and quartz stone slabs from Marmor Designs, including jointless finishing rates.">
-<link rel="icon" href="assets/logo.jpg">
-<link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natural Marble &amp; Agate Slabs Catalogue | Marmor Designs</title>
+  <meta name="description" content="Browse all 26 natural marble, agate and quartz stone slabs. Filter by colour, collection or space. Transparent pricing (+₹300 premium fabrication included) with Pan-India delivery." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .cat-filter-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 45px;
+    }
+    .filter-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+    .search-input-wrap {
+      position: relative;
+      min-width: 300px;
+    }
+    .search-input-wrap input {
+      width: 100%;
+      background: rgba(13, 11, 8, 0.85);
+      border: 1px solid var(--border-light);
+      padding: 12px 18px 12px 44px;
+      border-radius: 100px;
+      color: #fff;
+      font-size: 0.9rem;
+      outline: none;
+      transition: all var(--trans-fast);
+    }
+    .search-input-wrap input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 15px rgba(200, 169, 110, 0.25);
+    }
+    .search-ico {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      pointer-events: none;
+    }
+    .catalogue-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .cat-spec-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      padding: 10px 0;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+      margin: 14px 0;
+    }
+    .cat-spec-item strong { color: #fff; }
+    .wa-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #25D366;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 100px;
+      transition: all var(--trans);
+    }
+    .wa-card-btn:hover { background: #1EAF55; transform: translateY(-2px); }
+    .bookmatch-btn {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(13, 11, 8, 0.85);
+      backdrop-filter: blur(8px);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid var(--border-light);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .bookmatch-btn:hover {
+      background: var(--gold);
+      color: #000;
+    }
+    .is-bookmatched .prod-media img {
+      transform: scaleX(-1);
+      filter: contrast(1.1);
+    }
+  </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="container">
-    <div>Crafted Stone Surfaces, Delivered Across India</div>
-    <div class="topbar-links">
-      <a href="tel:+919876543210">+91 98765 43210</a>
-      <a href="mailto:info@marmordesigns.in">info@marmordesigns.in</a>
-    </div>
-  </div>
-</div>
-
-<header class="site-header">
-  <div class="nav-wrap">
-    <a class="brand" href="index.html"><img src="assets/logo.jpg" alt="Marmor Designs logo"></a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="products.html" class="active">Products</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="header-actions">
-      <a class="btn btn-primary" href="contact.html">Get a Quote</a>
-      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-
-<section class="page-hero">
-  <div class="container">
-    <div class="eyebrow" style="justify-content:center;">Our Full Catalogue</div>
-    <h1>25 Stones.<br>One Transparent Price List.</h1>
-    <div class="breadcrumb"><a href="index.html">Home</a> / Products</div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="filter-row">
-      <button class="filter-btn active" data-cat="All">All Stones</button>
-      <button class="filter-btn" data-cat="Quartz">Quartz</button>
-      <button class="filter-btn" data-cat="Agate">Agate</button>
-      <button class="filter-btn" data-cat="Rare">Rare &amp; Statement</button>
-      <div class="search-box">
-        <input type="text" id="stoneSearch" placeholder="Search a stone name...">
-      </div>
-    </div>
-
-    <div class="swatch-grid" id="swatchGrid"></div>
-    <p id="noResults" style="display:none;text-align:center;margin-top:30px;">No stones match your search — try a different name or clear the filter.</p>
-
-    <p class="form-note" style="margin-top:36px;">Prices shown are per sq. ft, ex-fabrication and installation. Jointless finish is available on select materials as marked. All rates subject to confirmation at time of quote.</p>
-  </div>
-</section>
-
-<section class="section-alt">
-  <div class="container">
-    <div class="section-head center">
-      <div class="eyebrow">Not Sure Which Stone?</div>
-      <h2>Tell Us the Space — We'll Shortlist the Stone</h2>
-      <p>Send us the room, the lighting, and the mood you're after. We'll recommend 2–3 materials from this list that will work best.</p>
-      <div class="text-center" style="margin-top:26px;">
-        <a class="btn btn-primary" href="contact.html">Ask for a Recommendation</a>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span class="topbar-msg">✦ India's Finest Natural Marble &amp; Agate Slabs — Pan-India Delivery · Export to UAE, UK &amp; USA</span>
+      <div class="topbar-right">
+        <a href="tel:+919876543210" class="tb-link">+91 98765 43210</a>
+        <span class="tb-sep">|</span>
+        <a href="mailto:info@marmordesigns.com" class="tb-link">info@marmordesigns.com</a>
       </div>
     </div>
   </div>
-</section>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="assets/logo.jpg" alt="Marmor Designs logo">
-        <p>Premium natural agate and quartz stone slabs for feature walls, countertops and statement interiors.</p>
-        <div class="social-row">
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="Pinterest">PI</a>
+  <!-- NAVIGATION -->
+  <header class="site-header" id="site-header">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">
+        <img src="assets/logo-icon.svg" alt="Marmor Designs" class="logo-img" />
+        <div class="logo-text-wrap">
+          <span class="logo-name">Marmor Designs</span>
+          <span class="logo-tagline">Natural Marble &amp; Agate · Kishangarh</span>
+        </div>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link active">Our Collection</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blogs.html" class="nav-link">Journal</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:+919876543210" class="nav-phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.33a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +91 98765 43210
+        </a>
+        <a href="contact.html" class="btn-quote">Get a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="sec-eye">Full 26-Slab Collection</div>
+      <h1 class="page-title">Natural Stone Slabs &amp;<br /><em>Transparent Rates</em></h1>
+      <p class="page-lead">All rates include our factory triple-reinforcement and jointless preparation guarantee (+₹300/sq.ft). Filter by colour, collection, or search your preferred mineral.</p>
+    </div>
+  </section>
+
+  <!-- CATALOGUE & DUAL FILTER SECTION -->
+  <section style="background:var(--bg-main);padding-top:40px;">
+    <div class="container">
+
+      <div class="cat-filter-section">
+        <div class="filter-top-bar">
+          <div class="browser-mode-tabs" style="margin-bottom:0;">
+            <button class="bmode-btn active" id="filter-color-mode">Filter By Colour</button>
+            <button class="bmode-btn" id="filter-coll-mode">Filter By Collection</button>
+          </div>
+          <div class="search-input-wrap">
+            <svg class="search-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="catalogue-search" placeholder="Search slabs (e.g. Malachite, Calacatta, Agate)..." />
+          </div>
+        </div>
+
+                                <!-- Colour Filter Circles (NITCO-Style) -->
+        <div class="colour-swatches-grid" id="cat-color-swatches" style="margin-bottom:10px;">
+          <button class="color-circle-btn active" data-color="all">
+            <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/27/f7/fe/27f7fea910b7f5bec48de29ed6525883.jpg');"></div>
+            <span class="color-label">All (26)</span>
+          </button>
+          <button class="color-circle-btn" data-color="white">
+            <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/48/e4/f0/48e4f0469fb2bd902649b6a93435a86f.jpg');"></div>
+            <span class="color-label">White</span>
+          </button>
+          <button class="color-circle-btn" data-color="beige">
+            <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/57/01/70/5701706e45c15428126eda5955e4eb82.jpg');"></div>
+            <span class="color-label">Beige</span>
+          </button>
+          <button class="color-circle-btn" data-color="grey">
+            <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/26/f0/29/26f02954a66eec797bfc2d0d13c08a3b.jpg');"></div>
+            <span class="color-label">Grey</span>
+          </button>
+          <button class="color-circle-btn" data-color="black">
+            <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/05/68/b8/0568b872582ecbf6eea2a896d74a7011.jpg');"></div>
+            <span class="color-label">Black</span>
+          </button>
+          <button class="color-circle-btn" data-color="green">
+            <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/7a/27/96/7a27964cde771dc315727d255fe1b1c4.jpg');"></div>
+            <span class="color-label">Green</span>
+          </button>
+          <button class="color-circle-btn" data-color="blue">
+            <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/a2/d6/ce/a2d6ce2f163f65ed84131ae133fe0892.jpg');"></div>
+            <span class="color-label">Blue</span>
+          </button>
+          <button class="color-circle-btn" data-color="gold">
+            <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/f8/49/ed/f849ed0807c1ecf8ea3c009c8b1048f6.jpg');"></div>
+            <span class="color-label">Gold</span>
+          </button>
+          <button class="color-circle-btn" data-color="rare">
+            <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/e4/71/63/e47163bbd9d0638e16d5a56b85ca61c3.jpg');"></div>
+            <span class="color-label">Purple/Rare</span>
+          </button>
+        </div>
+
+        <!-- Collection Tabs (Shown when toggled) -->
+        <div class="collection-tabs-row" id="cat-coll-tabs" style="display:none;margin-bottom:10px;">
+          <button class="col-tab-btn active" data-cat="all">All Slabs (26)</button>
+          <button class="col-tab-btn" data-cat="Quartz">Quartz Collection (8)</button>
+          <button class="col-tab-btn" data-cat="Agate">Agate Collection (8)</button>
+          <button class="col-tab-btn" data-cat="Rare">Rare &amp; Statement (10)</button>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="blogs.html">Blogs</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Collections</h4>
-        <ul>
-          <li><a href="products.html">Quartz Range</a></li>
-          <li><a href="products.html">Agate Range</a></li>
-          <li><a href="products.html">Rare &amp; Statement</a></li>
-          <li><a href="products.html">Jointless Slabs</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li>+91 98765 43210</li>
-          <li>info@marmordesigns.in</li>
-          <li>Jodhpur, Rajasthan, India</li>
-        </ul>
+
+      <!-- Slabs Grid -->
+      <div class="catalogue-grid" id="full-catalogue-grid"></div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="container footer-grid">
+        <div class="fcol fcol-brand">
+          <div class="footer-logo">
+            <img src="assets/logo.svg" alt="Marmor Designs" class="flogo-img" style="height:54px;width:auto;" /></div>
+          <p>India's premier curator of natural marble, agate, quartz and rare statement stone slabs. Fabricated in Kishangarh (Marble City of India) with Pan-India delivery.</p>
+        </div>
+        <div class="fcol">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="products.html">Products &amp; Prices</a>
+          <a href="blogs.html">Journal</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="fcol">
+          <h4>Collections</h4>
+          <a href="products.html?cat=Quartz">Quartz Range</a>
+          <a href="products.html?cat=Agate">Agate Range</a>
+          <a href="products.html?cat=Rare">Rare &amp; Statement</a>
+          <a href="products.html">Cut To Size Slabs</a>
+        </div>
+        <div class="fcol fcol-contact">
+          <h4>Get In Touch</h4>
+          <a href="tel:+919876543210" class="fcontact-item">+91 98765 43210</a>
+          <a href="mailto:info@marmordesigns.com" class="fcontact-item">info@marmordesigns.com</a>
+          <div class="fcontact-item">Kishangarh Marble Industrial Area, NH-8 Ajmer Expressway, Rajasthan — 305801</div>
+          <a href="https://wa.me/919876543210" target="_blank" class="wa-footer-btn">Chat on WhatsApp</a>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>© 2026 Marmor Designs. All rights reserved.</div>
-      <div>Crafted with natural stone, not templates.</div>
+    <div class="footer-btm">
+      <div class="container fbtm-inner">
+        <span>© 2026 Marmor Designs. All Rights Reserved. Kishangarh, Rajasthan, India.</span>
+        <div class="fbtm-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<button class="chat-launcher" id="chatLauncher" aria-label="Open chat">M</button>
-<div class="chat-panel" id="chatPanel">
-  <div class="chat-head">
-    <div class="chat-head-title"><span class="dot"></span><div><h5>Marmor Assistant</h5><span>Usually replies instantly</span></div></div>
-    <button class="chat-close" id="chatClose">✕</button>
-  </div>
-  <div class="chat-body" id="chatBody"></div>
-  <div class="chat-quick" id="chatQuick">
-    <button>Price of Malachite</button>
-    <button>What is jointless?</button>
-    <button>Get a quote</button>
-  </div>
-  <div class="chat-input-row">
-    <input type="text" id="chatInput" placeholder="Ask about a stone or price...">
-    <button id="chatSend">Send</button>
-  </div>
-</div>
+  <a href="https://wa.me/919876543210" target="_blank" class="wa-fab" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.82.737 5.47 2.027 7.774L0 32l8.467-2.005A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0z"/></svg>
+    <div class="wa-fab-tooltip">Chat with Senior Stone Specialist</div>
+  </a>
+  <button class="btt" id="btt" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
 
-<script src="assets/script.js"></script>
+  <script>
+    // FULL 26 STONES DATASET
+            const allStones = [
+      // Quartz
+      { id: 'white-quartz', name: 'White Quartz', color: 'white', cat: 'Quartz', price: '₹1,500', thickness: '18mm / 20mm', finish: 'High Polish', desc: 'Pristine pure white crystalline body with micro-reflectors. Stain-proof and non-porous.', img: 'https://i.pinimg.com/736x/48/e4/f0/48e4f0469fb2bd902649b6a93435a86f.jpg', backlit: false },
+      { id: 'rose-quartz', name: 'Rose Quartz', color: 'rare', cat: 'Quartz', price: '₹1,800', thickness: '20mm', finish: 'Diamond Polish', desc: 'Natural soft blush pink gemstone with crystalline fracture veining. Calming aura for luxury master bath vanities.', img: 'https://i.pinimg.com/736x/14/21/23/142123f612722c10850fabafdd8d57bc.jpg', backlit: true },
+      { id: 'ivory-quartz', name: 'Ivory Quartz', color: 'beige', cat: 'Quartz', price: '₹1,700', thickness: '18mm / 20mm', finish: 'Honed / Polish', desc: 'Warm vanilla and cream undertones with subtle golden quartz grains. Complements warm brass cabinetry.', img: 'https://i.pinimg.com/736x/57/01/70/5701706e45c15428126eda5955e4eb82.jpg', backlit: false },
+      { id: 'beige-quartz', name: 'Beige Quartz', color: 'beige', cat: 'Quartz', price: '₹1,600', thickness: '20mm', finish: 'Leather / Polish', desc: 'Earthy desert sand stone tone with harmonious mineral flecks. High resistance to heavy culinary use.', img: 'https://i.pinimg.com/736x/c8/5a/01/c85a01b073d4e37f2685c49df48a4c45.jpg', backlit: false },
+      { id: 'grey-veined-quartz', name: 'Grey Veined Quartz', color: 'grey', cat: 'Quartz', price: '₹2,100', thickness: '18mm / 20mm', finish: 'High Polish', desc: 'Dramatic smoky grey striations dancing across an alabaster base. The architects choice for modern minimalist kitchens.', img: 'https://i.pinimg.com/736x/26/f0/29/26f02954a66eec797bfc2d0d13c08a3b.jpg', backlit: false },
+      { id: 'black-quartz', name: 'Black Quartz', color: 'black', cat: 'Quartz', price: '₹2,300', thickness: '20mm', finish: 'Matte / Gloss', desc: 'Obsidian black stone with subtle starlight silver micro-crystallites. Unmatched bold presence for bar counters.', img: 'https://i.pinimg.com/736x/05/68/b8/0568b872582ecbf6eea2a896d74a7011.jpg', backlit: false },
+      { id: 'golden-quartz', name: 'Golden Quartz', color: 'gold', cat: 'Quartz', price: '₹2,600', thickness: '20mm', finish: 'Diamond Polish', desc: 'Rich amber-gold crystal webbing over warm ivory. Infuses rooms with the glow of royal stone craftsmanship.', img: 'https://i.pinimg.com/736x/f8/49/ed/f849ed0807c1ecf8ea3c009c8b1048f6.jpg', backlit: true },
+      { id: 'calacatta-quartz', name: 'Calacatta Quartz', color: 'white', cat: 'Quartz', price: '₹2,900', thickness: '18mm / 20mm', finish: 'Mirror Finish', desc: 'Iconic feather veining inspired by finest Italian Calacatta marble. Zero maintenance luxury.', img: 'https://i.pinimg.com/736x/27/f7/fe/27f7fea910b7f5bec48de29ed6525883.jpg', backlit: false },
+
+      // Agate
+      { id: 'blue-agate', name: 'Blue Agate', color: 'blue', cat: 'Agate', price: '₹1,500', thickness: '20mm', finish: 'Gem Polish', desc: 'Deep cobalt and celestial blue concentric rings. Translucent gem grade that radiates breathtaking light when backlit.', img: 'https://i.pinimg.com/736x/a2/d6/ce/a2d6ce2f163f65ed84131ae133fe0892.jpg', backlit: true },
+      { id: 'green-agate', name: 'Green Agate', color: 'green', cat: 'Agate', price: '₹1,700', thickness: '20mm', finish: 'Gem Polish', desc: 'Rich forest and jade rings with translucent quartz heart. Brings tranquility into boutique hotel lobbies.', img: 'https://i.pinimg.com/736x/ad/4c/26/ad4c26febaca2138be172be8556df8ab.jpg', backlit: true },
+      { id: 'brown-agate', name: 'Brown Agate', color: 'beige', cat: 'Agate', price: '₹1,600', thickness: '20mm', finish: 'High Polish', desc: 'Warm mocha, cinnamon and chocolate banded structure. Creates rich organic depth for fireplace claddings.', img: 'https://i.pinimg.com/736x/85/f5/7d/85f57d6a13428be68b988aa3e871d9e4.jpg', backlit: true },
+      { id: 'white-agate', name: 'White Agate', color: 'white', cat: 'Agate', price: '₹1,800', thickness: '20mm', finish: 'Mirror Polish', desc: 'Ethereal translucent milky quartz rings. Radiates clean white light, giving an otherworldly glow to vanity backdrops.', img: 'https://i.pinimg.com/736x/ab/50/77/ab5077872cb922a61dab7d1607d2d49d.jpg', backlit: true },
+      { id: 'red-agate', name: 'Red Agate', color: 'rare', cat: 'Agate', price: '₹2,000', thickness: '20mm', finish: 'Gem Polish', desc: 'Crimson, carnelian and fire-hued crystalline bands. A dramatic showpiece slab for luxury dining feature walls.', img: 'https://i.pinimg.com/736x/56/c6/2b/56c62b08ee3a3125658c2f63be6d7194.jpg', backlit: true },
+      { id: 'black-agate', name: 'Black Agate', color: 'black', cat: 'Agate', price: '₹2,300', thickness: '20mm', finish: 'High Gloss', desc: 'Jet black gemstone banded with sharp translucent white quartz fractures. Striking architectural contrast.', img: 'https://i.pinimg.com/736x/d1/0e/72/d10e7266764335390daaa7f084cbd2c0.jpg', backlit: true },
+      { id: 'honey-agate', name: 'Honey Agate', color: 'gold', cat: 'Agate', price: '₹2,500', thickness: '20mm', finish: 'Backlit Polish', desc: 'Glowing golden syrup and amber crystals. Illuminates warm evening light for cocktail bars and powder rooms.', img: 'https://i.pinimg.com/736x/f8/49/ed/f849ed0807c1ecf8ea3c009c8b1048f6.jpg', backlit: true },
+      { id: 'purple-agate', name: 'Purple Agate', color: 'rare', cat: 'Agate', price: '₹3,300', thickness: '20mm', finish: 'Gem Polish', desc: 'Royal violet and lavender lace agate. Ultra-rare cut reserved for bespoke luxury headboards and art niches.', img: 'https://i.pinimg.com/736x/0a/99/55/0a99556e43f2dc7616f2f4030363cce2.jpg', backlit: true },
+
+      // Rare & Statement
+      { id: 'malachite', name: 'Malachite', color: 'green', cat: 'Rare', price: '₹2,800', thickness: '20mm', finish: 'High Polish', desc: 'Deep emerald-green banding forming concentric velvet eyes. The stone of Russian and European royalty.', img: 'https://i.pinimg.com/736x/7a/27/96/7a27964cde771dc315727d255fe1b1c4.jpg', backlit: false },
+      { id: 'lapis-lazuli', name: 'Lapis Lazuli', color: 'blue', cat: 'Rare', price: '₹3,800', thickness: '20mm', finish: 'Gem Polish', desc: 'Intense celestial ultramarine with sparkling golden pyrite veins. A 6,000-year symbol of timeless luxury.', img: 'https://i.pinimg.com/736x/ee/b9/0f/eeb90f60ecc95daeed81675d0aacbd79.jpg', backlit: false },
+      { id: 'amethyst', name: 'Amethyst Slab', color: 'rare', cat: 'Rare', price: '₹3,300', thickness: '20mm', finish: 'Diamond Polish', desc: 'Natural violet quartz crystal clusters meticulously assembled. Mystical translucency and jewel-like radiance.', img: 'https://i.pinimg.com/736x/e4/71/63/e47163bbd9d0638e16d5a56b85ca61c3.jpg', backlit: true },
+      { id: 'tiger-eye', name: 'Tiger Eye', color: 'gold', cat: 'Rare', price: '₹3,100', thickness: '20mm', finish: 'High Polish', desc: 'Chatoyant golden-yellow and dark brown bands that shimmer with a silky optical luster as light moves.', img: 'https://i.pinimg.com/736x/60/19/07/601907e1e79163a70b26a42cf6b1234b.jpg', backlit: false },
+      { id: 'onyx-white', name: 'Onyx White', color: 'white', cat: 'Rare', price: '₹4,300', thickness: '18mm / 20mm', finish: 'Translucent Polish', desc: 'Semi-translucent calcite stone with honey-gold strata. Soft, glowing luminescence across entire wall panels.', img: 'https://i.pinimg.com/736x/ab/50/77/ab5077872cb922a61dab7d1607d2d49d.jpg', backlit: true },
+      { id: 'onyx-black', name: 'Onyx Black', color: 'black', cat: 'Rare', price: '₹4,800', thickness: '20mm', finish: 'Mirror Polish', desc: 'Pure midnight black onyx with sharp white calcitic lightning veins. Monumental elegance.', img: 'https://i.pinimg.com/736x/57/3d/a5/573da5d6e8a89ea79bdade3c97d99aa9.jpg', backlit: false },
+      { id: 'labradorite', name: 'Labradorite Slab', color: 'grey', cat: 'Rare', price: '₹5,300', thickness: '20mm', finish: 'Iridescent Polish', desc: 'Feldspar mineral displaying labradorescence — iridescent peacock blue, green and copper flashes.', img: 'https://i.pinimg.com/736x/db/6c/7c/db6c7c80ab6837d7c05119aad874dbf2.jpg', backlit: false },
+      { id: 'pyrite-slab', name: 'Pyrite Slab', color: 'gold', cat: 'Rare', price: '₹6,300', thickness: '20mm', finish: 'Metallic Polish', desc: 'Metallic brass-yellow mineral with bright cubic reflections. Creates an unforgettable metallic accent wall.', img: 'https://i.pinimg.com/736x/57/3d/a5/573da5d6e8a89ea79bdade3c97d99aa9.jpg', backlit: false },
+      { id: 'ocean-jasper', name: 'Ocean Jasper', color: 'green', cat: 'Rare', price: '₹7,800', thickness: '20mm', finish: 'Gemstone Polish', desc: 'Orbicular pattern stone with swirling circles of sea green, pink, yellow and cream. Truly one-of-a-kind.', img: 'https://i.pinimg.com/736x/3e/8a/aa/3e8aaa3426b6d2b31b677a47964bd25b.jpg', backlit: true },
+      { id: 'galaxy-black-granite', name: 'Galaxy Black Statement', color: 'black', cat: 'Rare', price: '₹8,300', thickness: '20mm', finish: 'High Polish', desc: 'Deep jet black base filled with golden bronzite stellar flecks. The pinnacle of statement stone craftsmanship.', img: 'https://i.pinimg.com/736x/d1/0e/72/d10e7266764335390daaa7f084cbd2c0.jpg', backlit: false }
+    ];
+
+    const catGrid = document.getElementById('full-catalogue-grid');
+    const searchInput = document.getElementById('catalogue-search');
+    let activeColor = 'all';
+    let activeCat = 'all';
+    let currentMode = 'color';
+
+    function renderProducts(stones) {
+      if (!catGrid) return;
+      catGrid.innerHTML = '';
+
+      if (stones.length === 0) {
+        catGrid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-secondary);">
+          <h3 style="font-size:1.8rem;margin-bottom:10px;color:#fff;">No slabs matched your filter</h3>
+          <p>Try searching for Quartz, Agate, Malachite, or Lapis Lazuli.</p>
+        </div>`;
+        return;
+      }
+
+      stones.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'prod-c';
+        card.innerHTML = `
+          <div class="prod-media">
+            <img src="${s.img}" alt="${s.name} - Marmor Designs" loading="lazy" />
+            <span class="prod-cat-badge">${s.cat}</span>
+            <button class="bookmatch-btn" title="Toggle Mirror Bookmatch View">⇋ Bookmatch</button>
+            ${s.backlit ? `<button class="prod-backlit-toggle" title="Click to test backlit glow">✦ Test Backlit</button>` : ''}
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-title">${s.name}</h3>
+            <p class="prod-desc">${s.desc}</p>
+            <div class="cat-spec-row">
+              <span class="cat-spec-item">Thickness: <strong>${s.thickness}</strong></span>
+              <span class="cat-spec-item">Finish: <strong>${s.finish}</strong></span>
+            </div>
+            <div class="prod-footer">
+              <div class="prod-rate-wrap">
+                <span class="prate">${s.price}</span>
+                <span class="punit"> / sq. ft.</span>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <a href="https://wa.me/919876543210?text=${encodeURIComponent('Hello Marmor Designs, I am inquiring about ' + s.name + ' (' + s.price + '/sq.ft). Please share lot video and quote.')}" target="_blank" class="wa-card-btn">WhatsApp</a>
+                <a href="contact.html?stone=${encodeURIComponent(s.name)}" class="prod-action">Quote</a>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // Backlit toggle
+        const backlitBtn = card.querySelector('.prod-backlit-toggle');
+        if (backlitBtn) {
+          backlitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            card.classList.toggle('is-backlit');
+            backlitBtn.textContent = card.classList.contains('is-backlit') ? '✦ Normal View' : '✦ Test Backlit';
+          });
+        }
+
+        // Bookmatch toggle
+        const bmBtn = card.querySelector('.bookmatch-btn');
+        if (bmBtn) {
+          bmBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            card.classList.toggle('is-bookmatched');
+            bmBtn.textContent = card.classList.contains('is-bookmatched') ? '⇋ Single Slab' : '⇋ Bookmatch';
+          });
+        }
+
+        catGrid.appendChild(card);
+      });
+    }
+
+    function applyFilters() {
+      const q = searchInput.value.toLowerCase().trim();
+      let filtered = allStones;
+
+      if (currentMode === 'color' && activeColor !== 'all') {
+        filtered = filtered.filter(s => s.color === activeColor);
+      } else if (currentMode === 'coll' && activeCat !== 'all') {
+        filtered = filtered.filter(s => s.cat === activeCat);
+      }
+
+      if (q) {
+        filtered = filtered.filter(s =>
+          s.name.toLowerCase().includes(q) ||
+          s.desc.toLowerCase().includes(q) ||
+          s.cat.toLowerCase().includes(q)
+        );
+      }
+
+      renderProducts(filtered);
+    }
+
+    // Toggle Modes (By Colour vs By Collection)
+    const btnColorMode = document.getElementById('filter-color-mode');
+    const btnCollMode = document.getElementById('filter-coll-mode');
+    const colorSwatchesDiv = document.getElementById('cat-color-swatches');
+    const collTabsDiv = document.getElementById('cat-coll-tabs');
+
+    btnColorMode.addEventListener('click', () => {
+      btnColorMode.classList.add('active');
+      btnCollMode.classList.remove('active');
+      colorSwatchesDiv.style.display = 'flex';
+      collTabsDiv.style.display = 'none';
+      currentMode = 'color';
+      applyFilters();
+    });
+
+    btnCollMode.addEventListener('click', () => {
+      btnCollMode.classList.add('active');
+      btnColorMode.classList.remove('active');
+      colorSwatchesDiv.style.display = 'none';
+      collTabsDiv.style.display = 'flex';
+      currentMode = 'coll';
+      applyFilters();
+    });
+
+    // Swatches
+    document.querySelectorAll('#cat-color-swatches .color-circle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#cat-color-swatches .color-circle-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeColor = btn.getAttribute('data-color');
+        applyFilters();
+      });
+    });
+
+    // Collection Tabs
+    document.querySelectorAll('#cat-coll-tabs .col-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#cat-coll-tabs .col-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.getAttribute('data-cat');
+        applyFilters();
+      });
+    });
+
+    searchInput.addEventListener('input', applyFilters);
+
+    // Initial render
+    renderProducts(allStones);
+
+    // Back to top
+    const btt = document.getElementById('btt');
+    window.addEventListener('scroll', () => {
+      if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+    });
+    if (btt) {
+      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+  </script>
 </body>
 </html>
