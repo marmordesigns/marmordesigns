@@ -513,8 +513,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dimensions: 2.6m wide, 1.6m tall, 0.08m thick (calibrated architectural ratio)
     const slabGeo = new THREE.BoxGeometry(2.6, 1.6, 0.08);
 
+    function createProceduralMarble(colorHex, veinColorHex) {
+      const c = document.createElement('canvas');
+      c.width = 1024;
+      c.height = 1024;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = colorHex;
+      ctx.fillRect(0, 0, 1024, 1024);
+      // Realistic luxury organic marble veining
+      ctx.strokeStyle = veinColorHex;
+      ctx.lineWidth = 4;
+      ctx.globalAlpha = 0.45;
+      for (let i = 0; i < 9; i++) {
+        ctx.beginPath();
+        let x = Math.random() * 1024, y = 0;
+        ctx.moveTo(x, y);
+        while (y < 1024) {
+          x += (Math.random() - 0.48) * 85;
+          y += Math.random() * 95 + 20;
+          ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+      return new THREE.CanvasTexture(c);
+    }
+
     function createSlabMaterial(texUrl) {
-      const tex = texLoader.load(texUrl);
+      const fallbackTex = createProceduralMarble('#F4EFEA', '#B89047');
+      const tex = texLoader.load(texUrl, undefined, undefined, () => {
+        console.warn('Using luxury fallback texture for 3D slab');
+      });
       tex.wrapS = THREE.RepeatWrapping;
       tex.wrapT = THREE.RepeatWrapping;
 
@@ -527,7 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    const defaultMat = createSlabMaterial('https://i.pinimg.com/736x/27/f7/fe/27f7fea910b7f5bec48de29ed6525883.jpg');
+    const defaultMat = createSlabMaterial('assets/stones/calacatta.jpg');
     const slabMesh1 = new THREE.Mesh(slabGeo, defaultMat);
     slabGroup.add(slabMesh1);
 
