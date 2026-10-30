@@ -167,9 +167,13 @@
       </a>
       <nav class="main-nav">
         <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Collection</a>
+        <a href="index.html#studio-3d-section" class="nav-link">3D Studio</a>
+        <a href="index.html#spaces-section" class="nav-link">Spaces</a>
+        <a href="index.html#offers-section" class="nav-link">Cut To Size</a>
+        <a href="index.html#tech-section" class="nav-link">Technology</a>
         <a href="about.html" class="nav-link">About</a>
-        <a href="products.html" class="nav-link">Products</a>
-        <a href="blogs.html" class="nav-link">Blogs</a>
+        <a href="blogs.html" class="nav-link">Journal</a>
         <a href="contact.html" class="nav-link active">Contact</a>
       </nav>
       <div class="nav-right">
@@ -186,11 +190,15 @@
     <!-- MOBILE NAV -->
     <div class="mobile-nav" id="mobile-nav">
       <a href="index.html" class="mob-link">Home</a>
+      <a href="products.html" class="mob-link">Collection</a>
+      <a href="index.html#studio-3d-section" class="mob-link">3D Studio</a>
+      <a href="index.html#spaces-section" class="mob-link">Spaces</a>
+      <a href="index.html#offers-section" class="mob-link">Cut To Size</a>
+      <a href="index.html#tech-section" class="mob-link">Technology</a>
       <a href="about.html" class="mob-link">About</a>
-      <a href="products.html" class="mob-link">Products</a>
-      <a href="blogs.html" class="mob-link">Blogs</a>
-      <a href="contact.html" class="mob-link">Contact</a>
-      <a href="contact.html" class="btn-quote" style="margin-top:12px;text-align:center;">Request Quote →</a>
+      <a href="blogs.html" class="mob-link">Journal</a>
+      <a href="contact.html" class="mob-link active">Contact</a>
+      <a href="contact.html" class="btn-quote" style="margin-top:12px;text-align:center;">Request Free Quote →</a>
     </div>
   </header>
 
@@ -601,6 +609,33 @@
     });
     if (btt) {
       btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+  
+    // Pre-populate stone and service from URL query params
+    const urlParams = new URLSearchParams(window.location.search);
+    const preStone = urlParams.get('stone');
+    const preService = urlParams.get('service');
+    const preReq = urlParams.get('request');
+
+    if (preStone) {
+      const msgField = document.getElementById('cp-msg');
+      if (msgField) msgField.value = `I am interested in inspecting and receiving a quotation for ${preStone} slabs. Please share available lot videos and pricing.`;
+      const calcStone = document.getElementById('calc-stone');
+      if (calcStone) {
+        for (let i = 0; i < calcStone.options.length; i++) {
+          if (calcStone.options[i].text.toLowerCase().includes(preStone.toLowerCase())) {
+            calcStone.selectedIndex = i;
+            if (typeof updateCalc === 'function') updateCalc();
+            break;
+          }
+        }
+      }
+    } else if (preService) {
+      const msgField = document.getElementById('cp-msg');
+      if (msgField) msgField.value = `I would like to inquire about your ${preService} service for an upcoming architectural project.`;
+    } else if (preReq === 'SampleBox') {
+      const msgField = document.getElementById('cp-msg');
+      if (msgField) msgField.value = `I would like to order a Curated Stone Sample Box delivered to my project address.`;
     }
   </script>
 </body>

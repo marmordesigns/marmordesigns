@@ -326,14 +326,17 @@ document.addEventListener('DOMContentLoaded', () => {
           ${p.backlit ? `<button class="prod-backlit-toggle" title="Click to test backlit glow">✦ Test Backlit</button>` : ''}
         </div>
         <div class="prod-body">
-          <h3 class="prod-title">${p.name}</h3>
+          <h3 class="prod-title"><a href="products.html?stone=${encodeURIComponent(p.name)}" style="color:inherit;text-decoration:none;">${p.name}</a></h3>
           <p class="prod-desc">${p.desc}</p>
           <div class="prod-footer">
             <div class="prod-rate-wrap">
               <span class="prate">${p.price}</span>
               <span class="punit"> / sq. ft.</span>
             </div>
-            <a href="contact.html?stone=${encodeURIComponent(p.name)}" class="prod-action">Enquire Now →</a>
+            <div style="display:flex;gap:6px;align-items:center;">
+              <a href="products.html?stone=${encodeURIComponent(p.name)}" class="prod-action" style="padding:6px 10px;font-size:0.75rem;background:#F3F4F6;color:#111827;">Specs</a>
+              <a href="contact.html?stone=${encodeURIComponent(p.name)}" class="prod-action" style="padding:6px 12px;font-size:0.75rem;">Quote →</a>
+            </div>
           </div>
         </div>
       `;
@@ -812,5 +815,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  console.log('%c✦ MARMOR DESIGNS | LUXURY MARBLE & AGATE ARCHITECTURE', 'color: #C8A96E; font-size: 14px; font-weight: bold;');
+
+  // ==========================================
+  // 10. LUXURY SCROLL REVEAL OBSERVER
+  // ==========================================
+  const revealElements = document.querySelectorAll('.sec-head, .tech-card, .prod-c, .offer-card, .space-card, .spot-card, .stat-box');
+  revealElements.forEach((el, idx) => {
+    el.classList.add('reveal-on-scroll');
+    // Add staggered delay class
+    const delayIndex = (idx % 4) + 1;
+    el.classList.add(`delay-${delayIndex}`);
+  });
+
+  const scrollObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -60px 0px',
+    threshold: 0.12
+  });
+
+  document.querySelectorAll('.reveal-on-scroll').forEach(el => scrollObserver.observe(el));
+
+    console.log('%c✦ MARMOR DESIGNS | LUXURY MARBLE & AGATE ARCHITECTURE', 'color: #C8A96E; font-size: 14px; font-weight: bold;');
 });
