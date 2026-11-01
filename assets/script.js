@@ -648,13 +648,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (badgeStoneName) badgeStoneName.textContent = name;
         if (studioPrice) studioPrice.textContent = `${price} / sq. ft.`;
 
-        // Load new texture onto slab
+        // Load new texture onto slab with seamless fallback
         texLoader.load(imgUrl, (newTex) => {
           newTex.wrapS = THREE.RepeatWrapping;
           newTex.wrapT = THREE.RepeatWrapping;
           slabMesh1.material.map = newTex;
           slabMesh1.material.needsUpdate = true;
           slabMesh2.material.map = newTex;
+          slabMesh2.material.needsUpdate = true;
+        }, undefined, () => {
+          console.warn('Local texture failed, loading dynamic procedural marble luxury texture');
+          const fbTex = createProceduralMarble('#F4EFEA', '#B89047');
+          slabMesh1.material.map = fbTex;
+          slabMesh1.material.needsUpdate = true;
+          slabMesh2.material.map = fbTex;
           slabMesh2.material.needsUpdate = true;
         });
 

@@ -135,15 +135,59 @@
         </div>
       </a>
       <nav class="main-nav">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="products.html" class="nav-link active">Collection</a>
+        <a href="index.html" class="nav-link ">Home</a>
+        
+        <div class="nav-item">
+          <a href="products.html" class="nav-link active">
+            Collection <span class="nav-arrow"></span>
+          </a>
+          <div class="nav-dropdown mega-dropdown">
+            <div class="mega-col">
+              <div class="dropdown-col-title">By Category</div>
+              <a href="products.html?cat=Quartz" class="dropdown-link">Quartz Collection <span class="dropdown-badge">8</span></a>
+              <a href="products.html?cat=Agate" class="dropdown-link">Agate Collection <span class="dropdown-badge">8</span></a>
+              <a href="products.html?cat=Rare" class="dropdown-link">Rare &amp; Exotic <span class="dropdown-badge">10</span></a>
+              <a href="products.html" class="dropdown-link" style="font-weight:600;color:var(--gold);margin-top:6px;">View All 26 Slabs →</a>
+            </div>
+            <div class="mega-col">
+              <div class="dropdown-col-title">By Colour</div>
+              <a href="products.html?color=white" class="dropdown-link">White &amp; Statuario</a>
+              <a href="products.html?color=beige" class="dropdown-link">Beige &amp; Travertine</a>
+              <a href="products.html?color=grey" class="dropdown-link">Smoky Grey &amp; Silver</a>
+              <a href="products.html?color=black" class="dropdown-link">Nero Black &amp; Gold</a>
+              <a href="products.html?color=green" class="dropdown-link">Malachite &amp; Green</a>
+              <a href="products.html?color=blue" class="dropdown-link">Lapis &amp; Blue Agate</a>
+            </div>
+            <div class="mega-col">
+              <div class="dropdown-col-title">Signature Stones</div>
+              <a href="products.html?stone=Calacatta%20Gold" class="dropdown-link">Calacatta Gold</a>
+              <a href="products.html?stone=Statuario%20White" class="dropdown-link">Statuario White</a>
+              <a href="products.html?stone=Malachite%20Royal" class="dropdown-link">Malachite Royal</a>
+              <a href="products.html?stone=Blue%20Lapis%20Lazuli" class="dropdown-link">Lapis Lazuli</a>
+              <a href="products.html?stone=Amethyst%20Violet" class="dropdown-link">Amethyst Violet</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="index.html#spaces-section" class="nav-link">
+            Spaces <span class="nav-arrow"></span>
+          </a>
+          <div class="nav-dropdown">
+            <a href="index.html#spaces-section" class="dropdown-link">Living Room Flooring</a>
+            <a href="index.html#spaces-section" class="dropdown-link">Kitchen Countertops</a>
+            <a href="index.html#spaces-section" class="dropdown-link">Master Bathroom Vanities</a>
+            <a href="index.html#spaces-section" class="dropdown-link">Backlit Feature Walls</a>
+            <a href="index.html#spaces-section" class="dropdown-link">Dining Table Tops</a>
+          </div>
+        </div>
+
         <a href="index.html#studio-3d-section" class="nav-link">3D Studio</a>
-        <a href="index.html#spaces-section" class="nav-link">Spaces</a>
         <a href="index.html#offers-section" class="nav-link">Cut To Size</a>
         <a href="index.html#tech-section" class="nav-link">Technology</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="blogs.html" class="nav-link">Journal</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="about.html" class="nav-link ">About</a>
+        <a href="blogs.html" class="nav-link ">Journal</a>
+        <a href="contact.html" class="nav-link ">Contact</a>
       </nav>
       <div class="nav-right">
         <a href="tel:+919876543210" class="nav-phone">
@@ -463,6 +507,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const requestedStone = urlParams.get('stone');
     const requestedCat = urlParams.get('cat');
+    const requestedColor = urlParams.get('color');
 
     if (requestedStone) {
       searchInput.value = requestedStone;
@@ -472,10 +517,18 @@
         setTimeout(() => firstCard.scrollIntoView({ behavior: 'smooth', block: 'center' }), 200);
       }
     } else if (requestedCat) {
+      btnCollMode.click();
       const matchTab = document.querySelector(`.col-tab-btn[data-cat="${requestedCat}"]`);
       if (matchTab) {
-        btnCollMode.click();
         matchTab.click();
+      } else {
+        renderProducts(allStones);
+      }
+    } else if (requestedColor) {
+      btnColorMode.click();
+      const matchSwatch = document.querySelector(`.color-circle-btn[data-color="${requestedColor}"]`);
+      if (matchSwatch) {
+        matchSwatch.click();
       } else {
         renderProducts(allStones);
       }
