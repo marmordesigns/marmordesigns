@@ -1,639 +1,764 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Marmor Designs | Luxury Natural Stone — Kishangarh, Rajasthan</title>
-  <meta name="description" content="Marmor Designs — India's premier curator of natural marble, agate, quartz and rare stone slabs from Kishangarh, Rajasthan."/>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --gold: #c9a84c;
-      --gold-light: #ffc03a;
-      --black: #000;
-      --dark: #0a0a0a;
-      --dark2: #111;
-      --white: #fff;
-      --grey: #888;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 300; overflow-x: hidden; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Marmor Designs | Luxury Natural Stone — Kishangarh, Rajasthan</title>
+<meta name="description" content="Marmor Designs — Premier curator of rare natural stone slabs from Kishangarh, Rajasthan. Agate, Quartz, Malachite, Onyx and rare precious stones.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
-    /* ---- NAVBAR ---- */
-    nav {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 48px;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(201,168,76,0.15);
-      transition: background 0.3s;
-    }
-    nav.scrolled { background: rgba(0,0,0,0.98); }
-    .nav-logo img { height: 48px; }
-    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-    .nav-links a {
-      color: var(--white); text-decoration: none;
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      font-weight: 400; transition: color 0.3s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-    .nav-social { display: flex; gap: 16px; align-items: center; }
-    .nav-social a { color: var(--grey); font-size: 15px; transition: color 0.3s; }
-    .nav-social a:hover { color: var(--gold); }
-    .nav-right { display: flex; align-items: center; gap: 36px; }
-    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
-    .hamburger span { width: 24px; height: 1px; background: var(--white); display: block; transition: all 0.3s; }
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Great+Vibes&family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 
-    /* ---- MOBILE MENU ---- */
-    .mobile-menu {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999;
-      background: rgba(0,0,0,0.97); flex-direction: column; align-items: center; justify-content: center; gap: 32px;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { color: var(--white); text-decoration: none; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; transition: color 0.3s; }
-    .mobile-menu a:hover { color: var(--gold); }
-    .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; cursor: pointer; color: var(--white); }
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#000;color:#fff;font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden;}
 
-    /* ---- HERO SLIDER ---- */
-    .hero { position: relative; width: 100%; height: 100vh; overflow: hidden; }
-    .slide {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      opacity: 0; transition: opacity 1.5s ease-in-out;
-    }
-    .slide.active { opacity: 1; }
-    .slide img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-    .slide-overlay {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.65) 100%);
-      display: flex; align-items: center; justify-content: center; flex-direction: column;
-    }
-    .slide-text {
-      text-align: center; padding: 0 24px;
-    }
-    .slide-eyebrow {
-      font-size: 11px; letter-spacing: 5px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 20px; font-weight: 400;
-    }
-    .slide-title {
-      font-size: clamp(28px, 5vw, 60px);
-      font-weight: 100; letter-spacing: 8px; text-transform: uppercase;
-      line-height: 1.3; margin-bottom: 32px;
-    }
-    .slide-btn {
-      display: inline-block; border: 1px solid var(--gold); color: var(--gold);
-      padding: 12px 36px; font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-      text-decoration: none; transition: all 0.3s;
-    }
-    .slide-btn:hover { background: var(--gold); color: var(--black); }
-    .slider-dots {
-      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 10px; z-index: 10;
-    }
-    .dot {
-      width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.4);
-      cursor: pointer; transition: background 0.3s;
-    }
-    .dot.active { background: var(--gold); }
-    .slider-arrows {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      width: 100%; display: flex; justify-content: space-between; padding: 0 24px; z-index: 10;
-    }
-    .arrow-btn {
-      background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.2); color: var(--white);
-      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: all 0.3s; font-size: 16px;
-    }
-    .arrow-btn:hover { border-color: var(--gold); color: var(--gold); }
+/* ===== NAVBAR ===== */
+.navbar{padding:0;position:fixed;top:0;width:100%;z-index:1000;background:rgba(0,0,0,0.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);transition:all 0.4s;}
+.navbar.scrolled{background:rgba(0,0,0,0.98);}
+.navbar-brand img{height:52px;transition:all 0.3s;}
+.navbar-nav .nav-link{color:#fff!important;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:400;padding:28px 16px!important;transition:color 0.3s;position:relative;}
+.navbar-nav .nav-link:after{content:'';position:absolute;bottom:0;left:16px;right:16px;height:2px;background:#c9a84c;transform:scaleX(0);transition:transform 0.3s;}
+.navbar-nav .nav-link:hover:after,.navbar-nav .nav-link.active:after{transform:scaleX(1);}
+.navbar-nav .nav-link:hover,.navbar-nav .nav-link.active{color:#c9a84c!important;}
+.navbar-social{display:flex;align-items:center;gap:16px;margin-left:24px;}
+.navbar-social a{color:rgba(255,255,255,0.6);font-size:14px;transition:color 0.3s;}
+.navbar-social a:hover{color:#c9a84c;}
+.sidemenu-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
+.sidemenu-btn span{width:26px;height:1px;background:#fff;display:block;transition:all 0.3s;}
 
-    /* ---- QUOTE SECTION ---- */
-    .quote-section {
-      background: var(--dark2); padding: 90px 48px; text-align: center;
-    }
-    .quote-line {
-      width: 60px; height: 1px; background: var(--gold);
-      margin: 0 auto 32px;
-    }
-    .quote-text {
-      font-family: 'Playfair Display', serif; font-style: italic;
-      font-size: clamp(16px, 2.5vw, 22px); color: rgba(255,255,255,0.85);
-      max-width: 860px; margin: 0 auto; line-height: 1.9;
-    }
-    .quote-author { margin-top: 24px; font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+/* ===== SIDE MENU ===== */
+.side-menu{position:fixed;top:0;right:-100%;width:320px;height:100%;background:#0a0a0a;z-index:9999;padding:80px 40px;transition:right 0.4s cubic-bezier(0.77,0,0.175,1);border-left:1px solid rgba(201,168,76,0.15);}
+.side-menu.open{right:0;}
+.side-menu-close{position:absolute;top:24px;right:24px;cursor:pointer;color:#fff;font-size:24px;line-height:1;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.2);}
+.side-menu .nav-item{margin-bottom:8px;}
+.side-menu .nav-link{color:#fff!important;font-size:12px;letter-spacing:4px;text-transform:uppercase;padding:12px 0!important;border-bottom:1px solid rgba(255,255,255,0.08);display:block;transition:color 0.3s;}
+.side-menu .nav-link:hover{color:#c9a84c!important;}
+.side-menu .nav-link:after{display:none;}
+.overlay-bg{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9998;display:none;}
+.overlay-bg.show{display:block;}
 
-    /* ---- SPLIT SECTIONS ---- */
-    .split-section { display: flex; min-height: 580px; }
-    .split-section.reverse { flex-direction: row-reverse; }
-    .split-img { flex: 1; overflow: hidden; }
-    .split-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
-    .split-img:hover img { transform: scale(1.04); }
-    .split-content {
-      flex: 1; background: var(--dark2); display: flex;
-      flex-direction: column; justify-content: center; padding: 72px 64px;
-    }
-    .split-eyebrow { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
-    .split-title {
-      font-size: clamp(22px, 3vw, 36px); font-weight: 100; letter-spacing: 8px;
-      text-transform: uppercase; margin-bottom: 24px; padding-bottom: 20px;
-      border-bottom: 1px solid var(--gold); display: inline-block;
-    }
-    .split-desc { font-size: 14px; line-height: 1.9; color: rgba(255,255,255,0.7); max-width: 420px; margin-bottom: 32px; }
-    .split-link {
-      display: inline-block; color: var(--gold); font-size: 10px; letter-spacing: 4px;
-      text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--gold);
-      padding-bottom: 2px; transition: opacity 0.3s;
-    }
-    .split-link:hover { opacity: 0.7; }
+/* ===== HERO SLIDER ===== */
+#hero-slider{position:relative;width:100%;height:100vh;overflow:hidden;}
+.hero-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1.8s ease-in-out;}
+.hero-slide.active{opacity:1;}
+.hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.hero-slide-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.52);display:flex;align-items:center;justify-content:center;}
+.hero-text{text-align:center;padding:0 20px;}
+.hero-eyebrow{font-family:'Great Vibes',cursive;font-size:clamp(22px,3vw,38px);color:#c9a84c;display:block;margin-bottom:16px;opacity:0;animation:fadeUp 1s 0.3s forwards;}
+.hero-title{font-size:clamp(28px,5.5vw,72px);font-weight:100;letter-spacing:12px;text-transform:uppercase;line-height:1.2;margin-bottom:36px;opacity:0;animation:fadeUp 1s 0.6s forwards;}
+.hero-cta{display:inline-block;border:1px solid #c9a84c;color:#c9a84c;padding:14px 44px;font-size:10px;letter-spacing:5px;text-transform:uppercase;text-decoration:none;transition:all 0.4s;opacity:0;animation:fadeUp 1s 0.9s forwards;}
+.hero-cta:hover{background:#c9a84c;color:#000;text-decoration:none;}
+.slider-nav{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10;}
+.slider-nav .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.35);cursor:pointer;transition:all 0.4s;border:1px solid rgba(255,255,255,0.3);}
+.slider-nav .dot.active{background:#c9a84c;border-color:#c9a84c;width:28px;border-radius:4px;}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;width:50px;height:50px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;font-size:18px;}
+.slider-arrow:hover{border-color:#c9a84c;color:#c9a84c;}
+.slider-arrow.prev{left:32px;}
+.slider-arrow.next{right:32px;}
+.scroll-down{position:absolute;bottom:32px;right:48px;color:rgba(255,255,255,0.5);font-size:22px;animation:bounce 2s infinite;text-decoration:none;}
+.scroll-down:hover{color:#c9a84c;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
 
-    /* ---- STATS COUNTER ---- */
-    .stats-section {
-      background: var(--dark2); padding: 90px 48px;
-      border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2);
-    }
-    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; max-width: 900px; margin: 0 auto; text-align: center; }
-    .stat-number { font-size: clamp(40px, 6vw, 72px); font-weight: 100; color: var(--gold); letter-spacing: 4px; }
-    .stat-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 8px; }
+/* ===== ABOUT/QUOTE SECTION ===== */
+.section-quote{background:#050505;padding:80px 0;text-align:center;border-bottom:1px solid rgba(201,168,76,0.1);}
+.section-quote h4{font-family:'Josefin Sans',sans-serif;font-weight:200;font-size:clamp(15px,2vw,20px);letter-spacing:1px;line-height:1.9;color:rgba(255,255,255,0.75);max-width:800px;margin:0 auto;padding:0 24px;}
 
-    /* ---- STONE CATALOGUE ---- */
-    .catalogue-section { background: var(--dark); padding: 90px 48px; }
-    .section-header { text-align: center; margin-bottom: 56px; }
-    .section-eyebrow { font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
-    .section-title { font-size: clamp(24px, 3vw, 42px); font-weight: 100; letter-spacing: 8px; text-transform: uppercase; }
-    .section-line { width: 60px; height: 1px; background: var(--gold); margin: 20px auto 0; }
-    .stone-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .stone-card {
-      background: #111; overflow: hidden; cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .stone-card:hover { transform: translateY(-4px); }
-    .stone-card-img { overflow: hidden; height: 220px; }
-    .stone-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-    .stone-card:hover .stone-card-img img { transform: scale(1.06); }
-    .stone-card-body { padding: 20px; }
-    .stone-name { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
-    .stone-price { font-size: 12px; color: var(--gold); letter-spacing: 1px; }
+/* ===== SECTION HEADINGS ===== */
+.sec-title{font-family:'Montserrat',sans-serif;font-weight:200;font-size:clamp(22px,3vw,36px);letter-spacing:10px;text-transform:uppercase;color:#fff;margin-bottom:24px;line-height:1.3;}
+.sec-title span{color:#c9a84c;}
+.corner-border{border-bottom:2px solid #c9a84c;padding-bottom:8px;display:inline-block;margin-bottom:20px;}
+.view-btn{display:inline-block;color:#c9a84c;font-size:10px;letter-spacing:5px;text-transform:uppercase;text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(201,168,76,0.4);transition:all 0.3s;margin-top:16px;}
+.view-btn:hover{color:#fff;border-color:#fff;text-decoration:none;}
+.view-btn i{margin-left:8px;transition:transform 0.3s;}
+.view-btn:hover i{transform:translateX(5px);}
 
-    /* ---- CONTACT FORM ---- */
-    .contact-section { background: #0a0a0a; padding: 90px 48px; }
-    .contact-wrap { max-width: 600px; margin: 0 auto; }
-    .form-group { margin-bottom: 24px; }
-    .form-group label { display: block; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; color: rgba(255,255,255,0.6); }
-    .form-group input, .form-group textarea {
-      width: 100%; background: #111; border: 1px solid rgba(201,168,76,0.3);
-      padding: 14px 18px; color: var(--white); font-family: 'Montserrat', sans-serif;
-      font-size: 13px; outline: none; transition: border-color 0.3s;
-    }
-    .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
-    .form-group textarea { resize: vertical; min-height: 140px; }
-    .btn-submit {
-      display: inline-block; background: transparent; border: 1px solid var(--gold);
-      color: var(--gold); padding: 14px 48px; font-size: 10px; letter-spacing: 4px;
-      text-transform: uppercase; cursor: pointer; font-family: 'Montserrat', sans-serif;
-      transition: all 0.3s;
-    }
-    .btn-submit:hover { background: var(--gold); color: var(--black); }
+/* ===== SPLIT SECTIONS ===== */
+.split-section{padding:0;}
+.split-img{position:relative;overflow:hidden;height:520px;}
+.split-img img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease;}
+.split-section:hover .split-img img{transform:scale(1.05);}
+.split-content{background:#050505;display:flex;align-items:center;padding:60px 60px;}
+.split-content-inner{max-width:420px;}
+.split-content-inner p{font-size:14px;line-height:1.9;color:rgba(255,255,255,0.65);margin-bottom:28px;}
 
-    /* ---- FOOTER ---- */
-    footer {
-      background: #050505; padding: 72px 48px 32px;
-      border-top: 1px solid rgba(201,168,76,0.15);
-    }
-    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-    .footer-logo img { height: 40px; margin-bottom: 20px; }
-    .footer-desc { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
-    .footer-social { display: flex; gap: 14px; }
-    .footer-social a { color: rgba(255,255,255,0.4); font-size: 15px; transition: color 0.3s; }
-    .footer-social a:hover { color: var(--gold); }
-    .footer-col h4 { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-    .footer-col p, .footer-col a { font-size: 13px; line-height: 2; color: rgba(255,255,255,0.5); display: block; text-decoration: none; transition: color 0.3s; }
-    .footer-col a:hover { color: var(--gold); }
-    .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+/* ===== COUNTERS ===== */
+.counters-section{background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('assets/stones/calacatta.jpg') center/cover fixed;padding:100px 0;}
+.counter-row{display:flex;justify-content:center;gap:80px;flex-wrap:wrap;}
+.counter-item{text-align:center;}
+.counter-item .count{font-size:clamp(48px,6vw,80px);font-weight:100;color:#c9a84c;line-height:1;font-family:'Josefin Sans',sans-serif;}
+.counter-item .count-suffix{font-size:clamp(28px,3vw,42px);color:#c9a84c;}
+.counter-item h4{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:12px;font-weight:400;}
 
-    /* ---- RESPONSIVE ---- */
-    @media (max-width: 1024px) {
-      .stone-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
-      .nav-links, .nav-social { display: none; }
-      .hamburger { display: flex; }
-      .split-section, .split-section.reverse { flex-direction: column; }
-      .split-img { min-height: 300px; }
-      .split-content { padding: 48px 32px; }
-      .stats-grid { grid-template-columns: 1fr; gap: 32px; }
-      .stone-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .catalogue-section, .contact-section, .stats-section, .quote-section { padding: 60px 24px; }
-    }
-  </style>
+/* ===== STONE CATALOGUE ===== */
+.catalogue-section{background:#000;padding:80px 0;}
+.stone-card{background:#0a0a0a;border:1px solid rgba(255,255,255,0.06);overflow:hidden;margin-bottom:28px;position:relative;transition:border-color 0.4s;}
+.stone-card:hover{border-color:rgba(201,168,76,0.4);}
+.stone-card-img{position:relative;overflow:hidden;height:260px;}
+.stone-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;}
+.stone-card:hover .stone-card-img img{transform:scale(1.08);}
+.stone-card-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background 0.4s;display:flex;align-items:center;justify-content:center;}
+.stone-card:hover .stone-card-overlay{background:rgba(0,0,0,0.4);}
+.stone-card-action{opacity:0;transform:translateY(10px);transition:all 0.4s;text-align:center;}
+.stone-card:hover .stone-card-action{opacity:1;transform:translateY(0);}
+.stone-card-action a{display:inline-block;border:1px solid #c9a84c;color:#c9a84c;padding:8px 24px;font-size:9px;letter-spacing:4px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;}
+.stone-card-action a:hover{background:#c9a84c;color:#000;}
+.stone-badge{position:absolute;top:14px;left:14px;background:#c9a84c;color:#000;font-size:8px;letter-spacing:3px;text-transform:uppercase;padding:4px 10px;font-weight:600;}
+.stone-card-body{padding:18px 20px;border-top:1px solid rgba(255,255,255,0.05);}
+.stone-card-body h5{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#fff;font-weight:400;margin-bottom:6px;}
+.stone-price{font-size:11px;color:#c9a84c;letter-spacing:1px;}
+
+/* ===== GET IN TOUCH SECTION ===== */
+.contact-section{background:#050505;padding:80px 0;border-top:1px solid rgba(201,168,76,0.1);}
+.contact-form .form-control{background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,0.2);border-radius:0;color:#fff;padding:14px 0;font-size:13px;letter-spacing:1px;margin-bottom:24px;}
+.contact-form .form-control:focus{box-shadow:none;border-bottom-color:#c9a84c;background:transparent;color:#fff;}
+.contact-form .form-control::placeholder{color:rgba(255,255,255,0.4);font-size:12px;letter-spacing:2px;text-transform:uppercase;}
+.btn-submit{background:linear-gradient(to right,#b8912a,#c9a84c,#e8c97a,#c9a84c);color:#000;border:0;padding:14px 48px;font-size:10px;letter-spacing:5px;text-transform:uppercase;font-weight:600;transition:all 0.3s;cursor:pointer;}
+.btn-submit:hover{opacity:0.85;transform:translateY(-1px);}
+
+/* ===== FOOTER ===== */
+footer{background:#050505;padding:60px 0 30px;border-top:1px solid rgba(201,168,76,0.1);}
+.footer-logo img{height:48px;margin-bottom:20px;}
+.footer-desc{font-size:13px;line-height:1.9;color:rgba(255,255,255,0.5);margin-bottom:24px;}
+.footer-social a{color:rgba(255,255,255,0.4);font-size:16px;margin-right:16px;transition:color 0.3s;}
+.footer-social a:hover{color:#c9a84c;}
+.footer h5{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#fff;margin-bottom:28px;padding-bottom:12px;border-bottom:1px solid rgba(201,168,76,0.25);}
+.footer-links li{list-style:none;margin-bottom:10px;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.3s;letter-spacing:1px;}
+.footer-links a:hover{color:#c9a84c;}
+.footer-links i{color:#c9a84c;margin-right:8px;font-size:11px;}
+.footer-contact p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:6px;}
+.footer-contact a{color:rgba(255,255,255,0.5);text-decoration:none;}
+.footer-contact a:hover{color:#c9a84c;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.05);margin-top:48px;padding-top:24px;text-align:center;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:2px;}
+
+/* ===== MARBLE TICKER ===== */
+.ticker-wrap{background:#0a0a0a;border-top:1px solid rgba(201,168,76,0.1);border-bottom:1px solid rgba(201,168,76,0.1);padding:14px 0;overflow:hidden;}
+.ticker{display:flex;white-space:nowrap;animation:ticker 30s linear infinite;}
+.ticker-item{display:inline-block;padding:0 48px;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.ticker-item span{color:#c9a84c;margin:0 12px;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ===== WOW ANIMATE HELPERS ===== */
+.wow{visibility:hidden;}
+.fadeIn{animation-name:fadeIn;}
+.fadeInLeft{animation-name:fadeInLeft;}
+.fadeInRight{animation-name:fadeInRight;}
+.fadeInUp{animation-name:fadeInUp;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-40px);}to{opacity:1;transform:translateX(0);}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:991px){
+  .navbar-nav{display:none!important;}
+  .navbar-social{display:none!important;}
+  .sidemenu-btn{display:flex!important;}
+  .split-content{padding:48px 32px;}
+  .counter-row{gap:48px;}
+}
+@media(max-width:767px){
+  .split-img{height:300px;}
+  .split-content{padding:40px 24px;}
+  .counter-row{gap:36px;}
+  .slider-arrow{display:none;}
+}
+</style>
 </head>
-<body>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="90">
+
+<!-- OVERLAY BG -->
+<div class="overlay-bg" id="overlayBg" onclick="closeSideMenu()"></div>
+
+<!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+  <div class="side-menu-close" onclick="closeSideMenu()"><i class="fa fa-times"></i></div>
+  <ul class="navbar-nav mt-4">
+    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="collections.html">Collections</a></li>
+    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+    <li class="nav-item"><a class="nav-link" href="products.html">Projects</a></li>
+    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mt-5" style="border-top:1px solid rgba(255,255,255,0.08);padding-top:32px;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px;">Follow Us</p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/marmor.designs/" target="_blank"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+      <a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a>
+    </div>
+    <div class="mt-4">
+      <p style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;">manankumarbohra11@gmail.com</p>
+      <p style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;">Kishangarh, Rajasthan</p>
+    </div>
+  </div>
+</div>
 
 <!-- NAVBAR -->
-<nav id="navbar">
-  <div class="nav-logo">
-    <a href="index.html"><img src="assets/logo.svg" alt="Marmor Designs"/></a>
-  </div>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="collections.html">Collections</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="products.html">Projects</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <div class="nav-social">
-      <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-      <a href="https://www.pinterest.com" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fa fa-pinterest"></i></a>
-      <a href="mailto:manankumarbohra11@gmail.com" aria-label="Email"><i class="fa fa-envelope-o"></i></a>
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/logo.svg" alt="Marmor Designs" onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<span style='font-family:Montserrat;font-weight:200;font-size:20px;letter-spacing:6px;color:#fff;'>MARMOR <span style='color:#c9a84c;'>DESIGNS</span></span>'">
+    </a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="collections.html">Collections</a></li>
+      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="products.html">Projects</a></li>
+      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar-social">
+      <a href="https://www.instagram.com/marmor.designs/" target="_blank"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+      <a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a>
     </div>
-    <div class="hamburger" id="hamburger" onclick="openMobileMenu()">
+    <div class="sidemenu-btn ml-3" onclick="openSideMenu()">
       <span></span><span></span><span></span>
     </div>
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <span class="mobile-close" onclick="closeMobileMenu()"><i class="fa fa-times"></i></span>
-  <a href="index.html" onclick="closeMobileMenu()">Home</a>
-  <a href="collections.html" onclick="closeMobileMenu()">Collections</a>
-  <a href="about.html" onclick="closeMobileMenu()">About</a>
-  <a href="products.html" onclick="closeMobileMenu()">Projects</a>
-  <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
-</div>
-
 <!-- HERO SLIDER -->
-<section class="hero" id="hero">
-  <div class="slide active" id="slide-0">
-    <img src="assets/stones/calacatta.jpg" alt="Calacatta Stone"/>
-    <div class="slide-overlay">
-      <div class="slide-text">
-        <p class="slide-eyebrow">Marmor Designs · Kishangarh</p>
-        <h1 class="slide-title">Rare and Exquisite<br>Stones from Nature</h1>
-        <a href="collections.html" class="slide-btn">Explore Collection</a>
-      </div>
-    </div>
-  </div>
-  <div class="slide" id="slide-1">
-    <img src="assets/stones/malachite.jpg" alt="Malachite Stone"/>
-    <div class="slide-overlay">
-      <div class="slide-text">
-        <p class="slide-eyebrow">Marmor Designs · Kishangarh</p>
-        <h1 class="slide-title">Precious Stones<br>from Around the World</h1>
-        <a href="collections.html" class="slide-btn">Explore Collection</a>
-      </div>
-    </div>
-  </div>
-  <div class="slide" id="slide-2">
-    <img src="assets/stones/labradorite.jpg" alt="Labradorite Stone"/>
-    <div class="slide-overlay">
-      <div class="slide-text">
-        <p class="slide-eyebrow">Marmor Designs · Kishangarh</p>
-        <h1 class="slide-title">Natural Stones with<br>Exotic Surfaces</h1>
-        <a href="collections.html" class="slide-btn">Explore Collection</a>
-      </div>
-    </div>
-  </div>
+<section id="home" style="padding:0;margin-top:-1px;">
+  <div id="hero-slider">
 
-  <div class="slider-arrows">
-    <button class="arrow-btn" onclick="prevSlide()" aria-label="Previous"><i class="fa fa-angle-left"></i></button>
-    <button class="arrow-btn" onclick="nextSlide()" aria-label="Next"><i class="fa fa-angle-right"></i></button>
-  </div>
-  <div class="slider-dots">
-    <div class="dot active" onclick="goToSlide(0)"></div>
-    <div class="dot" onclick="goToSlide(1)"></div>
-    <div class="dot" onclick="goToSlide(2)"></div>
+    <div class="hero-slide active">
+      <img src="assets/stones/calacatta.jpg" alt="Calacatta">
+      <div class="hero-slide-overlay">
+        <div class="hero-text">
+          <span class="hero-eyebrow">Marmor Designs</span>
+          <h3 class="hero-title">Rare &amp; Exquisite<br>Natural Stone</h3>
+          <a href="collections.html" class="hero-cta">Explore Collection</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide">
+      <img src="assets/stones/malachite.jpg" alt="Malachite">
+      <div class="hero-slide-overlay">
+        <div class="hero-text">
+          <span class="hero-eyebrow">Kishangarh, Rajasthan</span>
+          <h3 class="hero-title">Precious Stones<br>From Around The World</h3>
+          <a href="collections.html" class="hero-cta">View Catalogue</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide">
+      <img src="assets/stones/labradorite.jpg" alt="Labradorite">
+      <div class="hero-slide-overlay">
+        <div class="hero-text">
+          <span class="hero-eyebrow">26 Unique Stones</span>
+          <h3 class="hero-title">Natural Stones<br>With Exotic Surfaces</h3>
+          <a href="collections.html" class="hero-cta">Discover More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-arrow prev" onclick="changeSlide(-1)"><i class="fa fa-angle-left"></i></div>
+    <div class="slider-arrow next" onclick="changeSlide(1)"><i class="fa fa-angle-right"></i></div>
+    <div class="slider-nav" id="sliderDots">
+      <span class="dot active" onclick="goSlide(0)"></span>
+      <span class="dot" onclick="goSlide(1)"></span>
+      <span class="dot" onclick="goSlide(2)"></span>
+    </div>
+    <a href="#about" class="scroll-down"><i class="fa fa-long-arrow-down"></i></a>
   </div>
 </section>
 
 <!-- QUOTE SECTION -->
-<section class="quote-section">
-  <div class="quote-line"></div>
-  <p class="quote-text">
-    "We bring stones whose pristine beauty and fluid lines have adorned the great palaces, inspired famous sculptures and decorated the spaces of the mighty. Every slab is a testimony to nature's artistry, carried from the earth's depths to grace your most cherished spaces."
-  </p>
-  <p class="quote-author">— Marmor Designs, Kishangarh</p>
-</section>
-
-<!-- SPLIT: COLLECTIONS -->
-<section class="split-section">
-  <div class="split-img">
-    <img src="assets/stones/statuario.jpg" alt="Stone Collections"/>
-  </div>
-  <div class="split-content">
-    <p class="split-eyebrow">Our Portfolio</p>
-    <h2 class="split-title">C O L L E C T I O N S</h2>
-    <p class="split-desc">From ethereal white quartzite to deep oceanic agate, our curated collection of 26 natural stones offers unparalleled variety for architects, designers and discerning homeowners. Each stone is hand-selected for its unique character and flawless quality.</p>
-    <a href="collections.html" class="split-link">View All Collections</a>
-  </div>
-</section>
-
-<!-- SPLIT: SHOWROOM -->
-<section class="split-section reverse">
-  <div class="split-img">
-    <img src="assets/stones/rose-quartz.jpg" alt="Marmor Showroom"/>
-  </div>
-  <div class="split-content">
-    <p class="split-eyebrow">Experience</p>
-    <h2 class="split-title">S H O W R O O M</h2>
-    <p class="split-desc">Visit our expansive showroom in the heart of Kishangarh — the stone capital of India. Touch, feel and witness the true grandeur of each stone under natural and curated lighting. Our experts guide you to find the perfect stone for your vision.</p>
-    <a href="contact.html" class="split-link">Get Directions</a>
-  </div>
-</section>
-
-<!-- SPLIT: STUDIO -->
-<section class="split-section">
-  <div class="split-img">
-    <img src="assets/stones/tiger-eye.jpg" alt="Marmor Studio"/>
-  </div>
-  <div class="split-content">
-    <p class="split-eyebrow">Craftsmanship</p>
-    <h2 class="split-title">S T U D I O</h2>
-    <p class="split-desc">Our precision stone studio handles bespoke cut-to-size requirements, custom edge profiles and surface finishes — from polished mirror to honed matte and leathered textures. Every slab is processed with state-of-the-art Italian machinery.</p>
-    <a href="about.html" class="split-link">Learn More</a>
-  </div>
-</section>
-
-<!-- SPLIT: PROJECTS -->
-<section class="split-section reverse">
-  <div class="split-img">
-    <img src="assets/stones/honey-agate.jpg" alt="Marmor Projects"/>
-  </div>
-  <div class="split-content">
-    <p class="split-eyebrow">Our Work</p>
-    <h2 class="split-title">P R O J E C T S</h2>
-    <p class="split-desc">From luxury hotels and corporate headquarters to private residences and boutique interiors, our stones have graced some of India's most distinguished spaces. Browse our portfolio of completed installations across the country.</p>
-    <a href="products.html" class="split-link">View Projects</a>
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="stats-section">
-  <div class="stats-grid">
-    <div>
-      <div class="stat-number" data-target="500">0</div>
-      <div class="stat-label">Projects Completed</div>
+<section id="about" class="section-quote">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 mx-auto wow fadeIn" data-wow-delay="0.2s">
+        <h4>"We curate stones whose pristine beauty and fluid lines have adorned the great palaces, inspired renowned sculptures and decorated the spaces of royalty &mdash; from rare agate and malachite to shimmering labradorite and galaxy black, each slab is a masterpiece of nature."</h4>
+      </div>
     </div>
-    <div>
-      <div class="stat-number" data-target="26">0</div>
-      <div class="stat-label">Unique Stones</div>
+  </div>
+</section>
+
+<!-- MARQUEE TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">White Quartz <span>&#9670;</span></span>
+    <span class="ticker-item">Blue Agate <span>&#9670;</span></span>
+    <span class="ticker-item">Malachite <span>&#9670;</span></span>
+    <span class="ticker-item">Lapis Lazuli <span>&#9670;</span></span>
+    <span class="ticker-item">Tiger Eye <span>&#9670;</span></span>
+    <span class="ticker-item">Labradorite <span>&#9670;</span></span>
+    <span class="ticker-item">Galaxy Black <span>&#9670;</span></span>
+    <span class="ticker-item">Rose Quartz <span>&#9670;</span></span>
+    <span class="ticker-item">Calacatta <span>&#9670;</span></span>
+    <span class="ticker-item">Amethyst <span>&#9670;</span></span>
+    <span class="ticker-item">Ocean Jasper <span>&#9670;</span></span>
+    <span class="ticker-item">Honey Agate <span>&#9670;</span></span>
+    <span class="ticker-item">White Quartz <span>&#9670;</span></span>
+    <span class="ticker-item">Blue Agate <span>&#9670;</span></span>
+    <span class="ticker-item">Malachite <span>&#9670;</span></span>
+    <span class="ticker-item">Lapis Lazuli <span>&#9670;</span></span>
+    <span class="ticker-item">Tiger Eye <span>&#9670;</span></span>
+    <span class="ticker-item">Labradorite <span>&#9670;</span></span>
+    <span class="ticker-item">Galaxy Black <span>&#9670;</span></span>
+    <span class="ticker-item">Rose Quartz <span>&#9670;</span></span>
+    <span class="ticker-item">Calacatta <span>&#9670;</span></span>
+    <span class="ticker-item">Amethyst <span>&#9670;</span></span>
+  </div>
+</div>
+
+<!-- SPLIT SECTIONS -->
+<section style="background:#000;">
+  <div class="container-fluid p-0">
+
+    <!-- Collections -->
+    <div class="row no-gutters wow fadeIn" data-wow-delay="0.1s">
+      <div class="col-lg-6 split-img">
+        <img src="assets/stones/statuario.jpg" alt="Collections">
+      </div>
+      <div class="col-lg-6 split-content">
+        <div class="split-content-inner">
+          <h2 class="sec-title corner-border">C O L L E C T I O N S</h2>
+          <p>With a vision to bring the rarest and most exquisite natural stones to your living spaces, Marmor Designs has curated a collection of 26 unique stone varieties from around the world. From pristine quartzite to iridescent labradorite, our collection speaks to those who seek the extraordinary.</p>
+          <a href="collections.html" class="view-btn">View Collection <i class="fa fa-long-arrow-right"></i></a>
+        </div>
+      </div>
     </div>
-    <div>
-      <div class="stat-number" data-target="1000">0</div>
-      <div class="stat-label">Happy Clients</div>
+
+    <!-- Showroom / Studio -->
+    <div class="row no-gutters wow fadeIn" data-wow-delay="0.1s">
+      <div class="col-lg-6 split-content order-lg-1 order-2" style="justify-content:flex-end;">
+        <div class="split-content-inner text-lg-right">
+          <h2 class="sec-title corner-border">S H O W R O O M</h2>
+          <p>Our experience centre in Kishangarh, the stone capital of India, showcases our complete range of natural stone slabs. Walk through thousands of square feet of curated stone panels, witness the play of light on exotic surfaces, and discover your perfect slab with the guidance of our expert team.</p>
+          <a href="about.html" class="view-btn">Discover More <i class="fa fa-long-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6 split-img order-lg-2 order-1">
+        <img src="assets/stones/rose-quartz.jpg" alt="Showroom">
+      </div>
+    </div>
+
+    <!-- Studio -->
+    <div class="row no-gutters wow fadeIn" data-wow-delay="0.1s">
+      <div class="col-lg-6 split-img">
+        <img src="assets/stones/tiger-eye.jpg" alt="Studio">
+      </div>
+      <div class="col-lg-6 split-content">
+        <div class="split-content-inner">
+          <h2 class="sec-title corner-border">S T U D I O</h2>
+          <p>The Marmor Designs Studio brings together our master craftsmen and state-of-the-art cutting technology. From precision slicing to custom fabrication, every slab is handled with the care it deserves. Our on-site processing ensures you receive perfectly finished natural stone for your project.</p>
+          <a href="contact.html" class="view-btn">Get A Quote <i class="fa fa-long-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="row no-gutters wow fadeIn" data-wow-delay="0.1s">
+      <div class="col-lg-6 split-content order-lg-1 order-2" style="justify-content:flex-end;">
+        <div class="split-content-inner text-lg-right">
+          <h2 class="sec-title corner-border">P R O J E C T S</h2>
+          <p>Over the years, Marmor Designs has been the stone partner of choice for luxury residences, five-star hotels, heritage restorations and landmark commercial projects. Our slabs have graced the floors, walls and surfaces of India's most prestigious addresses.</p>
+          <a href="products.html" class="view-btn">View Projects <i class="fa fa-long-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6 split-img order-lg-2 order-1">
+        <img src="assets/stones/honey-agate.jpg" alt="Projects">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COUNTERS -->
+<section class="counters-section">
+  <div class="container">
+    <div class="counter-row">
+      <div class="counter-item wow fadeInUp" data-wow-delay="0s">
+        <div><span class="count" data-target="500">0</span><span class="count-suffix">+</span></div>
+        <h4>Projects Completed</h4>
+      </div>
+      <div class="counter-item wow fadeInUp" data-wow-delay="0.2s">
+        <div><span class="count" data-target="26">0</span></div>
+        <h4>Unique Stone Varieties</h4>
+      </div>
+      <div class="counter-item wow fadeInUp" data-wow-delay="0.4s">
+        <div><span class="count" data-target="1000">0</span><span class="count-suffix">+</span></div>
+        <h4>Happy Clients</h4>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- STONE CATALOGUE -->
 <section class="catalogue-section">
-  <div class="section-header">
-    <p class="section-eyebrow">Natural Stone Gallery</p>
-    <h2 class="section-title">O U R &nbsp; S T O N E S</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="stone-grid">
-    <!-- Quartz -->
-    <div class="stone-card">
-      <div class="stone-card-img">
-        <img src="assets/stones/calacatta.jpg" alt="Calacatta Quartz"/>
-      </div>
-      <div class="stone-card-body">
-        <div class="stone-name">Calacatta Quartz</div>
-        <div class="stone-price">₹3,200 / sqft</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5 wow fadeIn">
+        <h2 class="sec-title">O U R &nbsp; S T O N E S</h2>
+        <p style="font-size:12px;letter-spacing:3px;color:rgba(255,255,255,0.4);text-transform:uppercase;">26 Rare &amp; Natural Varieties</p>
       </div>
     </div>
-    <div class="stone-card">
-      <div class="stone-card-img">
-        <img src="assets/stones/rose-quartz.jpg" alt="Rose Quartz"/>
+    <div class="row">
+
+      <!-- Stone cards x12 visible on home -->
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0s">
+        <div class="stone-card">
+          <div class="stone-card-img">
+            <img src="assets/stones/calacatta.jpg" alt="Calacatta Quartz">
+            <div class="stone-badge">Quartz</div>
+            <div class="stone-card-overlay"><div class="stone-card-action"><a href="contact.html">Enquire</a></div></div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Calacatta Quartz</h5>
+            <div class="stone-price">&#8377; 3,200 / sq.ft</div>
+          </div>
+        </div>
       </div>
-      <div class="stone-card-body">
-        <div class="stone-name">Rose Quartz</div>
-        <div class="stone-price">₹2,100 / sqft</div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="stone-card">
+          <div class="stone-card-img">
+            <img src="assets/stones/rose-quartz.jpg" alt="Rose Quartz">
+            <div class="stone-badge">Quartz</div>
+            <div class="stone-card-overlay"><div class="stone-card-action"><a href="contact.html">Enquire</a></div></div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Rose Quartz</h5>
+            <div class="stone-price">&#8377; 2,100 / sq.ft</div>
+          </div>
+        </div>
       </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="stone-card">
+          <div class="stone-card-img">
+            <img src="assets/stones/blue-agate.jpg" alt="Blue Agate">
+            <div class="stone-badge">Agate</div>
+            <div class="stone-card-overlay"><div class="stone-card-action"><a href="contact.html">Enquire</a></div></div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Blue Agate</h5>
+            <div class="stone-price">&#8377; 4,500 / sq.ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="stone-card">
+          <div class="stone-card-img">
+            <img src="assets/stones/malachite.jpg" alt="Malachite">
+            <div class="stone-badge">Rare</div>
+            <div class="stone-card-overlay"><div class="stone-card-action"><a href="contact.html">Enquire</a></div></div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Malachite</h5>
+            <div class="stone-price">&#8377; 6,500 / sq.ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0s">
+        <div class="stone-card">
+          <div class="stone-card-img">
+            <img src="assets/stones/lapis-lazuli.jpg" alt="Lapis Lazuli">
+            <div class="stone-badge">Rare</div>
+            <div class="stone-card-overlay"><div class="stone-card-action"><a href="contact.html">Enquire</a></div></div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Lapis Lazuli</h5>
+            <div class="stone-price">&#8377; 6,200 / sq.ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="stone-card">
+          <div class="stone-card-img">
+            <img src="assets/stones/tiger-eye.jpg" alt="Tiger Eye">
+            <div class="stone-badge">Rare</div>
+            <div class="stone-card-overlay"><div class="stone-card-action"><a href="contact.html">Enquire</a></div></div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Tiger Eye</h5>
+            <div class="stone-price">&#8377; 5,500 / sq.ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="stone-card">
+          <div class="stone-card-img">
+            <img src="assets/stones/green-agate.jpg" alt="Green Agate">
+            <div class="stone-badge">Agate</div>
+            <div class="stone-card-overlay"><div class="stone-card-action"><a href="contact.html">Enquire</a></div></div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Green Agate</h5>
+            <div class="stone-price">&#8377; 4,200 / sq.ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="stone-card">
+          <div class="stone-card-img">
+            <img src="assets/stones/labradorite.jpg" alt="Labradorite">
+            <div class="stone-badge">Rare</div>
+            <div class="stone-card-overlay"><div class="stone-card-action"><a href="contact.html">Enquire</a></div></div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Labradorite</h5>
+            <div class="stone-price">&#8377; 6,800 / sq.ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0s">
+        <div class="stone-card">
+          <div class="stone-card-img">
+            <img src="assets/stones/honey-agate.jpg" alt="Honey Agate">
+            <div class="stone-badge">Agate</div>
+            <div class="stone-card-overlay"><div class="stone-card-action"><a href="contact.html">Enquire</a></div></div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Honey Agate</h5>
+            <div class="stone-price">&#8377; 4,100 / sq.ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="stone-card">
+          <div class="stone-card-img">
+            <img src="assets/stones/amethyst.jpg" alt="Amethyst">
+            <div class="stone-badge">Rare</div>
+            <div class="stone-card-overlay"><div class="stone-card-action"><a href="contact.html">Enquire</a></div></div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Amethyst</h5>
+            <div class="stone-price">&#8377; 5,800 / sq.ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="stone-card">
+          <div class="stone-card-img">
+            <img src="assets/stones/white-onyx.jpg" alt="Onyx White">
+            <div class="stone-badge">Rare</div>
+            <div class="stone-card-overlay"><div class="stone-card-action"><a href="contact.html">Enquire</a></div></div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Onyx White</h5>
+            <div class="stone-price">&#8377; 5,000 / sq.ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="stone-card">
+          <div class="stone-card-img">
+            <img src="assets/stones/nero-black.jpg" alt="Galaxy Black">
+            <div class="stone-badge">Rare</div>
+            <div class="stone-card-overlay"><div class="stone-card-action"><a href="contact.html">Enquire</a></div></div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Galaxy Black</h5>
+            <div class="stone-price">&#8377; 8,300 / sq.ft</div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="stone-card">
-      <div class="stone-card-img">
-        <img src="assets/stones/grey-vein.jpg" alt="Grey Veined Quartz"/>
-      </div>
-      <div class="stone-card-body">
-        <div class="stone-name">Grey Veined Quartz</div>
-        <div class="stone-price">₹2,200 / sqft</div>
-      </div>
+    <div class="text-center mt-4 wow fadeIn">
+      <a href="collections.html" class="hero-cta" style="animation:none;opacity:1;">View All 26 Stones</a>
     </div>
-    <!-- Agate -->
-    <div class="stone-card">
-      <div class="stone-card-img">
-        <img src="assets/stones/blue-agate.jpg" alt="Blue Agate"/>
-      </div>
-      <div class="stone-card-body">
-        <div class="stone-name">Blue Agate</div>
-        <div class="stone-price">₹4,500 / sqft</div>
-      </div>
-    </div>
-    <div class="stone-card">
-      <div class="stone-card-img">
-        <img src="assets/stones/green-agate.jpg" alt="Green Agate"/>
-      </div>
-      <div class="stone-card-body">
-        <div class="stone-name">Green Agate</div>
-        <div class="stone-price">₹4,200 / sqft</div>
-      </div>
-    </div>
-    <div class="stone-card">
-      <div class="stone-card-img">
-        <img src="assets/stones/honey-agate.jpg" alt="Honey Agate"/>
-      </div>
-      <div class="stone-card-body">
-        <div class="stone-name">Honey Agate</div>
-        <div class="stone-price">₹4,100 / sqft</div>
-      </div>
-    </div>
-    <!-- Rare -->
-    <div class="stone-card">
-      <div class="stone-card-img">
-        <img src="assets/stones/malachite.jpg" alt="Malachite"/>
-      </div>
-      <div class="stone-card-body">
-        <div class="stone-name">Malachite</div>
-        <div class="stone-price">₹6,500 / sqft</div>
-      </div>
-    </div>
-    <div class="stone-card">
-      <div class="stone-card-img">
-        <img src="assets/stones/lapis-lazuli.jpg" alt="Lapis Lazuli"/>
-      </div>
-      <div class="stone-card-body">
-        <div class="stone-name">Lapis Lazuli</div>
-        <div class="stone-price">₹6,200 / sqft</div>
-      </div>
-    </div>
-    <div class="stone-card">
-      <div class="stone-card-img">
-        <img src="assets/stones/amethyst.jpg" alt="Amethyst"/>
-      </div>
-      <div class="stone-card-body">
-        <div class="stone-name">Amethyst</div>
-        <div class="stone-price">₹5,800 / sqft</div>
-      </div>
-    </div>
-    <div class="stone-card">
-      <div class="stone-card-img">
-        <img src="assets/stones/tiger-eye.jpg" alt="Tiger Eye"/>
-      </div>
-      <div class="stone-card-body">
-        <div class="stone-name">Tiger Eye</div>
-        <div class="stone-price">₹5,500 / sqft</div>
-      </div>
-    </div>
-    <div class="stone-card">
-      <div class="stone-card-img">
-        <img src="assets/stones/labradorite.jpg" alt="Labradorite"/>
-      </div>
-      <div class="stone-card-body">
-        <div class="stone-name">Labradorite</div>
-        <div class="stone-price">₹6,800 / sqft</div>
-      </div>
-    </div>
-    <div class="stone-card">
-      <div class="stone-card-img">
-        <img src="assets/stones/white-onyx.jpg" alt="Onyx White"/>
-      </div>
-      <div class="stone-card-body">
-        <div class="stone-name">Onyx White</div>
-        <div class="stone-price">₹5,000 / sqft</div>
-      </div>
-    </div>
-  </div>
-  <div style="text-align:center; margin-top:48px;">
-    <a href="collections.html" class="slide-btn">View All 26 Stones</a>
   </div>
 </section>
 
-<!-- CONTACT FORM -->
+<!-- GET IN TOUCH -->
 <section class="contact-section">
-  <div class="section-header">
-    <p class="section-eyebrow">We'd Love to Hear from You</p>
-    <h2 class="section-title">G E T &nbsp; I N &nbsp; T O U C H</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="contact-wrap">
-    <form action="mailto:manankumarbohra11@gmail.com" method="post" enctype="text/plain">
-      <div class="form-group">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="Full Name" required/>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5 wow fadeIn">
+        <h2 class="sec-title">G E T &nbsp; I N &nbsp; T O U C H</h2>
       </div>
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="your@email.com" required/>
+    </div>
+    <form class="contact-form row" onsubmit="sendEnquiry(event)">
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Your Name" id="cName" required>
       </div>
-      <div class="form-group">
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" placeholder="Tell us about your project or enquiry..." required></textarea>
+      <div class="col-md-6">
+        <input type="email" class="form-control" placeholder="Email Address" id="cEmail" required>
       </div>
-      <button type="submit" class="btn-submit">Send Message</button>
+      <div class="col-md-6">
+        <select class="form-control" id="cStone" style="background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,0.2);border-radius:0;color:rgba(255,255,255,0.4);padding:14px 0;font-size:12px;letter-spacing:2px;margin-bottom:24px;-webkit-appearance:none;">
+          <option value="" style="background:#111;">Stone Interest</option>
+          <option value="Quartz" style="background:#111;">Quartz Collection</option>
+          <option value="Agate" style="background:#111;">Agate Collection</option>
+          <option value="Rare Stones" style="background:#111;">Rare Stones</option>
+          <option value="Custom" style="background:#111;">Custom Requirement</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Location / Project Type" id="cLocation">
+      </div>
+      <div class="col-12">
+        <textarea class="form-control" placeholder="Your Message" id="cMessage" rows="4" style="border-bottom:1px solid rgba(255,255,255,0.2);border-left:0;border-right:0;border-top:0;border-radius:0;resize:none;"></textarea>
+      </div>
+      <div class="col-12 text-center mt-5">
+        <button type="submit" class="btn-submit">Send Enquiry</button>
+      </div>
     </form>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo"><img src="assets/logo.svg" alt="Marmor Designs"/></div>
-      <p class="footer-desc">India's premier curator of natural marble, agate, quartz and rare stone slabs. Handpicked from nature, crafted to perfection — from Kishangarh to your space.</p>
-      <div class="footer-social">
-        <a href="https://www.instagram.com" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a>
-        <a href="https://www.pinterest.com" target="_blank" rel="noopener"><i class="fa fa-pinterest"></i></a>
-        <a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a>
+  <div class="container" style="max-width:1200px;">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="footer-logo">
+          <img src="assets/logo.svg" alt="Marmor Designs" onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<span style='font-family:Montserrat;font-weight:200;font-size:18px;letter-spacing:5px;color:#fff;'>MARMOR <span style='color:#c9a84c;'>DESIGNS</span></span>'">
+        </div>
+        <p class="footer-desc">Marmor Designs is Kishangarh's premier curator of rare natural stone — agate, quartz, malachite, onyx and precious gemstone slabs for luxury residences and commercial projects.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/marmor.designs/" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+          <a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <h5>Contact Us</h5>
+        <div class="footer-contact">
+          <p><strong style="color:#c9a84c;font-size:11px;letter-spacing:2px;">MARMOR DESIGNS</strong></p>
+          <p>Kishangarh, Ajmer District<br>Rajasthan &mdash; 305801, India</p>
+          <p style="margin-top:16px;">Email: <a href="mailto:manankumarbohra11@gmail.com">manankumarbohra11@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="footer-links pl-0">
+          <li><a href="index.html"><i class="fa fa-angle-right"></i> Home</a></li>
+          <li><a href="collections.html"><i class="fa fa-angle-right"></i> Collections</a></li>
+          <li><a href="about.html"><i class="fa fa-angle-right"></i> About Us</a></li>
+          <li><a href="products.html"><i class="fa fa-angle-right"></i> Projects</a></li>
+          <li><a href="contact.html"><i class="fa fa-angle-right"></i> Contact</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Contact Us</h4>
-      <p>Kishangarh, Rajasthan, India</p>
-      <a href="mailto:manankumarbohra11@gmail.com">manankumarbohra11@gmail.com</a>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Marmor Designs &nbsp;|&nbsp; Kishangarh, Rajasthan &nbsp;|&nbsp; All Rights Reserved</p>
     </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="index.html">Home</a>
-      <a href="collections.html">Collections</a>
-      <a href="about.html">About Us</a>
-      <a href="products.html">Projects</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2024 Marmor Designs. All rights reserved. &nbsp;|&nbsp; Kishangarh, Rajasthan
   </div>
 </footer>
 
+<!-- jQuery + Bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+
 <script>
-  // NAVBAR SCROLL
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+// ===== SLIDER =====
+var currentSlide = 0;
+var slides = document.querySelectorAll('.hero-slide');
+var dots = document.querySelectorAll('.slider-nav .dot');
+var sliderTimer;
+
+function showSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = (n + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+  // reset animations on new slide text
+  var texts = slides[currentSlide].querySelectorAll('.hero-eyebrow,.hero-title,.hero-cta');
+  texts.forEach(function(el){
+    el.style.animation = 'none';
+    el.offsetHeight;
+    el.style.animation = '';
   });
+}
+function changeSlide(dir) { clearInterval(sliderTimer); showSlide(currentSlide + dir); startSlider(); }
+function goSlide(n) { clearInterval(sliderTimer); showSlide(n); startSlider(); }
+function startSlider() { sliderTimer = setInterval(function(){ showSlide(currentSlide + 1); }, 5500); }
+startSlider();
 
-  // MOBILE MENU
-  function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); }
-  function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+// ===== NAVBAR SCROLL =====
+window.addEventListener('scroll', function(){
+  var nav = document.getElementById('mainNav');
+  if(window.scrollY > 60){ nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+});
 
-  // HERO SLIDER
-  let currentSlide = 0;
-  const totalSlides = 3;
-  let sliderInterval;
+// ===== SIDE MENU =====
+function openSideMenu(){ document.getElementById('sideMenu').classList.add('open'); document.getElementById('overlayBg').classList.add('show'); }
+function closeSideMenu(){ document.getElementById('sideMenu').classList.remove('open'); document.getElementById('overlayBg').classList.remove('show'); }
 
-  function updateSlider() {
-    document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
-    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-  }
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateSlider();
-    resetInterval();
-  }
-  function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateSlider();
-    resetInterval();
-  }
-  function goToSlide(n) {
-    currentSlide = n;
-    updateSlider();
-    resetInterval();
-  }
-  function resetInterval() {
-    clearInterval(sliderInterval);
-    sliderInterval = setInterval(nextSlide, 5000);
-  }
-  sliderInterval = setInterval(nextSlide, 5000);
-
-  // STATS COUNTER
-  function animateCounter(el) {
-    const target = parseInt(el.getAttribute('data-target'));
-    const duration = 2000;
-    const step = target / (duration / 16);
-    let current = 0;
-    const timer = setInterval(() => {
-      current = Math.min(current + step, target);
-      el.textContent = Math.floor(current) + (target >= 100 ? '+' : '');
-      if (current >= target) clearInterval(timer);
-    }, 16);
-  }
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        animateCounter(e.target);
-        observer.unobserve(e.target);
+// ===== WOW ANIMATIONS (simple intersection observer) =====
+(function(){
+  var wowEls = document.querySelectorAll('.wow');
+  if(!('IntersectionObserver' in window)){ wowEls.forEach(function(el){el.style.visibility='visible';}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var el = e.target;
+        var delay = el.dataset.wowDelay || '0s';
+        var anim = Array.from(el.classList).find(function(c){ return ['fadeIn','fadeInLeft','fadeInRight','fadeInUp'].indexOf(c) > -1; }) || 'fadeIn';
+        el.style.visibility = 'visible';
+        el.style.animationDelay = delay;
+        el.style.animationDuration = '0.8s';
+        el.style.animationFillMode = 'both';
+        el.classList.add('animate__animated','animate__' + anim.replace('fadeIn','fadeIn').replace('fadeInLeft','fadeInLeft').replace('fadeInRight','fadeInRight').replace('fadeInUp','fadeInUp'));
+        io.unobserve(el);
       }
     });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-number').forEach(el => observer.observe(el));
+  }, {threshold: 0.15});
+  wowEls.forEach(function(el){ io.observe(el); });
+})();
+
+// ===== COUNTER ANIMATION =====
+function animateCounters(){
+  document.querySelectorAll('.count[data-target]').forEach(function(el){
+    var target = parseInt(el.dataset.target);
+    var current = 0;
+    var step = target / 60;
+    var timer = setInterval(function(){
+      current += step;
+      if(current >= target){ current = target; clearInterval(timer); }
+      el.textContent = Math.floor(current).toLocaleString('en-IN');
+    }, 25);
+  });
+}
+var countersDone = false;
+var countersSection = document.querySelector('.counters-section');
+if(countersSection){
+  var cio = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting && !countersDone){ countersDone=true; animateCounters(); }
+  });
+  cio.observe(countersSection);
+}
+
+// ===== CONTACT FORM =====
+function sendEnquiry(e){
+  e.preventDefault();
+  var name = document.getElementById('cName').value;
+  var email = document.getElementById('cEmail').value;
+  var stone = document.getElementById('cStone').value;
+  var loc = document.getElementById('cLocation').value;
+  var msg = document.getElementById('cMessage').value;
+  var body = 'Name: '+name+'\nEmail: '+email+'\nStone Interest: '+stone+'\nLocation: '+loc+'\nMessage: '+msg;
+  window.location.href = 'mailto:manankumarbohra11@gmail.com?subject=Stone Enquiry - Marmor Designs&body='+encodeURIComponent(body);
+}
 </script>
 </body>
 </html>
