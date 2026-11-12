@@ -1,94 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-  <link rel="alternate icon" href="/assets/logo-icon.svg" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Why Jointless Stone Finish is a Game Changer for Feature Walls | Marmor Designs</title>
-  <meta name="description" content="Discover how Marmor Designs achieves a jointless, continuous stone slab aesthetic across large walls and countertops using laser calibration and color-matched resin engineering." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/style.css" />
-  <style>
-    .article-container { max-width: 840px; margin: 0 auto; padding: 40px 24px 100px; }
-    .art-meta { display: flex; gap: 16px; align-items: center; font-size: 0.85rem; color: var(--gold); margin-bottom: 20px; }
-    .art-title { font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.2; color: #fff; margin-bottom: 24px; }
-    .art-lead { font-size: 1.2rem; color: var(--text-secondary); line-height: 1.7; font-weight: 300; margin-bottom: 40px; border-left: 3px solid var(--gold); padding-left: 20px; }
-    .art-hero-img { border-radius: 20px; overflow: hidden; margin-bottom: 40px; border: 1px solid var(--border-light); }
-    .art-hero-img img { width: 100%; height: 460px; object-fit: cover; }
-    .art-body h2 { font-size: 1.8rem; color: #fff; margin: 40px 0 16px; }
-    .art-body p { font-size: 1.05rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 22px; }
-    .art-cta-box { background: linear-gradient(135deg, rgba(35,31,25,0.9), var(--bg-card)); border: 1px solid var(--border-medium); border-radius: 18px; padding: 36px; text-align: center; margin-top: 60px; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Why Jointless Stone Finish is a Game Changer for Feature Walls | Marmor Designs</title>
+<meta name="description" content="—W—h—e—n— —d—e—s—i—g—n—i—n—g— —a— —d—o—u—b—l—e—-—h—e—i—g—h—t— —f—e—a—t—u—r—e— —w—a—l—l— —o—r— —a— —m—o—n—u—m—e—n—t—a—l— —r—e—c—e—p—t—i—o—n— —b—a—c—k—g—r—o—">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+
+<!-- Bootstrap 4 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Great+Vibes&family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: #000; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+/* NAVBAR */
+header { position: fixed; top: 0; width: 100%; z-index: 1000; transition: background 0.4s ease; }
+.navbar { padding: 18px 40px; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.3s ease; }
+.navbar.scrolled { background: rgba(0, 0, 0, 0.98); padding: 12px 40px; border-bottom: 1px solid rgba(201, 168, 76, 0.25); }
+.navbar-brand img { height: 46px; }
+.navbar-nav .nav-link { color: #fff !important; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 400; padding: 10px 14px !important; transition: color 0.3s; }
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: #c9a84c !important; }
+.slider-social ul { margin: 0; padding: 0; list-style: none; display: flex; align-items: center; gap: 14px; margin-left: 24px; }
+.slider-social ul li a { color: rgba(255,255,255,0.7); font-size: 14px; transition: color 0.3s; }
+.slider-social ul li a:hover { color: #c9a84c; }
+.sidemenu_btn { display: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 6px; }
+.sidemenu_btn span { width: 25px; height: 1px; background: #fff; display: block; }
+
+/* SIDE DRAWER */
+.side-menu { position: fixed; top: 0; right: -100%; width: 340px; height: 100%; background: #080808; z-index: 9999; padding: 70px 40px; transition: right 0.4s cubic-bezier(0.77,0,0.175,1); border-left: 1px solid rgba(201,168,76,0.2); }
+.side-menu.open { right: 0; }
+.btn-close { position: absolute; top: 24px; right: 24px; color: #fff; font-size: 24px; cursor: pointer; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.2); }
+.side-nav .nav-link { color: #fff !important; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; padding: 14px 0 !important; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.side-nav .nav-link:hover { color: #c9a84c !important; }
+.side-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 9998; display: none; }
+.side-overlay.show { display: block; }
+
+/* ARTICLE CONTENT */
+.article-header { padding: 140px 0 60px; background: #050505; border-bottom: 1px solid rgba(201,168,76,0.15); text-align: center; }
+.art-meta { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #c9a84c; margin-bottom: 15px; }
+.art-title { font-size: clamp(26px, 4vw, 44px); font-weight: 200; letter-spacing: 4px; line-height: 1.3; color: #fff; max-width: 900px; margin: 0 auto 20px; }
+.art-lead { font-size: 16px; line-height: 1.9; color: rgba(255,255,255,0.75); max-width: 800px; margin: 0 auto; font-family: 'Josefin Sans', sans-serif; }
+
+.article-body { padding: 70px 0; max-width: 820px; margin: 0 auto; font-size: 15px; line-height: 2.1; color: rgba(255,255,255,0.78); }
+.article-body h2 { font-size: 24px; letter-spacing: 3px; font-weight: 300; color: #fff; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(201,168,76,0.25); text-transform: uppercase; }
+.article-body h3 { font-size: 18px; letter-spacing: 2px; font-weight: 400; color: #c9a84c; margin: 30px 0 15px; }
+.article-body p { margin-bottom: 24px; }
+.article-body ul { margin-bottom: 25px; padding-left: 20px; }
+.article-body ul li { margin-bottom: 10px; }
+.article-body blockquote { border-left: 3px solid #c9a84c; padding: 20px 30px; background: #080808; margin: 35px 0; font-family: 'Josefin Sans', sans-serif; font-size: 18px; color: #fff; font-style: italic; }
+
+.art-banner-img { width: 100%; height: 420px; object-fit: cover; border: 1px solid rgba(255,255,255,0.1); margin: 30px 0 45px; }
+
+/* BREADCRUMB */
+.breadcrumb-bar { background: #080808; border-bottom: 1px solid rgba(201,168,76,0.1); padding: 14px 0; }
+.breadcrumb { background: transparent; margin: 0; padding: 0; font-size: 11px; letter-spacing: 2px; }
+.breadcrumb-item a { color: #c9a84c; text-decoration: none; }
+.breadcrumb-item.active { color: rgba(255,255,255,0.4); }
+.breadcrumb-item+.breadcrumb-item::before { color: rgba(255,255,255,0.3); }
+
+/* FOOTER */
+.footer { background: #050505; padding: 70px 0 30px; border-top: 1px solid rgba(201,168,76,0.15); }
+.footer p { text-align: left; font-weight: 400; font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.9; }
+.footer h5 { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #fff; margin-bottom: 24px; padding-bottom: 8px; border-bottom: 1px solid rgba(201,168,76,0.2); }
+.footer ul { list-style: none; padding: 0; }
+.footer ul li a { font-weight: 400; font-size: 13px; line-height: 32px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+.footer ul li a:hover { color: #c9a84c; }
+.footer-social ul { list-style: none; display: flex; gap: 14px; padding: 0; margin-top: 15px; }
+.footer-social a { color: rgba(255,255,255,0.5); font-size: 16px; transition: color 0.3s; }
+.footer-social a:hover { color: #c9a84c; }
+
+@media(max-width: 991px) {
+  .navbar-nav, .slider-social { display: none !important; }
+  .sidemenu_btn { display: flex !important; }
+}
+</style>
+
 </head>
 <body>
+<!-- SIDE MENU -->
+<div class="side-overlay" id="sideOverlay" onclick="toggleSideMenu()"></div>
+<div class="side-menu" id="sideMenu">
+  <div class="btn-close" onclick="toggleSideMenu()"><i class="fa fa-times"></i></div>
+  <nav class="side-nav w-100 mt-4">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/collections/">Collections</a></li>
+      <li class="nav-item"><a class="nav-link" href="/about/">About Us</a></li>
+      <li class="nav-item"><a class="nav-link" href="/products/">Projects</a></li>
+      <li class="nav-item"><a class="nav-link active" href="/blogs/">Journal</a></li>
+      <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="mt-5 text-left">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#c9a84c;margin-bottom:12px;">Contact Studio</p>
+    <p style="font-size:12px;color:rgba(255,255,255,0.7);margin-bottom:6px;">manankumarbohra11@gmail.com</p>
+    <p style="font-size:12px;color:rgba(255,255,255,0.7);">Kishangarh, Rajasthan - India</p>
+  </div>
+</div>
 
-  <header class="site-header scrolled">
-    <div class="nav-inner">
-      <a class="logo" href="/">
-        <img src="/assets/logo-icon.svg" alt="Marmor Designs" class="logo-img" />
-        <div class="logo-text-wrap"><span class="logo-name">Marmor Designs</span><span class="logo-tagline">Premium Stone Slabs</span></div>
+<!-- TOPBAR NAVBAR -->
+<header>
+  <nav class="navbar navbar-top-default navbar-expand-lg" id="topNav">
+    <div class="container-fluid px-lg-5">
+      <a href="/" class="navbar-brand">
+        <img src="/assets/logo.svg" alt="Marmor Designs" onerror="this.onerror=null;this.parentElement.innerHTML='<span style=\'font-family:Montserrat;font-size:22px;letter-spacing:6px;font-weight:200;color:#fff;\'>MARMOR <span style=\'color:#c9a84c;\'>DESIGNS</span></span>'">
       </a>
-      <nav class="main-nav">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/products/" class="nav-link">Collection</a>
-        <a href="index.html#studio-3d-section" class="nav-link">3D Studio</a>
-        <a href="index.html#spaces-section" class="nav-link">Spaces</a>
-        <a href="index.html#offers-section" class="nav-link">Cut To Size</a>
-        <a href="index.html#tech-section" class="nav-link">Technology</a>
-        <a href="/about/" class="nav-link">About</a>
-        <a href="/blogs/" class="nav-link active">Journal</a>
-        <a href="/contact/" class="nav-link">Contact</a>
-      </nav>
-      <div class="nav-right"><a href="/contact/" class="btn-quote">Get a Quote</a></div>
-    </div>
-  </header>
 
-  <main class="article-container" style="padding-top:140px;">
-    <div class="art-meta"><span>Engineering</span> • <span>Sep 29, 2026</span> • <span>4 min read</span></div>
-    <h1 class="art-title">Why Jointless Stone Finish is a Game Changer for Feature Walls</h1>
-    <p class="art-lead">When designing a double-height feature wall or a monumental reception background, the presence of visible, dark grout lines fractures the majesty of natural stone. Here is how jointless stone engineering preserves geological continuity.</p>
+      <div class="collapse navbar-collapse" id="wexim">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/collections/">Collections</a>
+          <a class="nav-link" href="/about/">About</a>
+          <a class="nav-link" href="/products/">Projects</a>
+          <a class="nav-link active" href="/blogs/">Journal</a>
+          <a class="nav-link" href="/contact/">Contact</a>
 
-    <div class="art-hero-img">
-      <img src="https://i.pinimg.com/736x/e4/71/63/e47163bbd9d0638e16d5a56b85ca61c3.jpg" alt="Jointless feature wall stone installation" />
-    </div>
-
-    <div class="art-body">
-      <h2>1. The Problem with Conventional Tiling</h2>
-      <p>Standard tiles and poorly cut stone slabs leave 2mm to 4mm gaps filled with commercial grout. Over time, grout discolors, collects dirt, and breaks the organic visual flow of the natural mineral veins. The eye perceives a grid of tiles rather than a single majestic boulder.</p>
-
-      <h2>2. The Marmor Designs Jointless Engineering Process</h2>
-      <p>At our Kishangarh fabrication center, achieving a true jointless finish involves three disciplined steps:</p>
-      <ul>
-        <li><strong>Dry-Lay Vein Calibration:</strong> Slabs are physically laid out side-by-side on our factory floor under directional lights to align crystal patterns perfectly before packing.</li>
-        <li><strong>Sub-Millimeter Edge Dressing:</strong> Diamond waterjet bridges cut stone edges with an allowable tolerance of less than 0.2mm.</li>
-        <li><strong>Color-Matched Structural Bonding:</strong> Once fixed on the project wall, the hairline seam is infused with custom UV-stable resin formulated with actual pulverized stone dust from the parent slab, then diamond-buffed continuously across the join.</li>
-      </ul>
-
-      <h2>3. The Final Visual Result</h2>
-      <p>Under ambient room lighting and direct grazing spotlights, the human eye cannot discern where one slab ends and the next begins. The entire 20-foot wall reads as an uninterrupted slab sliced directly from the quarry face.</p>
-
-      <div class="art-cta-box">
-        <h3 style="font-size:1.8rem;color:#fff;margin-bottom:12px;">Enquire About Jointless Stone Walls</h3>
-        <p style="color:var(--text-secondary);max-width:540px;margin:0 auto 24px;">Our engineering team assists architects with dry-lay layout diagrams and installation oversight across India.</p>
-        <div style="display:flex;justify-content:center;gap:16px;">
-          <a href="/contact/" class="btn-primary">Consult an Engineer</a>
-          <a href="/products/" class="btn-outline-dark">Browse Stone Catalogue</a>
+          <div class="slider-social">
+            <ul>
+              <li><a href="https://www.instagram.com/marmor.designs/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+              <li><a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-btm">
-      <div class="fbtm-inner">
-        <span>© 2026 Marmor Designs. All Rights Reserved. Kishangarh, Rajasthan, India.</span>
-        <div class="fbtm-legal"><a href="/blogs/">← Back to All Articles</a><a href="/products/">Browse Stones</a></div>
+      <a href="javascript:void(0)" class="sidemenu_btn" onclick="toggleSideMenu()">
+        <span></span><span></span><span></span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+
+<!-- BREADCRUMB -->
+<div style="padding-top:84px;">
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/blogs/">Journal</a></li>
+        <li class="breadcrumb-item active">Why Jointless Stone Finish is a Game Cha...</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="container">
+    <div class="art-meta">&bull;<&bull;s&bull;p&bull;a&bull;n&bull;>&bull;E&bull;n&bull;g&bull;i&bull;n&bull;e&bull;e&bull;r&bull;i&bull;n&bull;g&bull;<&bull;/&bull;s&bull;p&bull;a&bull;n&bull;>&bull; &bull;•&bull; &bull;<&bull;s&bull;p&bull;a&bull;n&bull;>&bull;S&bull;e&bull;p&bull; &bull;2&bull;9&bull;,&bull; &bull;2&bull;0&bull;2&bull;6&bull;<&bull;/&bull;s&bull;p&bull;a&bull;n&bull;>&bull; &bull;•&bull; &bull;<&bull;s&bull;p&bull;a&bull;n&bull;>&bull;4&bull; &bull;m&bull;i&bull;n&bull; &bull;r&bull;e&bull;a&bull;d&bull;<&bull;/&bull;s&bull;p&bull;a&bull;n&bull;>&bull;</div>
+    <h1 class="art-title">Why Jointless Stone Finish is a Game Changer for Feature Walls</h1>
+    <p class="art-lead">—W—h—e—n— —d—e—s—i—g—n—i—n—g— —a— —d—o—u—b—l—e—-—h—e—i—g—h—t— —f—e—a—t—u—r—e— —w—a—l—l— —o—r— —a— —m—o—n—u—m—e—n—t—a—l— —r—e—c—e—p—t—i—o—n— —b—a—c—k—g—r—o—u—n—d—,— —t—h—e— —p—r—e—s—e—n—c—e— —o—f— —v—i—s—i—b—l—e—,— —d—a—r—k— —g—r—o—u—t— —l—i—n—e—s— —f—r—a—c—t—u—r—e—s— —t—h—e— —m—a—j—e—s—t—y— —o—f— —n—a—t—u—r—a—l— —s—t—o—n—e—.— —H—e—r—e— —i—s— —h—o—w— —j—o—i—n—t—l—e—s—s— —s—t—o—n—e— —e—n—g—i—n—e—e—r—i—n—g— —p—r—e—s—e—r—v—e—s— —g—e—o—l—o—g—i—c—a—l— —c—o—n—t—i—n—u—i—t—y—.—</p>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="container">
+  <article class="article-body">
+    <img src="/assets/stones/tiger-eye.jpg" alt="Why Jointless Stone Finish is a Game Changer for Feature Walls" class="art-banner-img">
+    —
+— — — — —
+— — — — —
+— — — — —
+—
+— — — — —<—d—i—v— —c—l—a—s—s—=—"—a—r—t—-—h—e—r—o—-—i—m—g—"—>—
+— — — — — — —<—i—m—g— —s—r—c—=—"—h—t—t—p—s—:—/—/—i—.—p—i—n—i—m—g—.—c—o—m—/—7—3—6—x—/—e—4—/—7—1—/—6—3—/—e—4—7—1—6—3—b—b—d—9—d—0—6—3—8—e—1—6—d—5—a—5—6—b—8—5—c—a—6—1—c—3—.—j—p—g—"— —a—l—t—=—"—J—o—i—n—t—l—e—s—s— —f—e—a—t—u—r—e— —w—a—l—l— —s—t—o—n—e— —i—n—s—t—a—l—l—a—t—i—o—n—"— —/—>—
+— — — — —<—/—d—i—v—>—
+—
+— — — — —<—d—i—v— —c—l—a—s—s—=—"—a—r—t—-—b—o—d—y—"—>—
+— — — — — — —<—h—2—>—1—.— —T—h—e— —P—r—o—b—l—e—m— —w—i—t—h— —C—o—n—v—e—n—t—i—o—n—a—l— —T—i—l—i—n—g—<—/—h—2—>—
+— — — — — — —<—p—>—S—t—a—n—d—a—r—d— —t—i—l—e—s— —a—n—d— —p—o—o—r—l—y— —c—u—t— —s—t—o—n—e— —s—l—a—b—s— —l—e—a—v—e— —2—m—m— —t—o— —4—m—m— —g—a—p—s— —f—i—l—l—e—d— —w—i—t—h— —c—o—m—m—e—r—c—i—a—l— —g—r—o—u—t—.— —O—v—e—r— —t—i—m—e—,— —g—r—o—u—t— —d—i—s—c—o—l—o—r—s—,— —c—o—l—l—e—c—t—s— —d—i—r—t—,— —a—n—d— —b—r—e—a—k—s— —t—h—e— —o—r—g—a—n—i—c— —v—i—s—u—a—l— —f—l—o—w— —o—f— —t—h—e— —n—a—t—u—r—a—l— —m—i—n—e—r—a—l— —v—e—i—n—s—.— —T—h—e— —e—y—e— —p—e—r—c—e—i—v—e—s— —a— —g—r—i—d— —o—f— —t—i—l—e—s— —r—a—t—h—e—r— —t—h—a—n— —a— —s—i—n—g—l—e— —m—a—j—e—s—t—i—c— —b—o—u—l—d—e—r—.—<—/—p—>—
+—
+— — — — — — —<—h—2—>—2—.— —T—h—e— —M—a—r—m—o—r— —D—e—s—i—g—n—s— —J—o—i—n—t—l—e—s—s— —E—n—g—i—n—e—e—r—i—n—g— —P—r—o—c—e—s—s—<—/—h—2—>—
+— — — — — — —<—p—>—A—t— —o—u—r— —K—i—s—h—a—n—g—a—r—h— —f—a—b—r—i—c—a—t—i—o—n— —c—e—n—t—e—r—,— —a—c—h—i—e—v—i—n—g— —a— —t—r—u—e— —j—o—i—n—t—l—e—s—s— —f—i—n—i—s—h— —i—n—v—o—l—v—e—s— —t—h—r—e—e— —d—i—s—c—i—p—l—i—n—e—d— —s—t—e—p—s—:—<—/—p—>—
+— — — — — — —<—u—l—>—
+— — — — — — — — —<—l—i—>—<—s—t—r—o—n—g—>—D—r—y—-—L—a—y— —V—e—i—n— —C—a—l—i—b—r—a—t—i—o—n—:—<—/—s—t—r—o—n—g—>— —S—l—a—b—s— —a—r—e— —p—h—y—s—i—c—a—l—l—y— —l—a—i—d— —o—u—t— —s—i—d—e—-—b—y—-—s—i—d—e— —o—n— —o—u—r— —f—a—c—t—o—r—y— —f—l—o—o—r— —u—n—d—e—r— —d—i—r—e—c—t—i—o—n—a—l— —l—i—g—h—t—s— —t—o— —a—l—i—g—n— —c—r—y—s—t—a—l— —p—a—t—t—e—r—n—s— —p—e—r—f—e—c—t—l—y— —b—e—f—o—r—e— —p—a—c—k—i—n—g—.—<—/—l—i—>—
+— — — — — — — — —<—l—i—>—<—s—t—r—o—n—g—>—S—u—b—-—M—i—l—l—i—m—e—t—e—r— —E—d—g—e— —D—r—e—s—s—i—n—g—:—<—/—s—t—r—o—n—g—>— —D—i—a—m—o—n—d— —w—a—t—e—r—j—e—t— —b—r—i—d—g—e—s— —c—u—t— —s—t—o—n—e— —e—d—g—e—s— —w—i—t—h— —a—n— —a—l—l—o—w—a—b—l—e— —t—o—l—e—r—a—n—c—e— —o—f— —l—e—s—s— —t—h—a—n— —0—.—2—m—m—.—<—/—l—i—>—
+— — — — — — — — —<—l—i—>—<—s—t—r—o—n—g—>—C—o—l—o—r—-—M—a—t—c—h—e—d— —S—t—r—u—c—t—u—r—a—l— —B—o—n—d—i—n—g—:—<—/—s—t—r—o—n—g—>— —O—n—c—e— —f—i—x—e—d— —o—n— —t—h—e— —p—r—o—j—e—c—t— —w—a—l—l—,— —t—h—e— —h—a—i—r—l—i—n—e— —s—e—a—m— —i—s— —i—n—f—u—s—e—d— —w—i—t—h— —c—u—s—t—o—m— —U—V—-—s—t—a—b—l—e— —r—e—s—i—n— —f—o—r—m—u—l—a—t—e—d— —w—i—t—h— —a—c—t—u—a—l— —p—u—l—v—e—r—i—z—e—d— —s—t—o—n—e— —d—u—s—t— —f—r—o—m— —t—h—e— —p—a—r—e—n—t— —s—l—a—b—,— —t—h—e—n— —d—i—a—m—o—n—d—-—b—u—f—f—e—d— —c—o—n—t—i—n—u—o—u—s—l—y— —a—c—r—o—s—s— —t—h—e— —j—o—i—n—.—<—/—l—i—>—
+— — — — — — —<—/—u—l—>—
+—
+— — — — — — —<—h—2—>—3—.— —T—h—e— —F—i—n—a—l— —V—i—s—u—a—l— —R—e—s—u—l—t—<—/—h—2—>—
+— — — — — — —<—p—>—U—n—d—e—r— —a—m—b—i—e—n—t— —r—o—o—m— —l—i—g—h—t—i—n—g— —a—n—d— —d—i—r—e—c—t— —g—r—a—z—i—n—g— —s—p—o—t—l—i—g—h—t—s—,— —t—h—e— —h—u—m—a—n— —e—y—e— —c—a—n—n—o—t— —d—i—s—c—e—r—n— —w—h—e—r—e— —o—n—e— —s—l—a—b— —e—n—d—s— —a—n—d— —t—h—e— —n—e—x—t— —b—e—g—i—n—s—.— —T—h—e— —e—n—t—i—r—e— —2—0—-—f—o—o—t— —w—a—l—l— —r—e—a—d—s— —a—s— —a—n— —u—n—i—n—t—e—r—r—u—p—t—e—d— —s—l—a—b— —s—l—i—c—e—d— —d—i—r—e—c—t—l—y— —f—r—o—m— —t—h—e— —q—u—a—r—r—y— —f—a—c—e—.—<—/—p—>—
+—
+— — — — — — —<—d—i—v— —c—l—a—s—s—=—"—a—r—t—-—c—t—a—-—b—o—x—"—>—
+— — — — — — — — —<—h—3— —s—t—y—l—e—=—"—f—o—n—t—-—s—i—z—e—:—1—.—8—r—e—m—;—c—o—l—o—r—:—#—f—f—f—;—m—a—r—g—i—n—-—b—o—t—t—o—m—:—1—2—p—x—;—"—>—E—n—q—u—i—r—e— —A—b—o—u—t— —J—o—i—n—t—l—e—s—s— —S—t—o—n—e— —W—a—l—l—s—<—/—h—3—>—
+— — — — — — — — —<—p— —s—t—y—l—e—=—"—c—o—l—o—r—:—v—a—r—(—-—-—t—e—x—t—-—s—e—c—o—n—d—a—r—y—)—;—m—a—x—-—w—i—d—t—h—:—5—4—0—p—x—;—m—a—r—g—i—n—:—0— —a—u—t—o— —2—4—p—x—;—"—>—O—u—r— —e—n—g—i—n—e—e—r—i—n—g— —t—e—a—m— —a—s—s—i—s—t—s— —a—r—c—h—i—t—e—c—t—s— —w—i—t—h— —d—r—y—-—l—a—y— —l—a—y—o—u—t— —d—i—a—g—r—a—m—s— —a—n—d— —i—n—s—t—a—l—l—a—t—i—o—n— —o—v—e—r—s—i—g—h—t— —a—c—r—o—s—s— —I—n—d—i—a—.—<—/—p—>—
+— — — — — — — — —<—d—i—v— —s—t—y—l—e—=—"—d—i—s—p—l—a—y—:—f—l—e—x—;—j—u—s—t—i—f—y—-—c—o—n—t—e—n—t—:—c—e—n—t—e—r—;—g—a—p—:—1—6—p—x—;—"—>—
+— — — — — — — — — — —<—a— —h—r—e—f—=—"—/—c—o—n—t—a—c—t—/—"— —c—l—a—s—s—=—"—b—t—n—-—p—r—i—m—a—r—y—"—>—C—o—n—s—u—l—t— —a—n— —E—n—g—i—n—e—e—r—<—/—a—>—
+— — — — — — — — — — —<—a— —h—r—e—f—=—"—/—p—r—o—d—u—c—t—s—/—"— —c—l—a—s—s—=—"—b—t—n—-—o—u—t—l—i—n—e—-—d—a—r—k—"—>—B—r—o—w—s—e— —S—t—o—n—e— —C—a—t—a—l—o—g—u—e—<—/—a—>—
+— — — — — — — — —<—/—d—i—v—>—
+— — — — — — —<—/—d—i—v—>—
+— — — — —<—/—d—i—v—>—
+— — —
+
+    <!-- Call to action box -->
+    <div style="background:#080808;border:1px solid rgba(201,168,76,0.3);padding:35px;margin-top:50px;text-align:center;">
+      <h3 style="font-size:20px;letter-spacing:4px;text-transform:uppercase;color:#fff;margin-bottom:12px;">Consult Our Stone Experts in Kishangarh</h3>
+      <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.8;max-width:600px;margin:0 auto 20px;">
+        Interested in inspecting this stone variety in person or ordering custom book-matched slabs? Inquire with our Kishangarh studio directly.
+      </p>
+      <a href="/contact/" style="display:inline-block;border:1px solid #c9a84c;color:#c9a84c;padding:12px 35px;font-size:10px;letter-spacing:4px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;" onmouseover="this.style.background='#c9a84c';this.style.color='#000';" onmouseout="this.style.background='transparent';this.style.color='#c9a84c';">Inquire Regarding This Stone</a>
+    </div>
+  </article>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container" style="max-width:1250px;">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+        <div style="margin-bottom:20px;">
+          <img src="/assets/logo.svg" alt="Marmor Designs" style="height:48px;" onerror="this.onerror=null;this.parentElement.innerHTML='<span style=\'font-family:Montserrat;font-size:20px;letter-spacing:6px;font-weight:200;color:#fff;\'>MARMOR <span style=\'color:#c9a84c;\'>DESIGNS</span></span>'">
+        </div>
+        <p>Marmor Designs is the preferred supplier to some of the largest, most opulent, and most luxurious living spaces in India. From five-star bespoke hotels to landmark luxury residences, our Kishangarh stockyard and factory houses rare natural stone from around the globe.</p>
+        <div class="footer-social">
+          <ul>
+            <li><a href="https://www.instagram.com/marmor.designs/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+            <li><a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <h5>Kishangarh Headquarters</h5>
+        <p><strong>Stockyard &amp; Experience Studio</strong><br>
+        RIICO Industrial Area, Phase II<br>
+        Kishangarh, Ajmer District, Rajasthan - 305801, India</p>
+        <p style="margin-top:15px;">
+        <strong>Email:</strong> <a href="mailto:manankumarbohra11@gmail.com" style="color:#c9a84c;">manankumarbohra11@gmail.com</a>
+        </p>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="/collections/"><i class="fa fa-angle-right mr-2"></i> Collections (26 Stones)</a></li>
+          <li><a href="/about/"><i class="fa fa-angle-right mr-2"></i> Factory &amp; Showroom</a></li>
+          <li><a href="/products/"><i class="fa fa-angle-right mr-2"></i> Curated Projects</a></li>
+          <li><a href="/blogs/"><i class="fa fa-angle-right mr-2"></i> Architectural Journal</a></li>
+          <li><a href="/contact/"><i class="fa fa-angle-right mr-2"></i> Contact &amp; Pricing</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
 
+    <div style="border-top:1px solid rgba(255,255,255,0.06);margin-top:40px;padding-top:20px;text-align:center;">
+      <p style="font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.4);">&copy; 2025 Marmor Designs &nbsp;|&nbsp; Kishangarh, Rajasthan &nbsp;|&nbsp; All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+<script>
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('topNav');
+  if (window.scrollY > 50) { nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+});
+function toggleSideMenu() {
+  var menu = document.getElementById('sideMenu');
+  var overlay = document.getElementById('sideOverlay');
+  menu.classList.toggle('open');
+  overlay.classList.toggle('show');
+}
+</script>
 </body>
 </html>
+
