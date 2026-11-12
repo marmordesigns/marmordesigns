@@ -1,1804 +1,639 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marmor Designs | Luxury Natural Stone — Kishangarh, Rajasthan</title>
+  <meta name="description" content="Marmor Designs — India's premier curator of natural marble, agate, quartz and rare stone slabs from Kishangarh, Rajasthan."/>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #ffc03a;
+      --black: #000;
+      --dark: #0a0a0a;
+      --dark2: #111;
+      --white: #fff;
+      --grey: #888;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 300; overflow-x: hidden; }
 
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    /* ---- NAVBAR ---- */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      transition: background 0.3s;
+    }
+    nav.scrolled { background: rgba(0,0,0,0.98); }
+    .nav-logo img { height: 48px; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a {
+      color: var(--white); text-decoration: none;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      font-weight: 400; transition: color 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-social { display: flex; gap: 16px; align-items: center; }
+    .nav-social a { color: var(--grey); font-size: 15px; transition: color 0.3s; }
+    .nav-social a:hover { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 36px; }
+    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .hamburger span { width: 24px; height: 1px; background: var(--white); display: block; transition: all 0.3s; }
 
-  <link rel="alternate icon" href="assets/logo-icon.svg" />
+    /* ---- MOBILE MENU ---- */
+    .mobile-menu {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999;
+      background: rgba(0,0,0,0.97); flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--white); text-decoration: none; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; cursor: pointer; color: var(--white); }
 
-  <meta charset="UTF-8" />
+    /* ---- HERO SLIDER ---- */
+    .hero { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+    .slide {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      opacity: 0; transition: opacity 1.5s ease-in-out;
+    }
+    .slide.active { opacity: 1; }
+    .slide img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .slide-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.65) 100%);
+      display: flex; align-items: center; justify-content: center; flex-direction: column;
+    }
+    .slide-text {
+      text-align: center; padding: 0 24px;
+    }
+    .slide-eyebrow {
+      font-size: 11px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px; font-weight: 400;
+    }
+    .slide-title {
+      font-size: clamp(28px, 5vw, 60px);
+      font-weight: 100; letter-spacing: 8px; text-transform: uppercase;
+      line-height: 1.3; margin-bottom: 32px;
+    }
+    .slide-btn {
+      display: inline-block; border: 1px solid var(--gold); color: var(--gold);
+      padding: 12px 36px; font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      text-decoration: none; transition: all 0.3s;
+    }
+    .slide-btn:hover { background: var(--gold); color: var(--black); }
+    .slider-dots {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 10px; z-index: 10;
+    }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.4);
+      cursor: pointer; transition: background 0.3s;
+    }
+    .dot.active { background: var(--gold); }
+    .slider-arrows {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 100%; display: flex; justify-content: space-between; padding: 0 24px; z-index: 10;
+    }
+    .arrow-btn {
+      background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.2); color: var(--white);
+      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.3s; font-size: 16px;
+    }
+    .arrow-btn:hover { border-color: var(--gold); color: var(--gold); }
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    /* ---- QUOTE SECTION ---- */
+    .quote-section {
+      background: var(--dark2); padding: 90px 48px; text-align: center;
+    }
+    .quote-line {
+      width: 60px; height: 1px; background: var(--gold);
+      margin: 0 auto 32px;
+    }
+    .quote-text {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(16px, 2.5vw, 22px); color: rgba(255,255,255,0.85);
+      max-width: 860px; margin: 0 auto; line-height: 1.9;
+    }
+    .quote-author { margin-top: 24px; font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
 
-  <title>Marmor Designs | Luxury Natural Stone, Marble &amp; Agate Slabs — Kishangarh</title>
+    /* ---- SPLIT SECTIONS ---- */
+    .split-section { display: flex; min-height: 580px; }
+    .split-section.reverse { flex-direction: row-reverse; }
+    .split-img { flex: 1; overflow: hidden; }
+    .split-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+    .split-img:hover img { transform: scale(1.04); }
+    .split-content {
+      flex: 1; background: var(--dark2); display: flex;
+      flex-direction: column; justify-content: center; padding: 72px 64px;
+    }
+    .split-eyebrow { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+    .split-title {
+      font-size: clamp(22px, 3vw, 36px); font-weight: 100; letter-spacing: 8px;
+      text-transform: uppercase; margin-bottom: 24px; padding-bottom: 20px;
+      border-bottom: 1px solid var(--gold); display: inline-block;
+    }
+    .split-desc { font-size: 14px; line-height: 1.9; color: rgba(255,255,255,0.7); max-width: 420px; margin-bottom: 32px; }
+    .split-link {
+      display: inline-block; color: var(--gold); font-size: 10px; letter-spacing: 4px;
+      text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px; transition: opacity 0.3s;
+    }
+    .split-link:hover { opacity: 0.7; }
 
-  <meta name="description" content="India's premier curator of natural marble, agate and quartz stone slabs. Precision cut-to-size in Kishangarh with triple reinforcement and jointless finish technology. Pan-India delivery." />
+    /* ---- STATS COUNTER ---- */
+    .stats-section {
+      background: var(--dark2); padding: 90px 48px;
+      border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; max-width: 900px; margin: 0 auto; text-align: center; }
+    .stat-number { font-size: clamp(40px, 6vw, 72px); font-weight: 100; color: var(--gold); letter-spacing: 4px; }
+    .stat-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 8px; }
 
-  <meta name="keywords" content="marble slabs India, NITCO marble alternative, agate slabs Kishangarh, quartz slabs, malachite stone, backlit onyx, luxury marble flooring" />
+    /* ---- STONE CATALOGUE ---- */
+    .catalogue-section { background: var(--dark); padding: 90px 48px; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-eyebrow { font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
+    .section-title { font-size: clamp(24px, 3vw, 42px); font-weight: 100; letter-spacing: 8px; text-transform: uppercase; }
+    .section-line { width: 60px; height: 1px; background: var(--gold); margin: 20px auto 0; }
+    .stone-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .stone-card {
+      background: #111; overflow: hidden; cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .stone-card:hover { transform: translateY(-4px); }
+    .stone-card-img { overflow: hidden; height: 220px; }
+    .stone-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .stone-card:hover .stone-card-img img { transform: scale(1.06); }
+    .stone-card-body { padding: 20px; }
+    .stone-name { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+    .stone-price { font-size: 12px; color: var(--gold); letter-spacing: 1px; }
 
-  <meta name="theme-color" content="#080705" />
+    /* ---- CONTACT FORM ---- */
+    .contact-section { background: #0a0a0a; padding: 90px 48px; }
+    .contact-wrap { max-width: 600px; margin: 0 auto; }
+    .form-group { margin-bottom: 24px; }
+    .form-group label { display: block; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; color: rgba(255,255,255,0.6); }
+    .form-group input, .form-group textarea {
+      width: 100%; background: #111; border: 1px solid rgba(201,168,76,0.3);
+      padding: 14px 18px; color: var(--white); font-family: 'Montserrat', sans-serif;
+      font-size: 13px; outline: none; transition: border-color 0.3s;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 140px; }
+    .btn-submit {
+      display: inline-block; background: transparent; border: 1px solid var(--gold);
+      color: var(--gold); padding: 14px 48px; font-size: 10px; letter-spacing: 4px;
+      text-transform: uppercase; cursor: pointer; font-family: 'Montserrat', sans-serif;
+      transition: all 0.3s;
+    }
+    .btn-submit:hover { background: var(--gold); color: var(--black); }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    /* ---- FOOTER ---- */
+    footer {
+      background: #050505; padding: 72px 48px 32px;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-logo img { height: 40px; margin-bottom: 20px; }
+    .footer-desc { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 14px; }
+    .footer-social a { color: rgba(255,255,255,0.4); font-size: 15px; transition: color 0.3s; }
+    .footer-social a:hover { color: var(--gold); }
+    .footer-col h4 { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-col p, .footer-col a { font-size: 13px; line-height: 2; color: rgba(255,255,255,0.5); display: block; text-decoration: none; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="assets/style.css" />
-
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .stone-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links, .nav-social { display: none; }
+      .hamburger { display: flex; }
+      .split-section, .split-section.reverse { flex-direction: column; }
+      .split-img { min-height: 300px; }
+      .split-content { padding: 48px 32px; }
+      .stats-grid { grid-template-columns: 1fr; gap: 32px; }
+      .stone-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .catalogue-section, .contact-section, .stats-section, .quote-section { padding: 60px 24px; }
+    }
+  </style>
 </head>
-
 <body>
 
-
-
-  <!-- PRELOADER -->
-
-  <div class="preloader" id="preloader">
-
-    <div class="pre-logo">
-
-      <img src="assets/logo-icon.svg" alt="Marmor Designs Monogram" style="width:72px;height:72px;filter:drop-shadow(0 0 16px rgba(184,144,71,0.5));margin-bottom:12px;" />
-
-      <div class="pre-bar"><div class="pre-fill" id="pre-fill"></div></div>
-
-      <span class="pre-text" id="pre-text">Loading Gallery Slabs...</span>
-
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="index.html"><img src="assets/logo.svg" alt="Marmor Designs"/></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="collections.html">Collections</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="products.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-social">
+      <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.pinterest.com" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fa fa-pinterest"></i></a>
+      <a href="mailto:manankumarbohra11@gmail.com" aria-label="Email"><i class="fa fa-envelope-o"></i></a>
     </div>
+    <div class="hamburger" id="hamburger" onclick="openMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" onclick="closeMobileMenu()"><i class="fa fa-times"></i></span>
+  <a href="index.html" onclick="closeMobileMenu()">Home</a>
+  <a href="collections.html" onclick="closeMobileMenu()">Collections</a>
+  <a href="about.html" onclick="closeMobileMenu()">About</a>
+  <a href="products.html" onclick="closeMobileMenu()">Projects</a>
+  <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- HERO SLIDER -->
+<section class="hero" id="hero">
+  <div class="slide active" id="slide-0">
+    <img src="assets/stones/calacatta.jpg" alt="Calacatta Stone"/>
+    <div class="slide-overlay">
+      <div class="slide-text">
+        <p class="slide-eyebrow">Marmor Designs · Kishangarh</p>
+        <h1 class="slide-title">Rare and Exquisite<br>Stones from Nature</h1>
+        <a href="collections.html" class="slide-btn">Explore Collection</a>
+      </div>
+    </div>
+  </div>
+  <div class="slide" id="slide-1">
+    <img src="assets/stones/malachite.jpg" alt="Malachite Stone"/>
+    <div class="slide-overlay">
+      <div class="slide-text">
+        <p class="slide-eyebrow">Marmor Designs · Kishangarh</p>
+        <h1 class="slide-title">Precious Stones<br>from Around the World</h1>
+        <a href="collections.html" class="slide-btn">Explore Collection</a>
+      </div>
+    </div>
+  </div>
+  <div class="slide" id="slide-2">
+    <img src="assets/stones/labradorite.jpg" alt="Labradorite Stone"/>
+    <div class="slide-overlay">
+      <div class="slide-text">
+        <p class="slide-eyebrow">Marmor Designs · Kishangarh</p>
+        <h1 class="slide-title">Natural Stones with<br>Exotic Surfaces</h1>
+        <a href="collections.html" class="slide-btn">Explore Collection</a>
+      </div>
+    </div>
   </div>
 
-
-
-  <!-- TOP BAR -->
-
-  <div class="topbar" id="topbar">
-
-    <div class="topbar-inner">
-
-      <span class="topbar-msg">✦ India's Finest Natural Marble &amp; Agate Slabs — Pan-India Delivery · Export to UAE, UK &amp; USA</span>
-
-      <div class="topbar-right">
-
-        <a href="products.html" class="tb-link">
-
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
-
-          2026 E-Catalogue
-
-        </a>
-
-        <span class="tb-sep">|</span>
-
-        
-
-        <span class="tb-sep">|</span>
-
-        <a href="mailto:manankumarbohra11@gmail.com" class="tb-link">
-
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-
-          manankumarbohra11@gmail.com
-
-        </a>
-
-      </div>
-
-    </div>
-
+  <div class="slider-arrows">
+    <button class="arrow-btn" onclick="prevSlide()" aria-label="Previous"><i class="fa fa-angle-left"></i></button>
+    <button class="arrow-btn" onclick="nextSlide()" aria-label="Next"><i class="fa fa-angle-right"></i></button>
   </div>
-
-
-
-  <!-- NAVIGATION -->
-
-  <header class="site-header" id="site-header">
-
-    <div class="nav-inner">
-
-      <a class="logo" href="index.html">
-
-        <img src="assets/logo-icon.svg" alt="Marmor Designs" class="logo-img" />
-
-        <div class="logo-text-wrap">
-
-          <span class="logo-name">Marmor Designs</span>
-
-          <span class="logo-tagline">Natural Marble &amp; Agate · Kishangarh</span>
-
-        </div>
-
-      </a>
-
-      <nav class="main-nav">
-
-        <a href="index.html" class="nav-link active">Home</a>
-
-        
-
-        <div class="nav-item">
-
-          <a href="products.html" class="nav-link ">
-
-            Collection <span class="nav-arrow"></span>
-
-          </a>
-
-          <div class="nav-dropdown mega-dropdown">
-
-            <div class="mega-col">
-
-              <div class="dropdown-col-title">By Category</div>
-
-              <a href="products.html?cat=Quartz" class="dropdown-link">Quartz Collection <span class="dropdown-badge">8</span></a>
-
-              <a href="products.html?cat=Agate" class="dropdown-link">Agate Collection <span class="dropdown-badge">8</span></a>
-
-              <a href="products.html?cat=Rare" class="dropdown-link">Rare &amp; Exotic <span class="dropdown-badge">10</span></a>
-
-              <a href="products.html" class="dropdown-link" style="font-weight:600;color:var(--gold);margin-top:6px;">View All 26 Slabs →</a>
-
-            </div>
-
-            <div class="mega-col">
-
-              <div class="dropdown-col-title">By Colour</div>
-
-              <a href="products.html?color=white" class="dropdown-link">White &amp; Statuario</a>
-
-              <a href="products.html?color=beige" class="dropdown-link">Beige &amp; Travertine</a>
-
-              <a href="products.html?color=grey" class="dropdown-link">Smoky Grey &amp; Silver</a>
-
-              <a href="products.html?color=black" class="dropdown-link">Nero Black &amp; Gold</a>
-
-              <a href="products.html?color=green" class="dropdown-link">Malachite &amp; Green</a>
-
-              <a href="products.html?color=blue" class="dropdown-link">Lapis &amp; Blue Agate</a>
-
-            </div>
-
-            <div class="mega-col">
-
-              <div class="dropdown-col-title">Signature Stones</div>
-
-              <a href="products.html?stone=Calacatta%20Gold" class="dropdown-link">Calacatta Gold</a>
-
-              <a href="products.html?stone=Statuario%20White" class="dropdown-link">Statuario White</a>
-
-              <a href="products.html?stone=Malachite%20Royal" class="dropdown-link">Malachite Royal</a>
-
-              <a href="products.html?stone=Blue%20Lapis%20Lazuli" class="dropdown-link">Lapis Lazuli</a>
-
-              <a href="products.html?stone=Amethyst%20Violet" class="dropdown-link">Amethyst Violet</a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="nav-item">
-
-          <a href="index.html#spaces-section" class="nav-link">
-
-            Spaces <span class="nav-arrow"></span>
-
-          </a>
-
-          <div class="nav-dropdown">
-
-            <a href="index.html#spaces-section" class="dropdown-link">Living Room Flooring</a>
-
-            <a href="index.html#spaces-section" class="dropdown-link">Kitchen Countertops</a>
-
-            <a href="index.html#spaces-section" class="dropdown-link">Master Bathroom Vanities</a>
-
-            <a href="index.html#spaces-section" class="dropdown-link">Backlit Feature Walls</a>
-
-            <a href="index.html#spaces-section" class="dropdown-link">Dining Table Tops</a>
-
-          </div>
-
-        </div>
-
-
-
-        <a href="index.html#studio-3d-section" class="nav-link">3D Studio</a>
-
-        <a href="index.html#offers-section" class="nav-link">Cut To Size</a>
-
-        <a href="index.html#tech-section" class="nav-link">Technology</a>
-
-        <a href="about.html" class="nav-link ">About</a>
-
-        <a href="blogs.html" class="nav-link ">Journal</a>
-
-        <a href="contact.html" class="nav-link ">Contact</a>
-
-      </nav>
-
-      <div class="nav-right">
-
-        
-
-        <a href="#quote-section" class="btn-quote">Get a Quote</a>
-
-        <button class="hamburger" id="hamburger" aria-label="Open Menu">
-
-          <span></span><span></span><span></span>
-
-        </button>
-
-      </div>
-
-    </div>
-
-    <!-- MOBILE NAV -->
-
-    <div class="mobile-nav" id="mobile-nav">
-
-      <a href="index.html" class="mob-link active">Home</a>
-
-      <a href="products.html" class="mob-link">Collection</a>
-
-      <a href="index.html#studio-3d-section" class="mob-link">3D Studio</a>
-
-      <a href="index.html#spaces-section" class="mob-link">Spaces</a>
-
-      <a href="index.html#offers-section" class="mob-link">Cut To Size</a>
-
-      <a href="index.html#tech-section" class="mob-link">Technology</a>
-
-      <a href="about.html" class="mob-link">About</a>
-
-      <a href="blogs.html" class="mob-link">Journal</a>
-
-      <a href="contact.html" class="mob-link">Contact</a>
-
-      <a href="contact.html" class="btn-quote" style="margin-top:12px;text-align:center;">Request Free Quote →</a>
-
-    </div>
-
-  </header>
-
-
-
-  <!-- ==================== HERO SECTION ==================== -->
-
-  <section class="hero" id="hero">
-
-    <canvas id="hero-3d-canvas"></canvas>
-
-    <div class="hero-slides">
-
-      <div class="hero-slide active" style="background-image:url('https://i.pinimg.com/736x/27/f7/fe/27f7fea910b7f5bec48de29ed6525883.jpg')"></div>
-
-      <div class="hero-slide" style="background-image:url('https://i.pinimg.com/736x/a2/d6/ce/a2d6ce2f163f65ed84131ae133fe0892.jpg')"></div>
-
-      <div class="hero-slide" style="background-image:url('https://i.pinimg.com/736x/7a/27/96/7a27964cde771dc315727d255fe1b1c4.jpg')"></div>
-
-      <div class="hero-slide" style="background-image:url('https://i.pinimg.com/736x/e4/71/63/e47163bbd9d0638e16d5a56b85ca61c3.jpg')"></div>
-
-      <div class="hero-slide" style="background-image:url('https://i.pinimg.com/736x/f8/49/ed/f849ed0807c1ecf8ea3c009c8b1048f6.jpg')"></div>
-
-      <div class="hero-slide" style="background-image:url('https://i.pinimg.com/736x/ee/b9/0f/eeb90f60ecc95daeed81675d0aacbd79.jpg')"></div>
-
-    </div>
-
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-
-      <div class="hero-eyebrow">
-
-        <span class="gem-pulse">◆</span>
-
-        <span>India's Finest Natural Stone &amp; Agate Slabs — Kishangarh, Rajasthan</span>
-
-      </div>
-
-      <h1 class="hero-title">
-
-        Natural Marble &amp; Agate,<br />
-
-        <em class="hero-em">Cut to Perfection.</em>
-
-      </h1>
-
-      <p class="hero-sub">
-
-        Explore 26 curated varieties of natural agate, quartz, and rare statement marble. Engineered with advanced resin reinforcement and our proprietary jointless finish for seamless, gallery-grade living spaces across India.
-
-      </p>
-
-      <div class="hero-btns">
-        <a href="#collection-section" class="btn-primary">
-          <span>Explore 26 Slabs</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="products.html" class="btn-ghost-hero">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg>
-          <span>Complete Catalogue</span>
-        </a>
-        <a href="#quote-section" class="btn-ghost-hero" style="border-color:rgba(200,164,90,0.5);color:#e2c27a;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span>Request Slab Quote</span>
-        </a>
-      </div>
-
-      <div class="hero-nav-dots">
-
-        <button class="hdot active" data-s="0"></button>
-
-        <button class="hdot" data-s="1"></button>
-
-        <button class="hdot" data-s="2"></button>
-
-        <button class="hdot" data-s="3"></button>
-
-        <button class="hdot" data-s="4"></button>
-
-        <button class="hdot" data-s="5"></button>
-
-      </div>
-
-    </div>
-
-
-
-    <div class="hero-stone-badge">
-
-      <div class="badge-inner">
-
-        <div class="badge-pulse"></div>
-
-        <span class="badge-num">26</span>
-
-        <span class="badge-txt">Curated Stone<br/>Varieties</span>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- MARQUEE TRUST BAR -->
-
-  <div class="trust-marquee">
-
-    <div class="tm-track">
-
-      <div class="tm-inner">
-
-        <span>White Quartz</span><span class="tm-dot">◆</span>
-
-        <span>Blue Agate</span><span class="tm-dot">◆</span>
-
-        <span>Malachite Gemstone</span><span class="tm-dot">◆</span>
-
-        <span>Lapis Lazuli</span><span class="tm-dot">◆</span>
-
-        <span>Calacatta Quartz</span><span class="tm-dot">◆</span>
-
-        <span>Honey Agate Backlit</span><span class="tm-dot">◆</span>
-
-        <span>Amethyst Slab</span><span class="tm-dot">◆</span>
-
-        <span>Onyx White</span><span class="tm-dot">◆</span>
-
-        <span>Tiger Eye</span><span class="tm-dot">◆</span>
-
-        <span>Labradorite</span><span class="tm-dot">◆</span>
-
-        <span>Galaxy Black</span><span class="tm-dot">◆</span>
-
-        <span>Ocean Jasper</span><span class="tm-dot">◆</span>
-
-        <!-- Repeated -->
-
-        <span>White Quartz</span><span class="tm-dot">◆</span>
-
-        <span>Blue Agate</span><span class="tm-dot">◆</span>
-
-        <span>Malachite Gemstone</span><span class="tm-dot">◆</span>
-
-        <span>Lapis Lazuli</span><span class="tm-dot">◆</span>
-
-        <span>Calacatta Quartz</span><span class="tm-dot">◆</span>
-
-        <span>Honey Agate Backlit</span><span class="tm-dot">◆</span>
-
-        <span>Amethyst Slab</span><span class="tm-dot">◆</span>
-
-        <span>Onyx White</span><span class="tm-dot">◆</span>
-
-        <span>Tiger Eye</span><span class="tm-dot">◆</span>
-
-        <span>Labradorite</span><span class="tm-dot">◆</span>
-
-      </div>
-
-    </div>
-
+  <div class="slider-dots">
+    <div class="dot active" onclick="goToSlide(0)"></div>
+    <div class="dot" onclick="goToSlide(1)"></div>
+    <div class="dot" onclick="goToSlide(2)"></div>
   </div>
+</section>
 
+<!-- QUOTE SECTION -->
+<section class="quote-section">
+  <div class="quote-line"></div>
+  <p class="quote-text">
+    "We bring stones whose pristine beauty and fluid lines have adorned the great palaces, inspired famous sculptures and decorated the spaces of the mighty. Every slab is a testimony to nature's artistry, carried from the earth's depths to grace your most cherished spaces."
+  </p>
+  <p class="quote-author">— Marmor Designs, Kishangarh</p>
+</section>
 
-
-  <!-- STATS ROW -->
-
-  <div class="stats-row" id="stats-row">
-
-    <div class="container stats-grid">
-
-      <div class="stat-box">
-
-        <span class="sn" data-count="26">0</span><span class="ss">+</span>
-
-        <span class="sl">Curated Natural Slabs</span>
-
-      </div>
-
-      <div class="sdiv"></div>
-
-      <div class="stat-box">
-
-        <span class="sn" data-count="500">0</span><span class="ss">+</span>
-
-        <span class="sl">Luxury Projects Delivered</span>
-
-      </div>
-
-      <div class="sdiv"></div>
-
-      <div class="stat-box">
-
-        <span class="sn" data-count="12">0</span><span class="ss">+</span>
-
-        <span class="sl">Years of Quarry Mastery</span>
-
-      </div>
-
-      <div class="sdiv"></div>
-
-      <div class="stat-box">
-
-        <span class="sn" data-count="28">0</span><span class="ss"></span>
-
-        <span class="sl">States Served Across India</span>
-
-      </div>
-
-    </div>
-
+<!-- SPLIT: COLLECTIONS -->
+<section class="split-section">
+  <div class="split-img">
+    <img src="assets/stones/statuario.jpg" alt="Stone Collections"/>
   </div>
-
-
-
-  <!-- ========================================================
-
-       NITCO-STYLE: WHAT MAKES OUR MARBLE THE BEST QUALITY
-
-       ======================================================== -->
-
-  <section class="tech-section" id="tech-section">
-
-    <div class="container">
-
-      <div class="sec-head">
-
-        <div class="sec-eye">The Marmor Benchmark</div>
-
-        <h2 class="sec-h2">What Makes Our Marble The Best Quality<br /><em>In The Country</em></h2>
-
-        <p class="sec-p">Engineered in our state-of-the-art Kishangarh marble hub processing facility using multi-stage Italian reinforcement technology to ensure lifetime structural integrity.</p>
-
-      </div>
-
-
-
-      <div class="tech-grid">
-
-        <div class="tech-card">
-
-          <div class="tech-icon-wrap">
-
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-
-          </div>
-
-          <span class="tech-step-tag">Step 01 · Structural Integrity</span>
-
-          <h3>Vacuum Epoxy Resin Impregnation</h3>
-
-          <p>Every natural slab is subjected to deep vacuum chambers where structural epoxy resin penetrates micro-fissures, increasing compressive and flexural strength by over 300%.</p>
-
-        </div>
-
-
-
-        <div class="tech-card">
-
-          <div class="tech-icon-wrap">
-
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
-
-          </div>
-
-          <span class="tech-step-tag">Step 02 · Anti-Crack Security</span>
-
-          <h3>High-Tensile Fiber Mesh Backing</h3>
-
-          <p>Reinforced with bidirectional fiberglass netting and high-grade polymers, safeguarding the stone against breakage during long-distance transit and precision on-site mitering.</p>
-
-        </div>
-
-
-
-        <div class="tech-card">
-
-          <div class="tech-icon-wrap">
-
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
-
-          </div>
-
-          <span class="tech-step-tag">Step 03 · Optical Reflection</span>
-
-          <h3>12-Head Diamond Line Polishing</h3>
-
-          <p>Robotic multi-head diamond polishing brings out a 95+ gloss unit liquid mirror finish without applying temporary waxes or superficial chemical coatings.</p>
-
-        </div>
-
-
-
-        <div class="tech-card">
-
-          <div class="tech-icon-wrap">
-
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
-
-          </div>
-
-          <span class="tech-step-tag">Step 04 · Monolithic Continuity</span>
-
-          <h3>Proprietary Jointless Seam Finish</h3>
-
-          <p>Consecutive dry-lay slab matching combined with custom color-matched stone resin makes seams virtually invisible, creating a continuous monolithic wall.</p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ========================================================
-
-       INTERACTIVE 3D SLAB INSPECTION STUDIO
-
-       ======================================================== -->
-
-  <section class="slab-studio-3d" id="studio-3d-section">
-
-    <div class="container">
-
-      <div class="sec-head">
-
-        <div class="sec-eye">Interactive 3D Experience</div>
-
-        <h2 class="sec-h2">3D Slab Studio<br /><em>Inspect, Rotate &amp; Backlight in 3D</em></h2>
-
-        <p class="sec-p">Experience real-time photorealistic stone rendering. Drag to orbit the 3D slab, toggle transmitted backlight illumination, and simulate butterfly bookmatching.</p>
-
-      </div>
-
-
-
-      <div class="studio-3d-layout">
-
-        <!-- 3D Canvas Viewport -->
-
-        <div class="studio-canvas-wrap">
-
-          <canvas id="studio-3d-canvas"></canvas>
-
-          <div class="studio-overlay-controls">
-
-            <div class="studio-badge-row">
-
-              <span class="sbadge sbadge-live">● Live 3D Viewport</span>
-
-              <span class="sbadge" id="sbadge-stone-name">Calacatta Quartz</span>
-
-              <span class="sbadge" id="sbadge-lighting">Ambient Day Studio</span>
-
-            </div>
-
-            <div class="studio-hint">
-
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM12 6v6l4 2"/></svg>
-
-              <span>Click &amp; drag to rotate slab in 3D · Scroll to zoom</span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- 3D Studio Sidebar Controls -->
-
-        <div class="studio-panel">
-
-          <div class="spanel-group">
-
-            <span class="spanel-label">1. Select 3D Slab Texture</span>
-
-                        <div class="studio-texture-picks" id="studio-texture-picks">
-
-              <button class="stexture-btn active" data-texture="calacatta" data-name="Calacatta Quartz" data-price="₹2,900" data-img="assets/stones/calacatta.jpg" data-backlit="false">
-
-                <img src="https://i.pinimg.com/736x/27/f7/fe/27f7fea910b7f5bec48de29ed6525883.jpg" alt="Calacatta" />
-
-                <span>Calacatta</span>
-
-              </button>
-
-              <button class="stexture-btn" data-texture="blue-agate" data-name="Royal Blue Agate" data-price="₹1,500" data-img="assets/stones/blue-agate.jpg" data-backlit="true">
-
-                <img src="https://i.pinimg.com/736x/a2/d6/ce/a2d6ce2f163f65ed84131ae133fe0892.jpg" alt="Blue Agate" />
-
-                <span>Blue Agate</span>
-
-              </button>
-
-              <button class="stexture-btn" data-texture="malachite" data-name="Velvet Malachite" data-price="₹2,800" data-img="assets/stones/malachite.jpg" data-backlit="false">
-
-                <img src="https://i.pinimg.com/736x/7a/27/96/7a27964cde771dc315727d255fe1b1c4.jpg" alt="Malachite" />
-
-                <span>Malachite</span>
-
-              </button>
-
-              <button class="stexture-btn" data-texture="nero" data-name="Nero Marquina" data-price="₹2,300" data-img="assets/stones/nero-black.jpg" data-backlit="false">
-
-                <img src="https://i.pinimg.com/736x/05/68/b8/0568b872582ecbf6eea2a896d74a7011.jpg" alt="Nero Marquina" />
-
-                <span>Nero Black</span>
-
-              </button>
-
-              <button class="stexture-btn" data-texture="honey" data-name="Honey Agate" data-price="₹2,500" data-img="assets/stones/honey-agate.jpg" data-backlit="true">
-
-                <img src="https://i.pinimg.com/736x/f8/49/ed/f849ed0807c1ecf8ea3c009c8b1048f6.jpg" alt="Honey Agate" />
-
-                <span>Honey Agate</span>
-
-              </button>
-
-              <button class="stexture-btn" data-texture="amethyst" data-name="Amethyst Gemstone" data-price="₹3,300" data-img="assets/stones/amethyst.jpg" data-backlit="true">
-
-                <img src="https://i.pinimg.com/736x/e4/71/63/e47163bbd9d0638e16d5a56b85ca61c3.jpg" alt="Amethyst" />
-
-                <span>Amethyst</span>
-
-              </button>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="spanel-group">
-
-            <span class="spanel-label">2. Interactive 3D Modes</span>
-
-            <div class="studio-mode-toggles">
-
-              <button class="smode-btn" id="sbtn-backlit">
-
-                <span class="sico">✦</span>
-
-                <span class="stxt">Backlit Illumination</span>
-
-                <span class="sstate" id="sstate-backlit">OFF</span>
-
-              </button>
-
-              <button class="smode-btn" id="sbtn-bookmatch">
-
-                <span class="sico">⇋</span>
-
-                <span class="stxt">3D Bookmatch Pair</span>
-
-                <span class="sstate" id="sstate-bookmatch">OFF</span>
-
-              </button>
-
-              <button class="smode-btn active" id="sbtn-autorotate">
-
-                <span class="sico">↺</span>
-
-                <span class="stxt">Studio Auto-Rotate</span>
-
-                <span class="sstate" id="sstate-rotate">ON</span>
-
-              </button>
-
-              <button class="smode-btn" id="sbtn-finish">
-
-                <span class="sico">⎔</span>
-
-                <span class="stxt">Surface Reflection</span>
-
-                <span class="sstate" id="sstate-finish">High Mirror Polish</span>
-
-              </button>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="spanel-pricing">
-
-            <div class="sprice-info">
-
-              <span class="sprice-lbl">Fabricated Rate (+₹300 Tech Included):</span>
-
-              <strong class="sprice-val" id="studio-price">₹2,900 / sq. ft.</strong>
-
-            </div>
-
-            
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ========================================================
-
-       NITCO-STYLE: DUAL BROWSER — BY COLOUR & BY COLLECTION
-
-       ======================================================== -->
-
-  <section class="collection-browser" id="collection-section">
-
-    <div class="container">
-
-      <div class="sec-head">
-
-        <div class="sec-eye">Curated Stone Catalogue</div>
-
-        <h2 class="sec-h2">Our Collection<br /><em>By Colour &amp; By Family</em></h2>
-
-        <p class="sec-p">Explore our gallery-grade slabs with all transparent per-square-foot pricing (+₹300 premium fabrication included). Click any color or collection to filter instantly.</p>
-
-      </div>
-
-
-
-      <!-- Mode Switch (Like NITCO) -->
-
-      <div class="browser-mode-tabs">
-
-        <button class="bmode-btn active" id="mode-colour-btn">✦ By Colour</button>
-
-        <button class="bmode-btn" id="mode-coll-btn">✦ By Collection</button>
-
-      </div>
-
-
-
-                  <!-- By Colour Circular Swatches Grid -->
-
-      <div class="colour-swatches-grid" id="colour-swatches">
-
-        <button class="color-circle-btn active" data-color="all">
-
-          <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/27/f7/fe/27f7fea910b7f5bec48de29ed6525883.jpg');"></div>
-
-          <span class="color-label">All Slabs</span>
-
-        </button>
-
-        <button class="color-circle-btn" data-color="white">
-
-          <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/48/e4/f0/48e4f0469fb2bd902649b6a93435a86f.jpg');"></div>
-
-          <span class="color-label">White</span>
-
-        </button>
-
-        <button class="color-circle-btn" data-color="beige">
-
-          <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/57/01/70/5701706e45c15428126eda5955e4eb82.jpg');"></div>
-
-          <span class="color-label">Beige</span>
-
-        </button>
-
-        <button class="color-circle-btn" data-color="grey">
-
-          <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/26/f0/29/26f02954a66eec797bfc2d0d13c08a3b.jpg');"></div>
-
-          <span class="color-label">Grey</span>
-
-        </button>
-
-        <button class="color-circle-btn" data-color="black">
-
-          <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/05/68/b8/0568b872582ecbf6eea2a896d74a7011.jpg');"></div>
-
-          <span class="color-label">Black</span>
-
-        </button>
-
-        <button class="color-circle-btn" data-color="green">
-
-          <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/7a/27/96/7a27964cde771dc315727d255fe1b1c4.jpg');"></div>
-
-          <span class="color-label">Green</span>
-
-        </button>
-
-        <button class="color-circle-btn" data-color="blue">
-
-          <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/a2/d6/ce/a2d6ce2f163f65ed84131ae133fe0892.jpg');"></div>
-
-          <span class="color-label">Blue</span>
-
-        </button>
-
-        <button class="color-circle-btn" data-color="gold">
-
-          <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/f8/49/ed/f849ed0807c1ecf8ea3c009c8b1048f6.jpg');"></div>
-
-          <span class="color-label">Gold</span>
-
-        </button>
-
-        <button class="color-circle-btn" data-color="rare">
-
-          <div class="c-circle" style="background-image:url('https://i.pinimg.com/736x/e4/71/63/e47163bbd9d0638e16d5a56b85ca61c3.jpg');"></div>
-
-          <span class="color-label">Purple / Rare</span>
-
-        </button>
-
-      </div>
-
-
-
-      <!-- By Collection Filter Tabs (Hidden initially until toggled) -->
-
-      <div class="collection-tabs-row" id="collection-tabs" style="display:none;">
-
-        <button class="col-tab-btn active" data-cat="all">All Collections (26)</button>
-
-        <button class="col-tab-btn" data-cat="Quartz">Quartz Collection (8)</button>
-
-        <button class="col-tab-btn" data-cat="Agate">Agate Collection (8)</button>
-
-        <button class="col-tab-btn" data-cat="Rare">Rare &amp; Statement (10)</button>
-
-      </div>
-
-
-
-      <!-- Live Slabs Grid (JS Rendered) -->
-
-      <div class="prod-grid" id="prod-grid"></div>
-
-
-
-      <div style="text-align:center;margin-top:50px;">
-
-        <a href="products.html" class="btn-primary">
-
-          <span>View All 26 Stones &amp; Detailed Specs</span>
-
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ========================================================
-
-       NITCO-STYLE: MARBLE OF THE MONTH SPOTLIGHT
-
-       ======================================================== -->
-
-  <section class="motm-section" id="motm-section">
-
-    <div class="container">
-
-      <div class="motm-grid">
-
-        <div class="motm-media-wrap">
-
-          <img src="https://i.pinimg.com/736x/a2/d6/ce/a2d6ce2f163f65ed84131ae133fe0892.jpg" alt="Royal Blue Agate Slab - Marmor Designs" />
-
-          <span class="motm-tag">Marble Of The Month</span>
-
-          <div class="motm-bookmatch-badge">
-
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
-
-            <span>Bookmatch Compatible · High Translucency</span>
-
-          </div>
-
-        </div>
-
-        <div>
-
-          <div class="sec-eye">Signature Spotlight</div>
-
-          <h2 class="sec-h2" style="text-align:left;">Royal Blue Agate<br /><em>Backlit Sensation</em></h2>
-
-          <p style="font-size:1.05rem;line-height:1.75;color:var(--text-secondary);margin-bottom:20px;">
-
-            Celebrated by top Indian architects for luxury penthouse bars and double-height villa lobbies. Concentric bands of sapphire, cerulean, and crystalline quartz radiate an ethereal ambient glow when illuminated from behind.
-
-          </p>
-
-
-
-          <div class="motm-specs-grid">
-
-            <div class="motm-spec-item">
-
-              <span>Updated Rate</span>
-
-              <strong style="color:var(--gold);font-family:var(--serif);font-size:1.35rem;">₹1,500 / sq. ft.</strong>
-
-            </div>
-
-            <div class="motm-spec-item">
-
-              <span>Thickness</span>
-
-              <strong>20mm Calibrated</strong>
-
-            </div>
-
-            <div class="motm-spec-item">
-
-              <span>Finish</span>
-
-              <strong>Gemstone Polish</strong>
-
-            </div>
-
-            <div class="motm-spec-item">
-
-              <span>Recommended Light</span>
-
-              <strong>3000K – 4000K Warm LED</strong>
-
-            </div>
-
-          </div>
-
-
-
-          <div style="display:flex;gap:16px;flex-wrap:wrap;">
-
-            
-
-            <a href="contact.html?stone=Blue%20Agate" class="btn-outline-dark">Request Quotation</a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ========================================================
-
-       NITCO-STYLE: OUR CUSTOMISED OFFERS (CUT TO SIZE & DESIGN)
-
-       ======================================================== -->
-
-  <section class="offers-section" id="offers-section">
-
-    <div class="container">
-
-      <div class="sec-head">
-
-        <div class="sec-eye">Bespoke Architectural Services</div>
-
-        <h2 class="sec-h2">Our Customised Offers</h2>
-
-        <p class="sec-p">Tailored factory solutions designed to eliminate on-site cutting hassle, dust, and material wastage for architects, builders, and homeowners.</p>
-
-      </div>
-
-
-
-      <div class="offers-grid">
-
-        <div class="offer-card">
-
-          <div class="offer-media">
-
-            <img src="https://i.pinimg.com/736x/77/6d/5d/776d5d29f986a30b4e000826d7a71b2e.jpg" alt="Cut to size marble service" />
-
-            <span class="offer-badge">Precision Engineering</span>
-
-          </div>
-
-          <div class="offer-body">
-
-            <h3>Cut To Size Marble</h3>
-
-            <p>
-
-              Our cut-to-size service offers you the convenience and flexibility to tailor stone slabs according to your exact CAD floor plans. Whether for intricate living room flooring, vanity tops, or staircase treads, our 5-axis CNC bridges ensure sub-millimeter precision, delivered numbered and ready to install without site wastage.
-
-            </p>
-
-            <a href="contact.html?service=CutToSize" class="btn-primary" style="width:fit-content;">Enquire For Cut To Size →</a>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="offer-card">
-
-          <div class="offer-media">
-
-            <img src="https://i.pinimg.com/736x/ed/71/00/ed7100438cf2a90151ae7151af732533.jpg" alt="Design with Marmor 3D consultation" />
-
-            <span class="offer-badge">Design Studio</span>
-
-          </div>
-
-          <div class="offer-body">
-
-            <h3>Design With Marmor</h3>
-
-            <p>
-
-              Collaborate directly with our stone engineers. We provide 3D room rendering mockups, vein-matching simulations, and physical dry-lay videos of actual available lot numbers before dispatch, giving you absolute certainty of the final aesthetic outcome.
-
-            </p>
-
-            <a href="contact.html?service=DesignConsultation" class="btn-primary" style="width:fit-content;">Book Design Consultation →</a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ========================================================
-
-       NITCO-STYLE: MARBLE BY SPACES
-
-       ======================================================== -->
-
-  <section class="spaces-section" id="spaces-section">
-
-    <div class="container">
-
-      <div class="sec-head">
-
-        <div class="sec-eye">Application Gallery</div>
-
-        <h2 class="sec-h2">Marble by Spaces</h2>
-
-        <p class="sec-p">From monumental double-height living walls to serene sacred temple sanctuaries, explore how our stone surfaces redefine luxury Indian residences.</p>
-
-      </div>
-
-
-
-      <div class="spaces-grid">
-
-        <div class="space-card">
-
-          <img src="https://i.pinimg.com/736x/27/f7/fe/27f7fea910b7f5bec48de29ed6525883.jpg" alt="Living Room Feature Wall Marble" />
-
-          <div class="space-overlay"></div>
-
-          <div class="space-content">
-
-            <h3>Living Room</h3>
-
-            <p>Monolithic feature walls and seamless flooring that anchor the home.</p>
-
-            <a href="products.html?space=living" class="space-link">Explore Living Room Stones →</a>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="space-card">
-
-          <img src="https://i.pinimg.com/736x/48/e4/f0/48e4f0469fb2bd902649b6a93435a86f.jpg" alt="Kitchen Island Countertop Quartz" />
-
-          <div class="space-overlay"></div>
-
-          <div class="space-content">
-
-            <h3>Kitchen &amp; Island</h3>
-
-            <p>Non-porous, stain-resistant Quartz waterfall countertops.</p>
-
-            <a href="products.html?cat=Quartz" class="space-link">Explore Kitchen Slabs →</a>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="space-card">
-
-          <img src="https://i.pinimg.com/736x/ab/50/77/ab5077872cb922a61dab7d1607d2d49d.jpg" alt="Bathroom Marble Vanity" />
-
-          <div class="space-overlay"></div>
-
-          <div class="space-content">
-
-            <h3>Master Bathroom</h3>
-
-            <p>Spa-grade integrated vanities and full-height shower walls.</p>
-
-            <a href="products.html?space=bathroom" class="space-link">Explore Bathroom Slabs →</a>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="space-card">
-
-          <img src="https://i.pinimg.com/736x/a2/d6/ce/a2d6ce2f163f65ed84131ae133fe0892.jpg" alt="Backlit Bar Agate Panel" />
-
-          <div class="space-overlay"></div>
-
-          <div class="space-content">
-
-            <h3>Bar &amp; Lounges</h3>
-
-            <p>Glowing translucent Agate and Onyx panels that illuminate evening gatherings.</p>
-
-            <a href="products.html?cat=Agate" class="space-link">Explore Backlit Agates →</a>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="space-card">
-
-          <img src="https://i.pinimg.com/736x/ab/50/77/ab5077872cb922a61dab7d1607d2d49d.jpg" alt="Pooja Room Mandir Stone" />
-
-          <div class="space-overlay"></div>
-
-          <div class="space-content">
-
-            <h3>Pooja &amp; Temple</h3>
-
-            <p>Sacred White Quartz and translucent Onyx designed for divine peace.</p>
-
-            <a href="products.html?space=pooja" class="space-link">Explore Pooja Stones →</a>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="space-card">
-
-          <img src="https://i.pinimg.com/736x/7a/27/96/7a27964cde771dc315727d255fe1b1c4.jpg" alt="Hotel Lobby Marble Cladding" />
-
-          <div class="space-overlay"></div>
-
-          <div class="space-content">
-
-            <h3>Commercial &amp; Lobbies</h3>
-
-            <p>Showpiece Malachite, Lapis and Galaxy Granite for corporate impact.</p>
-
-            <a href="products.html?cat=Rare" class="space-link">Explore Statement Slabs →</a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ========================================================
-
-       NITCO-STYLE: ARCHITECT / PROJECT SPOTLIGHT
-
-       ======================================================== -->
-
-  <section class="spotlight-section" id="spotlight-section">
-
-    <div class="container">
-
-      <div class="sec-head">
-
-        <div class="sec-eye">Real Case Studies</div>
-
-        <h2 class="sec-h2">Architect &amp; Project Spotlight</h2>
-
-        <p class="sec-p">Explore recent high-profile residential penthouses and boutique hotels executed with our Kishangarh fabricated slabs.</p>
-
-      </div>
-
-
-
-      <div class="spotlight-wrap">
-
-        <div class="spot-card">
-
-          <div class="spot-media">
-
-            <img src="https://i.pinimg.com/736x/27/f7/fe/27f7fea910b7f5bec48de29ed6525883.jpg" alt="Worli Mumbai Penthouse Project" />
-
-          </div>
-
-          <div class="spot-body">
-
-            <span class="spot-arch-name">Ar. Sanjay Parekh · Mumbai</span>
-
-            <h3>Sea-Facing Penthouse, Worli</h3>
-
-            <p>"Marmor Designs delivered 600 sq. ft. of Calacatta Quartz and book-matched Honey Agate with zero joint discrepancies. The factory cut-to-size service saved us two weeks on site."</p>
-
-            <div class="spot-stone-used">Stone Specified: <strong>Calacatta Quartz &amp; Honey Agate</strong></div>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="spot-card">
-
-          <div class="spot-media">
-
-            <img src="https://i.pinimg.com/736x/a2/d6/ce/a2d6ce2f163f65ed84131ae133fe0892.jpg" alt="Jaipur Luxury Heritage Villa Project" />
-
-          </div>
-
-          <div class="spot-body">
-
-            <span class="spot-arch-name">Studio Vistara · Jaipur</span>
-
-            <h3>The Royal Heritage Villa, Jaipur</h3>
-
-            <p>"The backlit Blue Agate wall at the central courtyard has become the soul of the villa. The light diffusion is perfectly homogeneous without hotspots. Unbeatable craftsmanship."</p>
-
-            <div class="spot-stone-used">Stone Specified: <strong>Blue Agate Translucent 20mm</strong></div>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="spot-card">
-
-          <div class="spot-media">
-
-            <img src="https://i.pinimg.com/736x/7a/27/96/7a27964cde771dc315727d255fe1b1c4.jpg" alt="Prestige Penthouse Bangalore Project" />
-
-          </div>
-
-          <div class="spot-body">
-
-            <span class="spot-arch-name">Prestige Group Design Lab · Bangalore</span>
-
-            <h3>Presidential Suite, Bangalore</h3>
-
-            <p>"Finding true gem-grade Malachite in large slab formats is extraordinarily difficult in India. Marmor Designs provided certified slabs with full transit insurance directly to our site."</p>
-
-            <div class="spot-stone-used">Stone Specified: <strong>Malachite Royal Gem Slab</strong></div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ========================================================
-
-       NITCO-STYLE: ORDER FREE STONE SAMPLE BOX BANNER
-
-       ======================================================== -->
-
-  <div class="sample-banner">
-
-    <div class="container sample-inner">
-
-      <div class="sample-text">
-
-        <h3>Order a Curated Stone Sample Box</h3>
-
-        <p>Experience the mineral crystallization, diamond polish, and natural weight in your hands. Choose up to 3 stone varieties, delivered securely to your home or studio across India.</p>
-
-      </div>
-
-      <div>
-
-        <a href="contact.html?request=SampleBox" class="btn-primary" style="background:#fff;color:#0E0C09;box-shadow:0 8px 30px rgba(0,0,0,0.5);">
-
-          <span>Order Sample Box →</span>
-
-        </a>
-
-      </div>
-
-    </div>
-
+  <div class="split-content">
+    <p class="split-eyebrow">Our Portfolio</p>
+    <h2 class="split-title">C O L L E C T I O N S</h2>
+    <p class="split-desc">From ethereal white quartzite to deep oceanic agate, our curated collection of 26 natural stones offers unparalleled variety for architects, designers and discerning homeowners. Each stone is hand-selected for its unique character and flawless quality.</p>
+    <a href="collections.html" class="split-link">View All Collections</a>
   </div>
-
-
-
-  <!-- ==================== QUOTE & ENQUIRY FORM ==================== -->
-
-  <section class="quote-sec" id="quote-section">
-
-    <div class="qbg" style="background-image:url('https://i.pinimg.com/736x/05/68/b8/0568b872582ecbf6eea2a896d74a7011.jpg')"></div>
-
-    <div class="qoverlay"></div>
-
-    <div class="container qinner">
-
-      <div>
-
-        <div class="sec-eye" style="color:var(--gold)">Fast Quotation</div>
-
-        <h2 class="sec-h2" style="color:#fff;text-align:left;">Have a Space in Mind?<br /><em style="color:var(--gold)">Let's Price<br />Your Slabs.</em></h2>
-
-        <p style="color:rgba(255,255,255,0.65);margin-top:16px;line-height:1.75;font-size:1.02rem;">
-
-          Share your space dimensions, preferred stone, and application type. Our senior Kishangarh stone estimators will review your requirements and provide an itemized quote and lot photos within 24 hours.
-
-        </p>
-
-
-
-        <div style="margin-top:30px;display:flex;flex-direction:column;gap:12px;">
-
-          <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:#fff;">
-
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
-
-            Transparent +₹300/sq.ft Premium Rate Guarantee Included
-
-          </div>
-
-          <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:#fff;">
-
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
-
-            Doorstep Delivery Across All 28 Indian States &amp; UAE Export
-
-          </div>
-
-          <div style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:#fff;">
-
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
-
-            High-Definition 4K Video Walkthrough of Available Lots
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="qform-wrap">
-
-        <form id="quote-form" novalidate>
-
-          <div class="qf-head">
-
-            <h3>Request Official Slab Quote</h3>
-
-            <p>Quick response guaranteed within 24 hours.</p>
-
-          </div>
-
-
-
-          <div class="frow">
-            <div class="fg">
-              <label for="fn">Your Name *</label>
-              <input type="text" id="fn" placeholder="Architect or Client Name" required />
-            </div>
-            <div class="fg">
-              <label for="fe">Your Email Address *</label>
-              <input type="email" id="fe" placeholder="manankumarbohra11@gmail.com" required />
-            </div>
-          </div>
-
-          <div class="frow">
-            <div class="fg">
-              <label for="fc">City / Delivery Location *</label>
-              <input type="text" id="fc" placeholder="Mumbai, Delhi, Bangalore, Jaipur..." required />
-            </div>
-            <div class="fg">
-              <label for="fapp">Application</label>
-              <select id="fapp">
-                <option value="">Select Application</option>
-                <option>Living Room Feature Wall</option>
-                <option>Kitchen Island &amp; Counter</option>
-                <option>Bathroom Vanity / Shower</option>
-                <option>Backlit Bar Counter</option>
-                <option>Pooja Room Mandir</option>
-                <option>Dining Table Top</option>
-                <option>Exterior Cladding</option>
-              </select>
-            </div>
-          </div>
-
-
-
-          <div class="frow">
-
-            <div class="fg">
-
-              <label for="fapp">Application</label>
-
-              <select id="fapp">
-
-                <option value="">Select Application</option>
-
-                <option>Living Room Feature Wall</option>
-
-                <option>Kitchen Island &amp; Counter</option>
-
-                <option>Bathroom Vanity / Shower</option>
-
-                <option>Backlit Bar Counter</option>
-
-                <option>Pooja Room Mandir</option>
-
-                <option>Staircase Cladding</option>
-
-                <option>Custom Furniture</option>
-
-              </select>
-
-            </div>
-
-            <div class="fg">
-
-              <label for="fstone">Preferred Stone Variety</label>
-
-              <select id="fstone">
-
-                <option value="">Suggest best stone for my space</option>
-
-                <optgroup label="— Quartz —">
-
-                  <option>White Quartz (₹1,500/sq.ft)</option>
-
-                  <option>Rose Quartz (₹1,800/sq.ft)</option>
-
-                  <option>Calacatta Quartz (₹2,900/sq.ft)</option>
-
-                  <option>Grey Veined Quartz (₹2,100/sq.ft)</option>
-
-                  <option>Black Quartz (₹2,300/sq.ft)</option>
-
-                </optgroup>
-
-                <optgroup label="— Agate —">
-
-                  <option>Blue Agate (₹1,500/sq.ft)</option>
-
-                  <option>Green Agate (₹1,700/sq.ft)</option>
-
-                  <option>Honey Agate (₹2,500/sq.ft)</option>
-
-                  <option>Purple Agate (₹3,300/sq.ft)</option>
-
-                  <option>White Agate (₹1,800/sq.ft)</option>
-
-                </optgroup>
-
-                <optgroup label="— Rare & Statement —">
-
-                  <option>Malachite (₹2,800/sq.ft)</option>
-
-                  <option>Lapis Lazuli (₹3,800/sq.ft)</option>
-
-                  <option>Amethyst Slab (₹3,300/sq.ft)</option>
-
-                  <option>Onyx White (₹4,300/sq.ft)</option>
-
-                  <option>Labradorite (₹5,300/sq.ft)</option>
-
-                </optgroup>
-
-              </select>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="fg">
-
-            <label for="fmsg">Project Scope (Area in sq. ft., timeline, notes)</label>
-
-            <textarea id="fmsg" rows="3" placeholder="E.g. 150 sq. ft. feature wall in Mumbai, require backlit blue agate with installation guidance..."></textarea>
-
-          </div>
-
-
-
-          <button type="submit" class="btn-primary btn-full" id="qsubmit">
-
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9 22,2"/></svg>
-
-            <span>Send My Enquiry</span>
-
-          </button>
-
-
-
-          <p class="form-note">
-
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-
-            Your information is strictly confidential. No spam, ever.
-
-          </p>
-
-
-
-          <div class="form-ok" id="form-ok" style="display:none">
-
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2EA843" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
-
-            <span>Thank you! Our senior stone estimator will contact you within 24 hours.</span>
-
-          </div>
-
-        </form>
-
-      </div>
-
+</section>
+
+<!-- SPLIT: SHOWROOM -->
+<section class="split-section reverse">
+  <div class="split-img">
+    <img src="assets/stones/rose-quartz.jpg" alt="Marmor Showroom"/>
+  </div>
+  <div class="split-content">
+    <p class="split-eyebrow">Experience</p>
+    <h2 class="split-title">S H O W R O O M</h2>
+    <p class="split-desc">Visit our expansive showroom in the heart of Kishangarh — the stone capital of India. Touch, feel and witness the true grandeur of each stone under natural and curated lighting. Our experts guide you to find the perfect stone for your vision.</p>
+    <a href="contact.html" class="split-link">Get Directions</a>
+  </div>
+</section>
+
+<!-- SPLIT: STUDIO -->
+<section class="split-section">
+  <div class="split-img">
+    <img src="assets/stones/tiger-eye.jpg" alt="Marmor Studio"/>
+  </div>
+  <div class="split-content">
+    <p class="split-eyebrow">Craftsmanship</p>
+    <h2 class="split-title">S T U D I O</h2>
+    <p class="split-desc">Our precision stone studio handles bespoke cut-to-size requirements, custom edge profiles and surface finishes — from polished mirror to honed matte and leathered textures. Every slab is processed with state-of-the-art Italian machinery.</p>
+    <a href="about.html" class="split-link">Learn More</a>
+  </div>
+</section>
+
+<!-- SPLIT: PROJECTS -->
+<section class="split-section reverse">
+  <div class="split-img">
+    <img src="assets/stones/honey-agate.jpg" alt="Marmor Projects"/>
+  </div>
+  <div class="split-content">
+    <p class="split-eyebrow">Our Work</p>
+    <h2 class="split-title">P R O J E C T S</h2>
+    <p class="split-desc">From luxury hotels and corporate headquarters to private residences and boutique interiors, our stones have graced some of India's most distinguished spaces. Browse our portfolio of completed installations across the country.</p>
+    <a href="products.html" class="split-link">View Projects</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-number" data-target="500">0</div>
+      <div class="stat-label">Projects Completed</div>
     </div>
-
-  </section>
-
-
-
-  <!-- ==================== FOOTER ==================== -->
-
-  <footer class="site-footer" id="footer">
-
-    <div class="footer-main">
-
-      <div class="container footer-grid">
-
-        <div class="fcol fcol-brand">
-
-          <div class="footer-logo">
-
-            <img src="assets/logo.svg" alt="Marmor Designs" class="flogo-img" style="height:54px;width:auto;" />
-
-          </div>
-
-          <p>India's premier curator of natural marble, agate, quartz and rare statement stone slabs. Sourced, reinforced, and fabricated in Kishangarh, Rajasthan.</p>
-
-          <div class="f-socials">
-
-            <a href="https://instagram.com/marmordesigns" target="_blank" class="fsoc" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-
-            <a href="https://facebook.com/marmordesigns" target="_blank" class="fsoc" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-
-            <a href="https://pinterest.com/marmordesigns" target="_blank" class="fsoc" aria-label="Pinterest"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
-
-            <a href="https://youtube.com/@marmordesigns" target="_blank" class="fsoc" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-
-            
-
-          </div>
-
-        </div>
-
-
-
-        <div class="fcol">
-
-          <h4>Navigate</h4>
-
-          <a href="index.html">Home</a>
-
-          <a href="about.html">About Us</a>
-
-          <a href="products.html">All 26 Slabs &amp; Prices</a>
-
-          <a href="#offers-section">Cut To Size Service</a>
-
-          <a href="#tech-section">Technology &amp; Quality</a>
-
-          <a href="blogs.html">Architectural Journal</a>
-
-          <a href="contact.html">Contact Us</a>
-
-        </div>
-
-
-
-        <div class="fcol">
-
-          <h4>By Collection</h4>
-
-          <a href="products.html?cat=Quartz">Quartz Range (8)</a>
-
-          <a href="products.html?cat=Agate">Agate Range (8)</a>
-
-          <a href="products.html?cat=Rare">Rare &amp; Statement (10)</a>
-
-          <a href="products.html">Backlit Onyx Slabs</a>
-
-          <a href="products.html">Transparent Price List</a>
-
-        </div>
-
-
-
-        <div class="fcol fcol-contact">
-
-          <h4>Get In Touch</h4>
-
-          <a href="tel:" class="fcontact-item">
-
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.33a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-
-            
-
-          </a>
-
-          <a href="mailto:manankumarbohra11@gmail.com" class="fcontact-item">
-
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-
-            manankumarbohra11@gmail.com
-
-          </a>
-
-          <div class="fcontact-item">
-
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-
-            Kishangarh Marble Industrial Area, NH-8 Ajmer Expressway, Rajasthan — 305801
-
-          </div>
-
-          
-
-        </div>
-
-      </div>
-
+    <div>
+      <div class="stat-number" data-target="26">0</div>
+      <div class="stat-label">Unique Stones</div>
     </div>
-
-    <div class="footer-btm">
-
-      <div class="container fbtm-inner">
-
-        <span>© 2026 Marmor Designs. All Rights Reserved. Kishangarh, Rajasthan, India.</span>
-
-        <div class="fbtm-legal">
-
-          <a href="#">Privacy Policy</a>
-
-          <a href="#">Terms of Service</a>
-
-          <a href="#">Sitemap</a>
-
-        </div>
-
-      </div>
-
+    <div>
+      <div class="stat-number" data-target="1000">0</div>
+      <div class="stat-label">Happy Clients</div>
     </div>
+  </div>
+</section>
 
-  </footer>
+<!-- STONE CATALOGUE -->
+<section class="catalogue-section">
+  <div class="section-header">
+    <p class="section-eyebrow">Natural Stone Gallery</p>
+    <h2 class="section-title">O U R &nbsp; S T O N E S</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="stone-grid">
+    <!-- Quartz -->
+    <div class="stone-card">
+      <div class="stone-card-img">
+        <img src="assets/stones/calacatta.jpg" alt="Calacatta Quartz"/>
+      </div>
+      <div class="stone-card-body">
+        <div class="stone-name">Calacatta Quartz</div>
+        <div class="stone-price">₹3,200 / sqft</div>
+      </div>
+    </div>
+    <div class="stone-card">
+      <div class="stone-card-img">
+        <img src="assets/stones/rose-quartz.jpg" alt="Rose Quartz"/>
+      </div>
+      <div class="stone-card-body">
+        <div class="stone-name">Rose Quartz</div>
+        <div class="stone-price">₹2,100 / sqft</div>
+      </div>
+    </div>
+    <div class="stone-card">
+      <div class="stone-card-img">
+        <img src="assets/stones/grey-vein.jpg" alt="Grey Veined Quartz"/>
+      </div>
+      <div class="stone-card-body">
+        <div class="stone-name">Grey Veined Quartz</div>
+        <div class="stone-price">₹2,200 / sqft</div>
+      </div>
+    </div>
+    <!-- Agate -->
+    <div class="stone-card">
+      <div class="stone-card-img">
+        <img src="assets/stones/blue-agate.jpg" alt="Blue Agate"/>
+      </div>
+      <div class="stone-card-body">
+        <div class="stone-name">Blue Agate</div>
+        <div class="stone-price">₹4,500 / sqft</div>
+      </div>
+    </div>
+    <div class="stone-card">
+      <div class="stone-card-img">
+        <img src="assets/stones/green-agate.jpg" alt="Green Agate"/>
+      </div>
+      <div class="stone-card-body">
+        <div class="stone-name">Green Agate</div>
+        <div class="stone-price">₹4,200 / sqft</div>
+      </div>
+    </div>
+    <div class="stone-card">
+      <div class="stone-card-img">
+        <img src="assets/stones/honey-agate.jpg" alt="Honey Agate"/>
+      </div>
+      <div class="stone-card-body">
+        <div class="stone-name">Honey Agate</div>
+        <div class="stone-price">₹4,100 / sqft</div>
+      </div>
+    </div>
+    <!-- Rare -->
+    <div class="stone-card">
+      <div class="stone-card-img">
+        <img src="assets/stones/malachite.jpg" alt="Malachite"/>
+      </div>
+      <div class="stone-card-body">
+        <div class="stone-name">Malachite</div>
+        <div class="stone-price">₹6,500 / sqft</div>
+      </div>
+    </div>
+    <div class="stone-card">
+      <div class="stone-card-img">
+        <img src="assets/stones/lapis-lazuli.jpg" alt="Lapis Lazuli"/>
+      </div>
+      <div class="stone-card-body">
+        <div class="stone-name">Lapis Lazuli</div>
+        <div class="stone-price">₹6,200 / sqft</div>
+      </div>
+    </div>
+    <div class="stone-card">
+      <div class="stone-card-img">
+        <img src="assets/stones/amethyst.jpg" alt="Amethyst"/>
+      </div>
+      <div class="stone-card-body">
+        <div class="stone-name">Amethyst</div>
+        <div class="stone-price">₹5,800 / sqft</div>
+      </div>
+    </div>
+    <div class="stone-card">
+      <div class="stone-card-img">
+        <img src="assets/stones/tiger-eye.jpg" alt="Tiger Eye"/>
+      </div>
+      <div class="stone-card-body">
+        <div class="stone-name">Tiger Eye</div>
+        <div class="stone-price">₹5,500 / sqft</div>
+      </div>
+    </div>
+    <div class="stone-card">
+      <div class="stone-card-img">
+        <img src="assets/stones/labradorite.jpg" alt="Labradorite"/>
+      </div>
+      <div class="stone-card-body">
+        <div class="stone-name">Labradorite</div>
+        <div class="stone-price">₹6,800 / sqft</div>
+      </div>
+    </div>
+    <div class="stone-card">
+      <div class="stone-card-img">
+        <img src="assets/stones/white-onyx.jpg" alt="Onyx White"/>
+      </div>
+      <div class="stone-card-body">
+        <div class="stone-name">Onyx White</div>
+        <div class="stone-price">₹5,000 / sqft</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:48px;">
+    <a href="collections.html" class="slide-btn">View All 26 Stones</a>
+  </div>
+</section>
 
+<!-- CONTACT FORM -->
+<section class="contact-section">
+  <div class="section-header">
+    <p class="section-eyebrow">We'd Love to Hear from You</p>
+    <h2 class="section-title">G E T &nbsp; I N &nbsp; T O U C H</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-wrap">
+    <form action="mailto:manankumarbohra11@gmail.com" method="post" enctype="text/plain">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Full Name" required/>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required/>
+      </div>
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="Tell us about your project or enquiry..." required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send Message</button>
+    </form>
+  </div>
+</section>
 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo"><img src="assets/logo.svg" alt="Marmor Designs"/></div>
+      <p class="footer-desc">India's premier curator of natural marble, agate, quartz and rare stone slabs. Handpicked from nature, crafted to perfection — from Kishangarh to your space.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.pinterest.com" target="_blank" rel="noopener"><i class="fa fa-pinterest"></i></a>
+        <a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p>Kishangarh, Rajasthan, India</p>
+      <a href="mailto:manankumarbohra11@gmail.com">manankumarbohra11@gmail.com</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="collections.html">Collections</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2024 Marmor Designs. All rights reserved. &nbsp;|&nbsp; Kishangarh, Rajasthan
+  </div>
+</footer>
 
-  <!-- FLOATING WHATSAPP -->
+<script>
+  // NAVBAR SCROLL
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
 
-  
+  // MOBILE MENU
+  function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+  function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
 
+  // HERO SLIDER
+  let currentSlide = 0;
+  const totalSlides = 3;
+  let sliderInterval;
 
+  function updateSlider() {
+    document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+  }
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlider();
+    resetInterval();
+  }
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlider();
+    resetInterval();
+  }
+  function goToSlide(n) {
+    currentSlide = n;
+    updateSlider();
+    resetInterval();
+  }
+  function resetInterval() {
+    clearInterval(sliderInterval);
+    sliderInterval = setInterval(nextSlide, 5000);
+  }
+  sliderInterval = setInterval(nextSlide, 5000);
 
-  <!-- BACK TO TOP -->
-
-  <button class="btt" id="btt" aria-label="Back to top">
-
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
-
-  </button>
-
-
-
-  <!-- Three.js Library -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-  <script src="assets/script.js"></script>
-
+  // STATS COUNTER
+  function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-target'));
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = Math.floor(current) + (target >= 100 ? '+' : '');
+      if (current >= target) clearInterval(timer);
+    }, 16);
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-number').forEach(el => observer.observe(el));
+</script>
 </body>
-
 </html>
-
