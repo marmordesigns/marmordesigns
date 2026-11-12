@@ -1,792 +1,290 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-
-  <link rel="alternate icon" href="assets/logo-icon.svg" />
-
-  <meta charset="UTF-8" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>About Marmor Designs | Natural Stone Masters — Kishangarh, Rajasthan</title>
-
-  <meta name="description" content="Discover the story, quarry heritage and precision craftsmanship of Marmor Designs. Sourcing rare agate and quartz with jointless finish from Kishangarh to the world." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="assets/style.css" />
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Marmor Designs — From the Heart of Rajasthan</title>
+  <meta name="description" content="Marmor Designs — our story, mission and vision. Premium natural stone curators based in Kishangarh, the stone capital of India."/>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --gold: #c9a84c; --black: #000; --dark: #0a0a0a; --dark2: #111; --white: #fff; --grey: #888; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 300; overflow-x: hidden; }
 
-    .story-grid {
+    /* NAVBAR */
+    nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(0,0,0,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .nav-logo img { height: 48px; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { color: var(--white); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-social { display: flex; gap: 16px; align-items: center; }
+    .nav-social a { color: var(--grey); font-size: 15px; transition: color 0.3s; }
+    .nav-social a:hover { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 36px; }
+    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .hamburger span { width: 24px; height: 1px; background: var(--white); display: block; }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; background: rgba(0,0,0,0.97); flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--white); text-decoration: none; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; cursor: pointer; color: var(--white); }
 
-      display: grid;
+    /* PAGE HERO */
+    .page-hero { height: 65vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .page-hero-bg { position: absolute; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1208 0%, #0a0804 50%, #1a1208 100%); }
+    .page-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+    .page-eyebrow { font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
+    .page-title { font-size: clamp(28px, 5vw, 60px); font-weight: 100; letter-spacing: 12px; text-transform: uppercase; text-align: center; }
+    .page-line { width: 60px; height: 1px; background: var(--gold); margin: 20px auto 0; }
 
-      grid-template-columns: 1.1fr 1fr;
+    /* STORY SECTION */
+    .story-section { display: flex; min-height: 580px; }
+    .story-content { flex: 1; background: var(--dark2); display: flex; flex-direction: column; justify-content: center; padding: 72px 64px; }
+    .story-eyebrow { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+    .story-title { font-size: clamp(22px, 3vw, 36px); font-weight: 100; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--gold); display: inline-block; }
+    .story-text { font-size: 14px; line-height: 2; color: rgba(255,255,255,0.7); margin-bottom: 16px; max-width: 500px; }
+    .story-img { flex: 1; overflow: hidden; }
+    .story-img img { width: 100%; height: 100%; object-fit: cover; }
 
-      gap: 60px;
+    /* MISSION/VISION */
+    .mv-section { background: var(--dark); padding: 90px 48px; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-eyebrow { font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
+    .section-title { font-size: clamp(24px, 3vw, 42px); font-weight: 100; letter-spacing: 8px; text-transform: uppercase; }
+    .section-line { width: 60px; height: 1px; background: var(--gold); margin: 20px auto 0; }
+    .mv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto; }
+    .mv-card { background: var(--dark2); padding: 48px 32px; text-align: center; border: 1px solid rgba(201,168,76,0.1); transition: border-color 0.3s; }
+    .mv-card:hover { border-color: rgba(201,168,76,0.4); }
+    .mv-icon { font-size: 32px; color: var(--gold); margin-bottom: 20px; }
+    .mv-card h3 { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; font-weight: 400; }
+    .mv-card p { font-size: 13px; line-height: 1.9; color: rgba(255,255,255,0.6); }
 
-      align-items: center;
+    /* WHY CHOOSE US */
+    .why-section { background: var(--black); padding: 90px 48px; }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .why-card { padding: 40px 24px; border: 1px solid rgba(255,255,255,0.06); text-align: center; transition: all 0.3s; }
+    .why-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-4px); }
+    .why-num { font-size: 48px; font-weight: 100; color: var(--gold); opacity: 0.4; margin-bottom: 12px; }
+    .why-card h3 { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; font-weight: 400; }
+    .why-card p { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.55); }
 
-      margin-bottom: 90px;
+    /* STATS */
+    .stats-section { background: var(--dark2); padding: 90px 48px; border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; max-width: 900px; margin: 0 auto; text-align: center; }
+    .stat-number { font-size: clamp(40px, 6vw, 72px); font-weight: 100; color: var(--gold); letter-spacing: 4px; }
+    .stat-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 8px; }
 
+    /* FOOTER */
+    footer { background: #050505; padding: 72px 48px 32px; border-top: 1px solid rgba(201,168,76,0.15); }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-logo img { height: 40px; margin-bottom: 20px; }
+    .footer-desc { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 14px; }
+    .footer-social a { color: rgba(255,255,255,0.4); font-size: 15px; transition: color 0.3s; }
+    .footer-social a:hover { color: var(--gold); }
+    .footer-col h4 { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-col p, .footer-col a { font-size: 13px; line-height: 2; color: rgba(255,255,255,0.5); display: block; text-decoration: none; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; } .nav-links, .nav-social { display: none; } .hamburger { display: flex; }
+      .story-section { flex-direction: column; } .story-img { min-height: 300px; } .story-content { padding: 48px 32px; }
+      .mv-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .mv-section, .why-section, .stats-section { padding: 60px 24px; }
     }
-
-    .story-img-wrap {
-
-      position: relative;
-
-      border-radius: 20px;
-
-      overflow: hidden;
-
-      border: 1px solid var(--border-light);
-
-      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-
-    }
-
-    .story-img-wrap img {
-
-      width: 100%;
-
-      height: 480px;
-
-      object-fit: cover;
-
-    }
-
-    .craft-grid {
-
-      display: grid;
-
-      grid-template-columns: repeat(3, 1fr);
-
-      gap: 28px;
-
-      margin: 50px 0;
-
-    }
-
-    .craft-box {
-
-      background: var(--bg-card);
-
-      border: 1px solid var(--border-light);
-
-      border-radius: 18px;
-
-      padding: 34px 28px;
-
-      transition: all var(--trans);
-
-    }
-
-    .craft-box:hover {
-
-      transform: translateY(-6px);
-
-      border-color: var(--gold);
-
-      box-shadow: 0 18px 45px rgba(0,0,0,0.5);
-
-    }
-
-    .craft-num {
-
-      font-family: var(--serif);
-
-      font-size: 2rem;
-
-      color: var(--gold);
-
-      margin-bottom: 12px;
-
-    }
-
-    .timeline {
-
-      position: relative;
-
-      max-width: 800px;
-
-      margin: 60px auto 0;
-
-      padding-left: 30px;
-
-      border-left: 2px solid var(--border-medium);
-
-    }
-
-    .timeline-item {
-
-      position: relative;
-
-      margin-bottom: 40px;
-
-    }
-
-    .timeline-dot {
-
-      position: absolute;
-
-      left: -37px;
-
-      top: 4px;
-
-      width: 14px;
-
-      height: 14px;
-
-      border-radius: 50%;
-
-      background: var(--gold);
-
-      box-shadow: 0 0 10px var(--gold);
-
-    }
-
-    .timeline-year {
-
-      font-family: var(--serif);
-
-      font-size: 1.3rem;
-
-      color: var(--gold);
-
-      font-weight: 700;
-
-      margin-bottom: 4px;
-
-    }
-
+    @media (max-width: 480px) { .why-grid { grid-template-columns: 1fr; } }
   </style>
-
 </head>
-
 <body>
 
-
-
-  <!-- TOP BAR -->
-
-  <div class="topbar" id="topbar">
-
-    <div class="topbar-inner">
-
-      <span class="topbar-msg">✦ Crafted Stone Surfaces — Pan-India Delivery &amp; Export to UAE · UK · USA</span>
-
-      <div class="topbar-right">
-
-        
-
-        <span class="tb-sep">|</span>
-
-        <a href="mailto:manankumarbohra11@gmail.com" class="tb-link">
-
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-
-          manankumarbohra11@gmail.com
-
-        </a>
-
-      </div>
-
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo"><a href="index.html"><img src="assets/logo.svg" alt="Marmor Designs"/></a></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="collections.html">Collections</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="products.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-social">
+      <a href="https://www.instagram.com" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.pinterest.com" target="_blank" rel="noopener"><i class="fa fa-pinterest"></i></a>
+      <a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a>
     </div>
-
+    <div class="hamburger" onclick="openMobileMenu()"><span></span><span></span><span></span></div>
   </div>
-
-
-
-  <!-- NAVIGATION -->
-
-  <header class="site-header" id="site-header">
-
-    <div class="nav-inner">
-
-      <a class="logo" href="index.html">
-
-        <img src="assets/logo-icon.svg" alt="Marmor Designs" class="logo-img" />
-
-        <div class="logo-text-wrap">
-
-          <span class="logo-name">Marmor Designs</span>
-
-          <span class="logo-tagline">Premium Stone Slabs · Kishangarh</span>
-
-        </div>
-
-      </a>
-
-      <nav class="main-nav">
-
-        <a href="index.html" class="nav-link ">Home</a>
-
-        
-
-        <div class="nav-item">
-
-          <a href="products.html" class="nav-link ">
-
-            Collection <span class="nav-arrow"></span>
-
-          </a>
-
-          <div class="nav-dropdown mega-dropdown">
-
-            <div class="mega-col">
-
-              <div class="dropdown-col-title">By Category</div>
-
-              <a href="products.html?cat=Quartz" class="dropdown-link">Quartz Collection <span class="dropdown-badge">8</span></a>
-
-              <a href="products.html?cat=Agate" class="dropdown-link">Agate Collection <span class="dropdown-badge">8</span></a>
-
-              <a href="products.html?cat=Rare" class="dropdown-link">Rare &amp; Exotic <span class="dropdown-badge">10</span></a>
-
-              <a href="products.html" class="dropdown-link" style="font-weight:600;color:var(--gold);margin-top:6px;">View All 26 Slabs →</a>
-
-            </div>
-
-            <div class="mega-col">
-
-              <div class="dropdown-col-title">By Colour</div>
-
-              <a href="products.html?color=white" class="dropdown-link">White &amp; Statuario</a>
-
-              <a href="products.html?color=beige" class="dropdown-link">Beige &amp; Travertine</a>
-
-              <a href="products.html?color=grey" class="dropdown-link">Smoky Grey &amp; Silver</a>
-
-              <a href="products.html?color=black" class="dropdown-link">Nero Black &amp; Gold</a>
-
-              <a href="products.html?color=green" class="dropdown-link">Malachite &amp; Green</a>
-
-              <a href="products.html?color=blue" class="dropdown-link">Lapis &amp; Blue Agate</a>
-
-            </div>
-
-            <div class="mega-col">
-
-              <div class="dropdown-col-title">Signature Stones</div>
-
-              <a href="products.html?stone=Calacatta%20Gold" class="dropdown-link">Calacatta Gold</a>
-
-              <a href="products.html?stone=Statuario%20White" class="dropdown-link">Statuario White</a>
-
-              <a href="products.html?stone=Malachite%20Royal" class="dropdown-link">Malachite Royal</a>
-
-              <a href="products.html?stone=Blue%20Lapis%20Lazuli" class="dropdown-link">Lapis Lazuli</a>
-
-              <a href="products.html?stone=Amethyst%20Violet" class="dropdown-link">Amethyst Violet</a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="nav-item">
-
-          <a href="index.html#spaces-section" class="nav-link">
-
-            Spaces <span class="nav-arrow"></span>
-
-          </a>
-
-          <div class="nav-dropdown">
-
-            <a href="index.html#spaces-section" class="dropdown-link">Living Room Flooring</a>
-
-            <a href="index.html#spaces-section" class="dropdown-link">Kitchen Countertops</a>
-
-            <a href="index.html#spaces-section" class="dropdown-link">Master Bathroom Vanities</a>
-
-            <a href="index.html#spaces-section" class="dropdown-link">Backlit Feature Walls</a>
-
-            <a href="index.html#spaces-section" class="dropdown-link">Dining Table Tops</a>
-
-          </div>
-
-        </div>
-
-
-
-        <a href="index.html#studio-3d-section" class="nav-link">3D Studio</a>
-
-        <a href="index.html#offers-section" class="nav-link">Cut To Size</a>
-
-        <a href="index.html#tech-section" class="nav-link">Technology</a>
-
-        <a href="about.html" class="nav-link active">About</a>
-
-        <a href="blogs.html" class="nav-link ">Journal</a>
-
-        <a href="contact.html" class="nav-link ">Contact</a>
-
-      </nav>
-
-      <div class="nav-right">
-
-        
-
-        <a href="contact.html" class="btn-quote">Get a Quote</a>
-
-        <button class="hamburger" id="hamburger" aria-label="Open Menu">
-
-          <span></span><span></span><span></span>
-
-        </button>
-
-      </div>
-
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" onclick="closeMobileMenu()"><i class="fa fa-times"></i></span>
+  <a href="index.html" onclick="closeMobileMenu()">Home</a>
+  <a href="collections.html" onclick="closeMobileMenu()">Collections</a>
+  <a href="about.html" onclick="closeMobileMenu()">About</a>
+  <a href="products.html" onclick="closeMobileMenu()">Projects</a>
+  <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay">
+    <p class="page-eyebrow">Our Story</p>
+    <h1 class="page-title">A B O U T &nbsp; U S</h1>
+    <div class="page-line"></div>
+  </div>
+</section>
+
+<!-- STORY SECTION -->
+<section class="story-section">
+  <div class="story-content">
+    <p class="story-eyebrow">Est. Kishangarh, Rajasthan</p>
+    <h2 class="story-title">From the Heart of Rajasthan</h2>
+    <p class="story-text">Nestled in Kishangarh — the stone capital of India — Marmor Designs was born from a singular passion: to bring the world's most extraordinary natural stones to India's finest interiors.</p>
+    <p class="story-text">We travel to the ends of the earth — from Brazilian rainforests to African plains, from Himalayan quarries to Mediterranean shores — to handpick stones that speak to the soul. Each slab in our collection is a singular work of art created by millions of years of geological artistry.</p>
+    <p class="story-text">Our team of stone connoisseurs, designers and craftsmen work in harmony to ensure every stone is processed, finished and delivered to the exact standards that luxury demands. From raw slab to installed masterpiece, we are with you every step of the way.</p>
+  </div>
+  <div class="story-img">
+    <img src="assets/stones/white-onyx.jpg" alt="Marmor Designs Story"/>
+  </div>
+</section>
+
+<!-- MISSION / VISION -->
+<section class="mv-section">
+  <div class="section-header">
+    <p class="section-eyebrow">Our Purpose</p>
+    <h2 class="section-title">M I S S I O N &nbsp; &amp; &nbsp; V I S I O N</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="mv-grid">
+    <div class="mv-card">
+      <div class="mv-icon"><i class="fa fa-diamond"></i></div>
+      <h3>Our Mission</h3>
+      <p>To curate the world's finest natural stones and make them accessible to architects, designers and homeowners across India — delivered with impeccable craftsmanship and service.</p>
     </div>
-
-    <!-- MOBILE NAV -->
-
-    <div class="mobile-nav" id="mobile-nav">
-
-      <a href="index.html" class="mob-link">Home</a>
-
-      <a href="products.html" class="mob-link">Collection</a>
-
-      <a href="index.html#studio-3d-section" class="mob-link">3D Studio</a>
-
-      <a href="index.html#spaces-section" class="mob-link">Spaces</a>
-
-      <a href="index.html#offers-section" class="mob-link">Cut To Size</a>
-
-      <a href="index.html#tech-section" class="mob-link">Technology</a>
-
-      <a href="about.html" class="mob-link active">About</a>
-
-      <a href="blogs.html" class="mob-link">Journal</a>
-
-      <a href="contact.html" class="mob-link">Contact</a>
-
-      <a href="contact.html" class="btn-quote" style="margin-top:12px;text-align:center;">Request Free Quote →</a>
-
+    <div class="mv-card">
+      <div class="mv-icon"><i class="fa fa-eye"></i></div>
+      <h3>Our Vision</h3>
+      <p>To be India's most trusted name in premium natural stone — a brand synonymous with authenticity, quality and the timeless beauty of nature's finest materials.</p>
     </div>
-
-  </header>
-
-
-
-  <!-- PAGE HERO -->
-
-  <section class="page-hero">
-
-    <div class="container">
-
-      <div class="sec-eye">Our Heritage &amp; Ethos</div>
-
-      <h1 class="page-title">Born in Kishangarh,<br /><em>Curated for the World</em></h1>
-
-      <p class="page-lead">Rajasthan has shaped the world’s grandest stone architectural landmarks for centuries. At Marmor Designs, we fuse this timeless quarry mastery with modern CNC precision to deliver gallery-grade natural slabs across the globe.</p>
-
+    <div class="mv-card">
+      <div class="mv-icon"><i class="fa fa-leaf"></i></div>
+      <h3>Our Values</h3>
+      <p>We believe in honest sourcing, transparent pricing and enduring relationships. Every stone we sell comes with our promise of authenticity, backed by decades of expertise in Kishangarh's stone trade.</p>
     </div>
-
-  </section>
-
-
-
-  <!-- STORY SECTION -->
-
-  <section style="background:var(--bg-main);">
-
-    <div class="container">
-
-      <div class="story-grid">
-
-        <div>
-
-          <div class="sec-eye">The Marmor Story</div>
-
-          <h2 class="sec-h2" style="text-align:left;">Where Earth's Ancient History<br /><em>Meets Contemporary Architecture</em></h2>
-
-          <p style="font-size:1.05rem;line-height:1.75;color:var(--text-secondary);margin-bottom:20px;">
-
-            Marmor Designs was founded in the historic stone district of Kishangarh, Rajasthan, with a single mission: to demystify luxury stone and deliver authentic, jointless, breathtaking slabs directly from the earth to the world's most discerning homes and hotels.
-
-          </p>
-
-          <p style="font-size:1rem;line-height:1.7;color:var(--text-secondary);margin-bottom:24px;">
-
-            Unlike commercial suppliers who deal in reconstituted aggregates, our master stone inspectors examine every single boulder at the quarry face. We check for natural crystallization, translucency depth, structural purity and grain alignment before any cutting begins.
-
-          </p>
-
-          <div style="display:flex;gap:24px;">
-
-            <div>
-
-              <div style="font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--gold);">12+</div>
-
-              <div style="font-size:0.8rem;color:var(--text-dim);text-transform:uppercase;">Years in Stone Craft</div>
-
-            </div>
-
-            <div style="width:1px;background:var(--border-light);"></div>
-
-            <div>
-
-              <div style="font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--gold);">500+</div>
-
-              <div style="font-size:0.8rem;color:var(--text-dim);text-transform:uppercase;">Projects Worldwide</div>
-
-            </div>
-
-            <div style="width:1px;background:var(--border-light);"></div>
-
-            <div>
-
-              <div style="font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--gold);">100%</div>
-
-              <div style="font-size:0.8rem;color:var(--text-dim);text-transform:uppercase;">Natural Mineral Purity</div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="story-img-wrap">
-
-          <img src="https://i.pinimg.com/736x/27/f7/fe/27f7fea910b7f5bec48de29ed6525883.jpg" alt="Natural stone workshop Kishangarh" />
-
-        </div>
-
-      </div>
-
-
-
-      <!-- 3 PILLARS OF CRAFTSMANSHIP -->
-
-      <div class="sec-head" style="margin-bottom:20px;">
-
-        <div class="sec-eye">The Marmor Standard</div>
-
-        <h2 class="sec-h2">Three Pillars of Precision</h2>
-
-      </div>
-
-
-
-      <div class="craft-grid">
-
-        <div class="craft-box">
-
-          <div class="craft-num">01</div>
-
-          <h3 style="font-size:1.4rem;color:#111827;margin-bottom:12px;">Quarry-Level Curation</h3>
-
-          <p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.65;">
-
-            Only the top 5% of natural quartz blocks and agate nodules pass our density and visual inspection. We reject micro-fractured or dull lots at the source.
-
-          </p>
-
-        </div>
-
-        <div class="craft-box">
-
-          <div class="craft-num">02</div>
-
-          <h3 style="font-size:1.4rem;color:#111827;margin-bottom:12px;">Jointless Engineering</h3>
-
-          <p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.65;">
-
-            Using laser-guided 5-axis diamond bridges and waterjet robotics, we align natural veining seamlessly across vast feature walls and waterfall counters.
-
-          </p>
-
-        </div>
-
-        <div class="craft-box">
-
-          <div class="craft-num">03</div>
-
-          <h3 style="font-size:1.4rem;color:#111827;margin-bottom:12px;">Transparent Pricing</h3>
-
-          <p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.65;">
-
-            No ambiguous estimates or hidden transit surcharges. All slab dimensions, square-foot rates and GST-compliant invoices are shared transparently upfront.
-
-          </p>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- OUR JOURNEY TIMELINE -->
-
-      <div class="sec-head" style="margin-top:80px;margin-bottom:10px;">
-
-        <div class="sec-eye">Milestones</div>
-
-        <h2 class="sec-h2">Our Journey in Natural Stone</h2>
-
-      </div>
-
-
-
-      <div class="timeline">
-
-        <div class="timeline-item">
-
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-year">2014 — Founded in Kishangarh</div>
-
-          <p style="font-size:0.92rem;color:var(--text-secondary);">Began sourcing architectural quartz slabs for luxury heritage villas in Jaipur, Udaipur and Kishangarh.</p>
-
-        </div>
-
-        <div class="timeline-item">
-
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-year">2018 — Semi-Precious Agate Division</div>
-
-          <p style="font-size:0.92rem;color:var(--text-secondary);">Pioneered high-precision backlit agate and onyx slab cutting for 5-star hotel lobbies and luxury bars in Mumbai &amp; Delhi NCR.</p>
-
-        </div>
-
-        <div class="timeline-item">
-
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-year">2022 — Global Export Capabilities</div>
-
-          <p style="font-size:0.92rem;color:var(--text-secondary);">Secured export compliance for crated stone logistics directly to Dubai (UAE), London (UK) and California (USA).</p>
-
-        </div>
-
-        <div class="timeline-item">
-
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-year">2026 — Digital Experience &amp; Jointless Finish</div>
-
-          <p style="font-size:0.92rem;color:var(--text-secondary);">Over 500 projects delivered across all 28 states in India with our proprietary jointless surface fabrication technology.</p>
-
-        </div>
-
-      </div>
-
-
-
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-section">
+  <div class="section-header">
+    <p class="section-eyebrow">The Marmor Difference</p>
+    <h2 class="section-title">W H Y &nbsp; C H O O S E &nbsp; U S</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <h3>Authenticity</h3>
+      <p>Every stone is 100% natural, ethically sourced and comes with a certificate of authenticity. We never compromise on the integrity of our materials.</p>
     </div>
-
-  </section>
-
-
-
-  <!-- CTA STRIP -->
-
-  <section style="background:var(--bg-surface);border-top:1px solid var(--border-light);text-align:center;padding:70px 0;">
-
-    <div class="container">
-
-      <h2 class="sec-h2">Experience the Slabs in Person</h2>
-
-      <p class="sec-p" style="max-width:580px;margin:0 auto 30px;">Visit our factory and gallery in Kishangarh, or request high-resolution video walkthroughs of individual lots via WhatsApp.</p>
-
-      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
-
-        <a href="contact.html" class="btn-primary">Book Quarry Consultation</a>
-
-        <a href="products.html" class="btn-outline-dark">Browse Stone Catalogue</a>
-
-      </div>
-
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <h3>Quality</h3>
+      <p>Triple-graded quality checks, state-of-the-art Italian cutting machinery and strict thickness tolerances ensure every slab meets international luxury standards.</p>
     </div>
-
-  </section>
-
-
-
-  <!-- FOOTER -->
-
-  <footer class="site-footer">
-
-    <div class="footer-main">
-
-      <div class="container footer-grid">
-
-        <div class="fcol fcol-brand">
-
-          <div class="footer-logo">
-
-            <img src="assets/logo.svg" alt="Marmor Designs" class="flogo-img" style="height:54px;width:auto;" />
-
-          </div>
-
-          <p>Premium natural agate, quartz and rare statement stone slabs. Fabricated and delivered across India from our Kishangarh, Rajasthan workshop.</p>
-
-          <div class="f-socials">
-
-            <a href="https://instagram.com/marmordesigns" target="_blank" class="fsoc" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-
-            <a href="https://facebook.com/marmordesigns" target="_blank" class="fsoc" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-
-            <a href="https://pinterest.com/marmordesigns" target="_blank" class="fsoc" aria-label="Pinterest"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
-
-            
-
-          </div>
-
-        </div>
-
-        <div class="fcol">
-
-          <h4>Navigate</h4>
-
-          <a href="index.html">Home</a>
-
-          <a href="about.html">About Us</a>
-
-          <a href="products.html">Products &amp; Prices</a>
-
-          <a href="blogs.html">Blog</a>
-
-          <a href="contact.html">Contact Us</a>
-
-        </div>
-
-        <div class="fcol">
-
-          <h4>Collections</h4>
-
-          <a href="products.html?cat=Quartz">Quartz Range</a>
-
-          <a href="products.html?cat=Agate">Agate Range</a>
-
-          <a href="products.html?cat=Rare">Rare &amp; Statement</a>
-
-          <a href="products.html">Jointless Finish Slabs</a>
-
-          <a href="products.html">Full Price List</a>
-
-        </div>
-
-        <div class="fcol fcol-contact">
-
-          <h4>Get In Touch</h4>
-
-          <a href="tel:" class="fcontact-item">
-
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.33a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-
-            
-
-          </a>
-
-          <a href="mailto:manankumarbohra11@gmail.com" class="fcontact-item">
-
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-
-            manankumarbohra11@gmail.com
-
-          </a>
-
-          <div class="fcontact-item">
-
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-
-            Kishangarh, Rajasthan — 305801, India
-
-          </div>
-
-          
-
-        </div>
-
-      </div>
-
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <h3>Variety</h3>
+      <p>26 unique stone varieties across quartz, agate and rare precious stones — the most comprehensive natural stone collection in Rajasthan, all under one roof.</p>
     </div>
-
-    <div class="footer-btm">
-
-      <div class="container fbtm-inner">
-
-        <span>© 2026 Marmor Designs. All Rights Reserved. Kishangarh, Rajasthan, India.</span>
-
-        <div class="fbtm-legal">
-
-          <a href="#">Privacy Policy</a>
-
-          <a href="#">Terms of Service</a>
-
-          <a href="#">Sitemap</a>
-
-        </div>
-
-      </div>
-
+    <div class="why-card">
+      <div class="why-num">04</div>
+      <h3>Expert Guidance</h3>
+      <p>Our team of stone specialists and interior design consultants guide you from selection to installation — turning your vision into breathtaking reality.</p>
     </div>
+  </div>
+</section>
 
-  </footer>
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-number" data-target="500">0</div>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+    <div>
+      <div class="stat-number" data-target="26">0</div>
+      <div class="stat-label">Unique Stones</div>
+    </div>
+    <div>
+      <div class="stat-number" data-target="1000">0</div>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+  </div>
+</section>
 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo"><img src="assets/logo.svg" alt="Marmor Designs"/></div>
+      <p class="footer-desc">India's premier curator of natural marble, agate, quartz and rare stone slabs. Handpicked from nature, crafted to perfection — from Kishangarh to your space.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.pinterest.com" target="_blank" rel="noopener"><i class="fa fa-pinterest"></i></a>
+        <a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p>Kishangarh, Rajasthan, India</p>
+      <a href="mailto:manankumarbohra11@gmail.com">manankumarbohra11@gmail.com</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="collections.html">Collections</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2024 Marmor Designs. All rights reserved. &nbsp;|&nbsp; Kishangarh, Rajasthan</div>
+</footer>
 
+<script>
+  function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+  function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
 
-  
-
-  <button class="btt" id="btt" aria-label="Back to top">
-
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
-
-  </button>
-
-
-
-  <script>
-
-    const hamburger = document.getElementById('hamburger');
-
-    const mobileNav = document.getElementById('mobile-nav');
-
-    if (hamburger && mobileNav) {
-
-      hamburger.addEventListener('click', () => {
-
-        hamburger.classList.toggle('open');
-
-        mobileNav.classList.toggle('open');
-
-      });
-
-    }
-
-    const btt = document.getElementById('btt');
-
-    window.addEventListener('scroll', () => {
-
-      if (btt) btt.classList.toggle('visible', window.scrollY > 400);
-
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const target = parseInt(e.target.getAttribute('data-target'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          e.target.textContent = Math.floor(current) + (target >= 100 ? '+' : '');
+          if (current >= target) clearInterval(timer);
+        }, 16);
+        observer.unobserve(e.target);
+      }
     });
-
-    if (btt) {
-
-      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    }
-
-  </script>
-
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-number').forEach(el => observer.observe(el));
+</script>
 </body>
-
 </html>
-
