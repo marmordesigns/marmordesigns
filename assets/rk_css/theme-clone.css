@@ -1,0 +1,506 @@
+/* Theme-clone safeguards (external so CSP style-src 'self' always applies). */
+.teamdescdata,
+[class*="teamdescdata"],
+.teamdescdata[hidden],
+[class*="teamdescdata"][hidden] {
+  display: none !important;
+}
+
+/* Breadcrumb: avoid Bootstrap float clipping / misalignment on flex crumbs */
+.cst_breadcrumb .breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+}
+.cst_breadcrumb .breadcrumb-item + .breadcrumb-item {
+  padding-left: 0.5rem;
+}
+.cst_breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  float: none;
+  padding-right: 0.5rem;
+  content: ">";
+  color: #6c757d;
+}
+
+/* Enquiry math CAPTCHA */
+.captcha-row {
+  gap: 10px;
+}
+.captcha-equation {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 120px;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #ddd;
+  background: #f7f7f7;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #222;
+}
+.captcha-image {
+  display: none;
+}
+.captcha-refresh {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.captcha-input {
+  max-width: 160px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+.captcha-refresh {
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #e02529;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.captcha-refresh:hover,
+.captcha-refresh:focus {
+  border-color: #e02529;
+  outline: none;
+}
+.captcha-error {
+  color: #e02529;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Enquiry form validation messages */
+.js-enquiry-form .error,
+.js-enquiry-form .field-error,
+.js-enquiry-form label.error,
+.js-enquiry-form p.error {
+  color: #e02529;
+  font-size: 13px;
+  margin: 8px 0 0;
+  display: block;
+}
+.js-enquiry-form .error[hidden],
+.js-enquiry-form .field-error[hidden] {
+  display: none !important;
+}
+.js-enquiry-form .cstInput.is-invalid,
+.js-enquiry-form .captcha-input.is-invalid {
+  border-color: #e02529;
+}
+.js-enquiry-form .cstInput.is-invalid:focus,
+.js-enquiry-form .captcha-input.is-invalid:focus {
+  box-shadow: 0 0 0 0.15rem rgba(224, 37, 41, 0.15);
+}
+
+/*
+ * Variants: blue bar + portrait stone thumb overlapping top AND bottom.
+ * WP: .slide-item padding creates room; .proThumb_img is absolute + vertically centered.
+ */
+.section_proSlide .pro_slider {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.section_proSlide .pro_slider .slide-item {
+  display: inline-block;
+  vertical-align: bottom;
+  padding: 2.604vw 0;
+  box-sizing: border-box;
+}
+.section_proSlide .slideBx {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  min-height: 0;
+  /* Keep bar shorter than thumb so stone peeks above + below */
+  padding: 0.9vw 1.781vw;
+}
+.section_proSlide .slideBx .proTxt {
+  line-height: 1.3;
+}
+.section_proSlide .proThumb_img {
+  position: absolute;
+  top: 50%;
+  right: 1.563vw;
+  transform: translate(0, -50%);
+  z-index: 2;
+  width: 4.948vw;
+  max-width: 55px;
+  min-width: 42px;
+  /* Featured stone crop ~318×510 — taller than the blue bar */
+  aspect-ratio: 318 / 510;
+  height: auto;
+  border-radius: 0.26vw;
+  overflow: hidden;
+  pointer-events: none;
+}
+.section_proSlide .proThumb_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+@media (max-width: 767px) {
+  .section_proSlide .pro_slider .slide-item {
+    padding: 22px 0;
+  }
+  .section_proSlide .slideBx {
+    padding: 10px 15px;
+  }
+  .section_proSlide .proThumb_img {
+    width: 55px;
+    max-width: 55px;
+    right: 10px;
+  }
+}
+
+/* —— Mobile / CSP-safe chrome (overrides minified style.css) —— */
+
+/* Undo global iframe{height:180px} for embeds that need real height */
+.virtual-tour-frame iframe,
+.guidePdfEmbed iframe,
+.infrVideoImg iframe,
+.aboutBanner + * iframe,
+iframe[src*="matterport"],
+iframe[src*="youtube"],
+iframe[src*="youtu.be"],
+iframe[src*="google.com/maps"],
+iframe[src*="maps.google"] {
+  width: 100% !important;
+  height: min(70vh, 560px) !important;
+  max-height: none !important;
+  border: 0;
+}
+
+/* Contact maps: don't stretch with tall address column or stack into the form */
+body.theme-clone .contactUsTop .cstMap_tab,
+body.theme-clone .contactUsTop .cstMap_tab .tab-pane,
+body.theme-clone .contactUsTop .locationMap {
+  height: auto !important;
+  min-height: 0 !important;
+}
+body.theme-clone .contactUsTop .locationMap iframe,
+body.theme-clone .contactUsTop iframe[src*="google.com/maps"],
+body.theme-clone .contactUsTop iframe[src*="maps.google"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 450px !important;
+  min-height: 320px !important;
+  max-height: 450px !important;
+}
+body.theme-clone .businessEnq {
+  position: relative;
+  z-index: 2;
+  clear: both;
+}
+
+/* Collection FAQ: light section (WP .section_faq) — not home .faqSec marble */
+body.theme-clone .section_faq.rk-collection-faqs {
+  background: #fff;
+  background-image: none;
+  color: #272525;
+}
+body.theme-clone .section_faq.rk-collection-faqs .faqTitle {
+  color: #111;
+}
+body.theme-clone .section_faq.rk-collection-faqs .faq_txt,
+body.theme-clone .section_faq.rk-collection-faqs .faqIntro {
+  color: #272525;
+}
+body.theme-clone .section_faq.rk-collection-faqs .rk-accordion-item,
+body.theme-clone .section_faq.rk-collection-faqs .accordion-item {
+  background: #fff;
+  border: 1px solid #cecece;
+}
+body.theme-clone .section_faq.rk-collection-faqs .rk-accordion-trigger,
+body.theme-clone .section_faq.rk-collection-faqs .accordion-button {
+  color: #272525;
+  background: transparent;
+  box-shadow: none;
+}
+body.theme-clone .section_faq.rk-collection-faqs .accordion-button:not(.collapsed) {
+  color: #272525;
+  background: transparent;
+  box-shadow: none;
+}
+body.theme-clone .section_faq.rk-collection-faqs .accordion-body {
+  color: #272525;
+}
+body.theme-clone .section_faq.rk-collection-faqs .techTitle.text-black,
+body.theme-clone .section_related .techTitle.text-black {
+  color: #111 !important;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1040; /* below Bootstrap modal (~1055) */
+}
+.whatsapp-float a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border-radius: 40px;
+  padding: 6px 14px 6px 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: #111;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+/* Stack enquire above WhatsApp so they don't overlap */
+body.theme-clone .floatingIcon_enquiry {
+  right: 20px !important;
+  bottom: 88px !important;
+  z-index: 1041;
+}
+body.theme-clone .floatingIcon_enquiry .floatingIcon_link {
+  width: 56px !important;
+  height: 56px !important;
+  min-width: 56px;
+  min-height: 56px;
+}
+body.theme-clone .floatingIcon_enquiry .floatIcon,
+body.theme-clone .floatingIcon_enquiry img {
+  max-width: 26px !important;
+  width: 26px !important;
+}
+.floatingIcon_enquiry .floatIcon {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+.teamModal_sec .team-modal-close {
+  border: 0;
+  background: transparent;
+  padding: 8px;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.teamcard .eventImg {
+  cursor: pointer;
+}
+.teamcard .readBlog {
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .headertop {
+    display: none !important;
+  }
+  .searchBx {
+    width: min(320px, calc(100vw - 24px)) !important;
+    right: 0 !important;
+    left: auto !important;
+  }
+  .pro-details-img-3 {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    max-width: 100% !important;
+    position: relative !important;
+    right: auto !important;
+  }
+  .shareIcon_details {
+    position: relative !important;
+    right: 0 !important;
+    margin-top: 1rem;
+  }
+  .errorPage .aboutTextBanner {
+    font-size: clamp(2rem, 10vw, 3.5rem) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .whatsapp-float {
+    bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+    right: 12px;
+  }
+  body.theme-clone .floatingIcon_enquiry {
+    display: none !important; /* mobile uses bottom enquire bar */
+  }
+  .whatsapp-float a span {
+    display: none;
+  }
+  .btmSec {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .aboutBanrContent {
+    bottom: 140px !important;
+    width: min(92%, 520px) !important;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .aboutTextBanner {
+    font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
+    line-height: 1.15 !important;
+  }
+  .teamModal_sec .modal-dialog {
+    max-width: calc(100% - 1rem);
+    margin: 0.5rem auto;
+  }
+  .teamModal_sec .modal-body.teamInnrC {
+    padding: 24px 16px !important;
+  }
+  .career-modal .modal-body {
+    padding: 24px 16px !important;
+  }
+  .footer-bottom .copyright {
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 0 12px;
+  }
+  .footer-bottom .copyright a {
+    display: inline-block;
+    padding: 0.15rem 0.35rem;
+  }
+  .counterSliderSec_arrow .slick-prev,
+  .counterSliderSec_arrow .slick-next,
+  .popMrSlider .slick-prev,
+  .popMrSlider .slick-next {
+    left: 8px !important;
+    right: auto !important;
+  }
+  .counterSliderSec_arrow .slick-next,
+  .popMrSlider .slick-next {
+    left: auto !important;
+    right: 8px !important;
+  }
+  .tableWrap .row > [class*="col-"] {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 575px) {
+  .tableWrap .row > [class*="col-6"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* —— Cleaner type scale (~12% tighter than WP vw sizes) —— */
+body.theme-clone {
+  --rk-type-scale: 0.88;
+}
+body.theme-clone .f-s-80 {
+  font-size: calc(4.167vw * var(--rk-type-scale)) !important;
+}
+body.theme-clone .f-s-60 {
+  font-size: calc(3.125vw * var(--rk-type-scale)) !important;
+}
+body.theme-clone .f-s-48,
+body.theme-clone .theHead {
+  font-size: calc(2.5vw * var(--rk-type-scale)) !important;
+}
+body.theme-clone .f-s-44 {
+  font-size: calc(2.292vw * var(--rk-type-scale)) !important;
+}
+body.theme-clone .f-s-36 {
+  font-size: calc(1.875vw * var(--rk-type-scale)) !important;
+}
+body.theme-clone .f-s-30 {
+  font-size: calc(1.563vw * var(--rk-type-scale)) !important;
+}
+body.theme-clone .f-s-24 {
+  font-size: calc(1.25vw * var(--rk-type-scale)) !important;
+}
+body.theme-clone .f-s-20 {
+  font-size: calc(1.042vw * var(--rk-type-scale)) !important;
+}
+body.theme-clone .bannerHead {
+  letter-spacing: 0.02em;
+  line-height: 1.15 !important;
+}
+body.theme-clone .header .cstNavbar {
+  font-size: 16px !important;
+  letter-spacing: 1.6px !important;
+}
+body.theme-clone .header .cstNavbar .nav-link {
+  padding-top: 1.4vw !important;
+  padding-bottom: 1.4vw !important;
+}
+body.theme-clone .cstDropdown .dropdown-menu,
+body.theme-clone .cstDropdown .dropdown-menu.f-s-20,
+body.theme-clone .dropdown-menu.f-s-20 {
+  font-size: 15px !important;
+}
+body.theme-clone .cstDropdown .dropdown-item {
+  padding: 0.65rem 1.1rem !important;
+  letter-spacing: 0.06em;
+}
+body.theme-clone .headertop,
+body.theme-clone .headertop .f-s-16 {
+  font-size: 13px !important;
+}
+body.theme-clone .sliderContent .viewP {
+  font-size: 14px !important;
+  padding: 0.7em 1.6em !important;
+}
+
+@media (min-width: 1400px) {
+  body.theme-clone .f-s-80,
+  body.theme-clone .bannerHead {
+    font-size: 52px !important;
+  }
+  body.theme-clone .f-s-60 {
+    font-size: 40px !important;
+  }
+  body.theme-clone .f-s-48,
+  body.theme-clone .theHead {
+    font-size: 34px !important;
+  }
+  body.theme-clone .f-s-36 {
+    font-size: 26px !important;
+  }
+  body.theme-clone .f-s-30 {
+    font-size: 22px !important;
+  }
+  body.theme-clone .f-s-24 {
+    font-size: 18px !important;
+  }
+  body.theme-clone .f-s-20 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  body.theme-clone .f-s-80,
+  body.theme-clone .bannerHead {
+    font-size: clamp(1.75rem, 7vw, 2.4rem) !important;
+  }
+  body.theme-clone .f-s-60 {
+    font-size: clamp(1.5rem, 5.5vw, 2rem) !important;
+  }
+  body.theme-clone .f-s-48,
+  body.theme-clone .theHead {
+    font-size: clamp(1.4rem, 5vw, 1.85rem) !important;
+  }
+  body.theme-clone .f-s-36 {
+    font-size: clamp(1.2rem, 4vw, 1.5rem) !important;
+  }
+  body.theme-clone .f-s-30,
+  body.theme-clone .f-s-24,
+  body.theme-clone .f-s-20 {
+    font-size: clamp(0.95rem, 3.2vw, 1.15rem) !important;
+  }
+}
