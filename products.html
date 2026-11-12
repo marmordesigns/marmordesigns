@@ -1,351 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects | Marmor Designs — Our Portfolio</title>
-  <meta name="description" content="Marmor Designs project portfolio — luxury stone installations across India. Natural stone for hospitality, residential and commercial spaces."/>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --gold: #c9a84c; --black: #000; --dark: #0a0a0a; --dark2: #111; --white: #fff; --grey: #888; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 300; overflow-x: hidden; }
-
-    /* NAVBAR */
-    nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(0,0,0,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(201,168,76,0.15); }
-    .nav-logo img { height: 48px; }
-    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-    .nav-links a { color: var(--white); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; transition: color 0.3s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-    .nav-social { display: flex; gap: 16px; align-items: center; }
-    .nav-social a { color: var(--grey); font-size: 15px; transition: color 0.3s; }
-    .nav-social a:hover { color: var(--gold); }
-    .nav-right { display: flex; align-items: center; gap: 36px; }
-    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
-    .hamburger span { width: 24px; height: 1px; background: var(--white); display: block; }
-    .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; background: rgba(0,0,0,0.97); flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { color: var(--white); text-decoration: none; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; transition: color 0.3s; }
-    .mobile-menu a:hover { color: var(--gold); }
-    .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; cursor: pointer; color: var(--white); }
-
-    /* PAGE HERO */
-    .page-hero { height: 65vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .page-hero img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
-    .page-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); display: flex; align-items: center; justify-content: center; flex-direction: column; }
-    .page-eyebrow { font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
-    .page-title { font-size: clamp(28px, 5vw, 60px); font-weight: 100; letter-spacing: 12px; text-transform: uppercase; text-align: center; }
-    .page-line { width: 60px; height: 1px; background: var(--gold); margin: 20px auto 0; }
-
-    /* INTRO */
-    .intro-section { background: var(--dark2); padding: 72px 48px; text-align: center; }
-    .intro-text { max-width: 700px; margin: 0 auto; font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(15px, 2vw, 20px); line-height: 1.9; color: rgba(255,255,255,0.8); }
-
-    /* SECTION HEADERS */
-    .section-header { text-align: center; margin-bottom: 56px; }
-    .section-eyebrow { font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
-    .section-title { font-size: clamp(24px, 3vw, 42px); font-weight: 100; letter-spacing: 8px; text-transform: uppercase; }
-    .section-line { width: 60px; height: 1px; background: var(--gold); margin: 20px auto 0; }
-
-    /* PROJECTS GRID */
-    .projects-section { background: var(--black); padding: 90px 48px; }
-    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .project-item { position: relative; overflow: hidden; }
-    .project-item.large { grid-column: span 2; }
-    .project-img { width: 100%; height: 400px; object-fit: cover; display: block; transition: transform 0.6s ease; }
-    .project-item.large .project-img { height: 500px; }
-    .project-item:hover .project-img { transform: scale(1.05); }
-    .project-overlay {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
-      padding: 32px 24px; transform: translateY(20px); opacity: 0;
-      transition: all 0.4s ease;
-    }
-    .project-item:hover .project-overlay { opacity: 1; transform: translateY(0); }
-    .project-category { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .project-name { font-size: 16px; font-weight: 300; letter-spacing: 2px; }
-
-    /* SPLIT FEATURES */
-    .split-section { display: flex; min-height: 520px; }
-    .split-section.reverse { flex-direction: row-reverse; }
-    .split-img { flex: 1; overflow: hidden; }
-    .split-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; }
-    .split-img:hover img { transform: scale(1.04); }
-    .split-content { flex: 1; background: var(--dark2); display: flex; flex-direction: column; justify-content: center; padding: 72px 64px; }
-    .split-eyebrow { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
-    .split-title { font-size: clamp(20px, 2.5vw, 32px); font-weight: 100; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--gold); display: inline-block; }
-    .split-desc { font-size: 14px; line-height: 1.9; color: rgba(255,255,255,0.7); max-width: 420px; margin-bottom: 32px; }
-    .split-link { display: inline-block; color: var(--gold); font-size: 10px; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: opacity 0.3s; }
-    .split-link:hover { opacity: 0.7; }
-
-    /* STATS */
-    .stats-section { background: var(--dark2); padding: 90px 48px; border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2); }
-    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; max-width: 900px; margin: 0 auto; text-align: center; }
-    .stat-number { font-size: clamp(40px, 6vw, 72px); font-weight: 100; color: var(--gold); letter-spacing: 4px; }
-    .stat-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 8px; }
-
-    /* CTA */
-    .cta-section { background: var(--black); padding: 90px 48px; text-align: center; }
-    .cta-eyebrow { font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
-    .cta-title { font-size: clamp(24px, 3vw, 42px); font-weight: 100; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 16px; }
-    .cta-sub { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 40px; line-height: 1.8; }
-    .cta-btn { display: inline-block; border: 1px solid var(--gold); color: var(--gold); padding: 14px 48px; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; transition: all 0.3s; }
-    .cta-btn:hover { background: var(--gold); color: var(--black); }
-
-    /* FOOTER */
-    footer { background: #050505; padding: 72px 48px 32px; border-top: 1px solid rgba(201,168,76,0.15); }
-    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-    .footer-logo img { height: 40px; margin-bottom: 20px; }
-    .footer-desc { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
-    .footer-social { display: flex; gap: 14px; }
-    .footer-social a { color: rgba(255,255,255,0.4); font-size: 15px; transition: color 0.3s; }
-    .footer-social a:hover { color: var(--gold); }
-    .footer-col h4 { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-    .footer-col p, .footer-col a { font-size: 13px; line-height: 2; color: rgba(255,255,255,0.5); display: block; text-decoration: none; transition: color 0.3s; }
-    .footer-col a:hover { color: var(--gold); }
-    .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
-
-    @media (max-width: 1024px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } .project-item.large { grid-column: span 1; } }
-    @media (max-width: 768px) {
-      nav { padding: 16px 24px; } .nav-links, .nav-social { display: none; } .hamburger { display: flex; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .split-section, .split-section.reverse { flex-direction: column; }
-      .split-img { min-height: 280px; } .split-content { padding: 48px 32px; }
-      .stats-grid { grid-template-columns: 1fr; gap: 32px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .projects-section, .cta-section, .stats-section, .intro-section { padding: 60px 24px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Curated Projects & Architectural Spaces | Marmor Designs</title>
+<meta name="description" content="Explore luxury residential, hospitality, and commercial spaces built with Marmor Designs natural stones.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Great+Vibes&family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#000;color:#fff;font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden;}
+.navbar{padding:0;position:fixed;top:0;width:100%;z-index:1000;background:rgba(0,0,0,0.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);transition:all 0.4s;}
+.navbar.scrolled{background:rgba(0,0,0,0.98);}
+.navbar-brand img{height:52px;}
+.navbar-nav .nav-link{color:#fff!important;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:400;padding:28px 16px!important;transition:color 0.3s;position:relative;}
+.navbar-nav .nav-link:after{content:'';position:absolute;bottom:0;left:16px;right:16px;height:2px;background:#c9a84c;transform:scaleX(0);transition:transform 0.3s;}
+.navbar-nav .nav-link:hover:after,.navbar-nav .nav-link.active:after{transform:scaleX(1);}
+.navbar-nav .nav-link:hover,.navbar-nav .nav-link.active{color:#c9a84c!important;}
+.navbar-social{display:flex;align-items:center;gap:16px;margin-left:24px;}
+.navbar-social a{color:rgba(255,255,255,0.6);font-size:14px;transition:color 0.3s;}
+.navbar-social a:hover{color:#c9a84c;}
+.sidemenu-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
+.sidemenu-btn span{width:26px;height:1px;background:#fff;display:block;}
+.side-menu{position:fixed;top:0;right:-100%;width:320px;height:100%;background:#0a0a0a;z-index:9999;padding:80px 40px;transition:right 0.4s cubic-bezier(0.77,0,0.175,1);border-left:1px solid rgba(201,168,76,0.15);}
+.side-menu.open{right:0;}
+.side-menu-close{position:absolute;top:24px;right:24px;cursor:pointer;color:#fff;font-size:24px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.2);}
+.side-menu .nav-link{color:#fff!important;font-size:12px;letter-spacing:4px;text-transform:uppercase;padding:12px 0!important;border-bottom:1px solid rgba(255,255,255,0.08);display:block;transition:color 0.3s;}
+.side-menu .nav-link:hover{color:#c9a84c!important;}
+.side-menu .nav-link:after{display:none;}
+.overlay-bg{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9998;display:none;}
+.overlay-bg.show{display:block;}
+/* PAGE HERO */
+.page-hero{position:relative;height:55vh;min-height:380px;overflow:hidden;margin-top:0;}
+.page-hero img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.page-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;flex-direction:column;}
+.page-hero-title{font-size:clamp(28px,5vw,60px);font-weight:100;letter-spacing:12px;text-transform:uppercase;text-align:center;}
+.page-hero-sub{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#c9a84c;margin-top:12px;}
+.breadcrumb-bar{background:#0a0a0a;border-bottom:1px solid rgba(201,168,76,0.1);padding:12px 0;}
+.breadcrumb{background:transparent;margin:0;padding:0;font-size:11px;letter-spacing:2px;}
+.breadcrumb-item a{color:#c9a84c;text-decoration:none;}
+.breadcrumb-item.active{color:rgba(255,255,255,0.4);}
+.breadcrumb-item+.breadcrumb-item::before{color:rgba(255,255,255,0.3);}
+/* FILTERS */
+.filter-tabs{text-align:center;padding:48px 0 32px;}
+.filter-btn{display:inline-block;margin:4px 8px;padding:10px 28px;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);font-size:10px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;background:transparent;}
+.filter-btn:hover,.filter-btn.active{border-color:#c9a84c;color:#c9a84c;}
+/* STONE GRID */
+.stone-card{background:#0a0a0a;border:1px solid rgba(255,255,255,0.06);overflow:hidden;margin-bottom:28px;transition:border-color 0.4s;}
+.stone-card:hover{border-color:rgba(201,168,76,0.4);}
+.stone-card-img{position:relative;overflow:hidden;height:260px;}
+.stone-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s;}
+.stone-card:hover .stone-card-img img{transform:scale(1.08);}
+.stone-card-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background 0.4s;display:flex;align-items:center;justify-content:center;}
+.stone-card:hover .stone-card-overlay{background:rgba(0,0,0,0.5);}
+.stone-card-action{opacity:0;transform:translateY(10px);transition:all 0.4s;text-align:center;}
+.stone-card:hover .stone-card-action{opacity:1;transform:translateY(0);}
+.stone-card-action a{display:inline-block;border:1px solid #c9a84c;color:#c9a84c;padding:9px 24px;font-size:9px;letter-spacing:4px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;}
+.stone-card-action a:hover{background:#c9a84c;color:#000;}
+.stone-badge{position:absolute;top:14px;left:14px;background:#c9a84c;color:#000;font-size:8px;letter-spacing:3px;text-transform:uppercase;padding:4px 10px;font-weight:600;}
+.stone-badge.agate{background:#2d6a4f;color:#fff;}
+.stone-badge.rare{background:#1a1a2e;color:#c9a84c;border:1px solid #c9a84c;}
+.stone-card-body{padding:18px 20px;border-top:1px solid rgba(255,255,255,0.05);}
+.stone-card-body h5{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#fff;font-weight:400;margin-bottom:6px;}
+.stone-price{font-size:11px;color:#c9a84c;letter-spacing:1px;}
+.stone-item{transition:all 0.4s;}
+.stone-item.hidden{display:none;}
+/* FOOTER */
+footer{background:#050505;padding:60px 0 30px;border-top:1px solid rgba(201,168,76,0.1);}
+.footer-logo img{height:48px;margin-bottom:20px;}
+.footer-desc{font-size:13px;line-height:1.9;color:rgba(255,255,255,0.5);margin-bottom:24px;}
+.footer-social a{color:rgba(255,255,255,0.4);font-size:16px;margin-right:16px;transition:color 0.3s;}
+.footer-social a:hover{color:#c9a84c;}
+footer h5{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#fff;margin-bottom:28px;padding-bottom:12px;border-bottom:1px solid rgba(201,168,76,0.25);}
+.footer-links li{list-style:none;margin-bottom:10px;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.3s;letter-spacing:1px;}
+.footer-links a:hover{color:#c9a84c;}
+.footer-links i{color:#c9a84c;margin-right:8px;font-size:11px;}
+.footer-contact p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:6px;}
+.footer-contact a{color:rgba(255,255,255,0.5);text-decoration:none;}
+.footer-contact a:hover{color:#c9a84c;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.05);margin-top:48px;padding-top:24px;text-align:center;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:2px;}
+@media(max-width:991px){.navbar-nav,.navbar-social{display:none!important;}.sidemenu-btn{display:flex!important;}}
+/* PLACEHOLDER GRADIENTS */
+.ph-grey{background:linear-gradient(135deg,#2a2a2a,#555);}
+.ph-brown{background:linear-gradient(135deg,#4a2f1a,#8b5e3c);}
+.ph-red{background:linear-gradient(135deg,#4a1a1a,#8b3c3c);}
+.ph-black{background:linear-gradient(135deg,#111,#333);}
+.ph-purple{background:linear-gradient(135deg,#2d1b4e,#6b3fa0);}
+.ph-blue{background:linear-gradient(135deg,#0d2137,#1a4a7a);}
+.ph-ocean{background:linear-gradient(135deg,#0a3240,#1a6b8a);}
+.ph-pyrite{background:linear-gradient(135deg,#2a2000,#8a7000);}
+.ph-galaxy{background:linear-gradient(135deg,#000,#1a1a2e,#0d0d0d);}
+.ph-ivory{background:linear-gradient(135deg,#c8b89a,#e8d8c0);}
+.ph-beige{background:linear-gradient(135deg,#c4a882,#dcc4a0);}
+.ph-golden{background:linear-gradient(135deg,#8b6914,#c9a84c);}
+.ph-white{background:linear-gradient(135deg,#c8c8c8,#f0f0f0);}
+.ph-green{background:linear-gradient(135deg,#1a4a1a,#2d8a2d);}
+.placeholder-label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+</style>
 </head>
 <body>
-
-<!-- NAVBAR -->
-<nav id="navbar">
-  <div class="nav-logo"><a href="index.html"><img src="assets/logo.svg" alt="Marmor Designs"/></a></div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="collections.html">Collections</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="products.html" class="active">Projects</a></li>
-    <li><a href="contact.html">Contact</a></li>
+<!-- OVERLAY BG -->
+<div class="overlay-bg" id="overlayBg" onclick="closeSideMenu()"></div>
+<!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+  <div class="side-menu-close" onclick="closeSideMenu()"><i class="fa fa-times"></i></div>
+  <ul class="navbar-nav mt-4">
+    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="collections.html">Collections</a></li>
+    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+    <li class="nav-item"><a class="nav-link" class="nav-link active" href="products.html">Projects</a></li>
+    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
   </ul>
-  <div class="nav-right">
-    <div class="nav-social">
-      <a href="https://www.instagram.com" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a>
-      <a href="https://www.pinterest.com" target="_blank" rel="noopener"><i class="fa fa-pinterest"></i></a>
+  <div class="mt-5" style="border-top:1px solid rgba(255,255,255,0.08);padding-top:32px;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px;">Follow Us</p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/marmor.designs/" target="_blank"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
       <a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a>
     </div>
-    <div class="hamburger" onclick="openMobileMenu()"><span></span><span></span><span></span></div>
+    <div class="mt-4">
+      <p style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;">manankumarbohra11@gmail.com</p>
+      <p style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;">Kishangarh, Rajasthan</p>
+    </div>
+  </div>
+</div>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/logo.svg" alt="Marmor Designs" onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<span style=\'font-family:Montserrat;font-weight:200;font-size:20px;letter-spacing:6px;color:#fff;\'>MARMOR <span style=\'color:#c9a84c;\'>DESIGNS</span></span>'">
+    </a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="collections.html">Collections</a></li>
+      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      <li class="nav-item"><a class="nav-link" class="nav-link active" href="products.html">Projects</a></li>
+      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar-social">
+      <a href="https://www.instagram.com/marmor.designs/" target="_blank"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+      <a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a>
+    </div>
+    <div class="sidemenu-btn ml-3" onclick="openSideMenu()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <span class="mobile-close" onclick="closeMobileMenu()"><i class="fa fa-times"></i></span>
-  <a href="index.html" onclick="closeMobileMenu()">Home</a>
-  <a href="collections.html" onclick="closeMobileMenu()">Collections</a>
-  <a href="about.html" onclick="closeMobileMenu()">About</a>
-  <a href="products.html" onclick="closeMobileMenu()">Projects</a>
-  <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+<!-- PAGE HERO -->
+<div style="padding-top:88px;">
+  <div class="page-hero">
+    <img src="assets/stones/labradorite.jpg" alt="Projects & Applications">
+    <div class="page-hero-overlay">
+      <h1 class="page-hero-title">P R O J E C T S &nbsp; &amp; &nbsp; S P A C E S</h1>
+      <p class="page-hero-sub">Exemplary Natural Stone Architectural Showcase</p>
+    </div>
+  </div>
+</div>
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active">Projects</li>
+    </ol>
+  </div>
 </div>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <img src="assets/stones/honey-agate.jpg" alt="Marmor Projects"/>
-  <div class="page-hero-overlay">
-    <p class="page-eyebrow">Portfolio</p>
-    <h1 class="page-title">P R O J E C T S</h1>
-    <div class="page-line"></div>
-  </div>
-</section>
+<section style="background:#000;padding:90px 0;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="sec-title">C U R A T E D &nbsp; S P A C E S</h2>
+      <p style="font-size:13px;letter-spacing:3px;color:rgba(255,255,255,0.5);text-transform:uppercase;">From Backlit Feature Walls to Opulent Bath Suites</p>
+    </div>
 
-<!-- INTRO -->
-<section class="intro-section">
-  <p class="intro-text">"From luxury hotels and private residences to corporate headquarters and boutique interiors — our stones have graced India's most distinguished spaces. Each project tells a story of nature's beauty meeting human ingenuity."</p>
-</section>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="stone-card">
+          <div class="stone-card-img" style="height:320px;">
+            <img src="assets/stones/calacatta.jpg" alt="Luxury Villa Foyer">
+            <div class="stone-badge">Living & Foyer</div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Imperial Residence - New Delhi</h5>
+            <div class="stone-price">Calacatta Quartz Bookmatched Floor</div>
+          </div>
+        </div>
+      </div>
 
-<!-- PROJECTS MOSAIC GRID -->
-<section class="projects-section">
-  <div class="section-header">
-    <p class="section-eyebrow">Our Work</p>
-    <h2 class="section-title">F E A T U R E D &nbsp; P R O J E C T S</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="projects-grid">
-    <div class="project-item large">
-      <img src="assets/stones/malachite.jpg" alt="Luxury Hotel Lobby" class="project-img"/>
-      <div class="project-overlay">
-        <div class="project-category">Hospitality</div>
-        <div class="project-name">Grand Hotel Lobby — Jaipur</div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="stone-card">
+          <div class="stone-card-img" style="height:320px;">
+            <img src="assets/stones/blue-agate.jpg" alt="Backlit Bar Console">
+            <div class="stone-badge agate">Backlit Bar</div>
+          </div>
+          <div class="stone-card-body">
+            <h5>The Skyline Penthouse - Mumbai</h5>
+            <div class="stone-price">Translucent Blue Agate Countertop</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="project-item">
-      <img src="assets/stones/labradorite.jpg" alt="Private Villa" class="project-img"/>
-      <div class="project-overlay">
-        <div class="project-category">Residential</div>
-        <div class="project-name">Private Villa — Udaipur</div>
-      </div>
-    </div>
-    <div class="project-item">
-      <img src="assets/stones/amethyst.jpg" alt="Corporate Office" class="project-img"/>
-      <div class="project-overlay">
-        <div class="project-category">Commercial</div>
-        <div class="project-name">Corporate HQ — Delhi</div>
-      </div>
-    </div>
-    <div class="project-item">
-      <img src="assets/stones/tiger-eye.jpg" alt="Boutique Hotel" class="project-img"/>
-      <div class="project-overlay">
-        <div class="project-category">Hospitality</div>
-        <div class="project-name">Boutique Resort — Jaisalmer</div>
-      </div>
-    </div>
-    <div class="project-item large">
-      <img src="assets/stones/blue-agate.jpg" alt="Luxury Apartment" class="project-img" style="height:400px;"/>
-      <div class="project-overlay">
-        <div class="project-category">Residential</div>
-        <div class="project-name">Penthouse Suite — Mumbai</div>
-      </div>
-    </div>
-    <div class="project-item">
-      <img src="assets/stones/lapis-lazuli.jpg" alt="Fine Dining" class="project-img"/>
-      <div class="project-overlay">
-        <div class="project-category">Hospitality</div>
-        <div class="project-name">Fine Dining Restaurant — Pune</div>
-      </div>
-    </div>
-    <div class="project-item">
-      <img src="assets/stones/calacatta.jpg" alt="Spa Interior" class="project-img"/>
-      <div class="project-overlay">
-        <div class="project-category">Wellness</div>
-        <div class="project-name">Luxury Spa — Bangalore</div>
-      </div>
-    </div>
-    <div class="project-item">
-      <img src="assets/stones/rose-quartz.jpg" alt="Retail Store" class="project-img"/>
-      <div class="project-overlay">
-        <div class="project-category">Retail</div>
-        <div class="project-name">Jewellery Boutique — Ahmedabad</div>
-      </div>
-    </div>
-    <div class="project-item">
-      <img src="assets/stones/honey-agate.jpg" alt="Art Gallery" class="project-img"/>
-      <div class="project-overlay">
-        <div class="project-category">Cultural</div>
-        <div class="project-name">Art Gallery — Kolkata</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- SPLIT SECTION -->
-<section class="split-section">
-  <div class="split-img">
-    <img src="assets/stones/statuario.jpg" alt="Residential Projects"/>
-  </div>
-  <div class="split-content">
-    <p class="split-eyebrow">Residences</p>
-    <h2 class="split-title">R E S I D E N T I A L</h2>
-    <p class="split-desc">From bespoke kitchen countertops to statement bathroom walls and grand foyer floors, Marmor Designs transforms living spaces into sanctuaries of natural beauty. Our stones carry the warmth and character that only nature can provide.</p>
-    <a href="contact.html" class="split-link">Start Your Project</a>
-  </div>
-</section>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="stone-card">
+          <div class="stone-card-img" style="height:320px;">
+            <img src="assets/stones/malachite.jpg" alt="Executive Lounge">
+            <div class="stone-badge rare">Feature Cladding</div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Boutique Hotel Suite - Udaipur</h5>
+            <div class="stone-price">Green Malachite Accent Wall</div>
+          </div>
+        </div>
+      </div>
 
-<section class="split-section reverse">
-  <div class="split-img">
-    <img src="assets/stones/nero-black.jpg" alt="Commercial Projects"/>
-  </div>
-  <div class="split-content">
-    <p class="split-eyebrow">Commercial</p>
-    <h2 class="split-title">C O M M E R C I A L</h2>
-    <p class="split-desc">Hotels, restaurants, spas, offices and retail spaces — natural stone elevates every commercial environment. We work closely with architects and interior designers to meet project timelines, specifications and budgets without compromise.</p>
-    <a href="contact.html" class="split-link">Enquire for Commercial</a>
-  </div>
-</section>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="stone-card">
+          <div class="stone-card-img" style="height:320px;">
+            <img src="assets/stones/lapis-lazuli.jpg" alt="Master Bath Suite">
+            <div class="stone-badge rare">Master Bath</div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Heritage Estate - Jaipur</h5>
+            <div class="stone-price">Royal Lapis Lazuli Vanity & Inlay</div>
+          </div>
+        </div>
+      </div>
 
-<!-- STATS -->
-<section class="stats-section">
-  <div class="stats-grid">
-    <div>
-      <div class="stat-number" data-target="500">0</div>
-      <div class="stat-label">Projects Completed</div>
-    </div>
-    <div>
-      <div class="stat-number" data-target="26">0</div>
-      <div class="stat-label">Unique Stones</div>
-    </div>
-    <div>
-      <div class="stat-number" data-target="1000">0</div>
-      <div class="stat-label">Happy Clients</div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="stone-card">
+          <div class="stone-card-img" style="height:320px;">
+            <img src="assets/stones/tiger-eye.jpg" alt="Dining Tabletop">
+            <div class="stone-badge rare">Bespoke Furniture</div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Private Villa - Bangalore</h5>
+            <div class="stone-price">Tiger Eye 12-Seater Dining Slab</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="stone-card">
+          <div class="stone-card-img" style="height:320px;">
+            <img src="assets/stones/statuario.jpg" alt="Corporate Atrium">
+            <div class="stone-badge">Commercial Atrium</div>
+          </div>
+          <div class="stone-card-body">
+            <h5>Financial Tower - Gurugram</h5>
+            <div class="stone-price">Continuous Vein Statuario Cladding</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <p class="cta-eyebrow">Let's Create Together</p>
-  <h2 class="cta-title">Start Your Stone Journey</h2>
-  <p class="cta-sub">Have a project in mind? Our stone specialists would love to hear about it.<br/>From concept to completion, we'll guide you every step of the way.</p>
-  <a href="contact.html" class="cta-btn">Get in Touch</a>
-  &nbsp;&nbsp;
-  <a href="collections.html" class="cta-btn" style="margin-left:12px;">View Collections</a>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo"><img src="assets/logo.svg" alt="Marmor Designs"/></div>
-      <p class="footer-desc">India's premier curator of natural marble, agate, quartz and rare stone slabs. Handpicked from nature, crafted to perfection — from Kishangarh to your space.</p>
-      <div class="footer-social">
-        <a href="https://www.instagram.com" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a>
-        <a href="https://www.pinterest.com" target="_blank" rel="noopener"><i class="fa fa-pinterest"></i></a>
-        <a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a>
+  <div class="container" style="max-width:1200px;">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="footer-logo">
+          <img src="assets/logo.svg" alt="Marmor Designs" onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<span style=\'font-family:Montserrat;font-weight:200;font-size:18px;letter-spacing:5px;color:#fff;\'>MARMOR <span style=\'color:#c9a84c;\'>DESIGNS</span></span>'">
+        </div>
+        <p class="footer-desc">Marmor Designs is Kishangarh's premier curator of rare natural stone — agate, quartz, malachite, onyx and precious gemstone slabs for luxury residences and commercial projects.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/marmor.designs/" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+          <a href="mailto:manankumarbohra11@gmail.com"><i class="fa fa-envelope-o"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <h5>Contact Us</h5>
+        <div class="footer-contact">
+          <p><strong style="color:#c9a84c;font-size:11px;letter-spacing:2px;">MARMOR DESIGNS</strong></p>
+          <p>Kishangarh, Ajmer District<br>Rajasthan &mdash; 305801, India</p>
+          <p style="margin-top:16px;">Email: <a href="mailto:manankumarbohra11@gmail.com">manankumarbohra11@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="footer-links pl-0">
+          <li><a href="index.html"><i class="fa fa-angle-right"></i> Home</a></li>
+          <li><a href="collections.html"><i class="fa fa-angle-right"></i> Collections</a></li>
+          <li><a href="about.html"><i class="fa fa-angle-right"></i> About Us</a></li>
+          <li><a href="products.html"><i class="fa fa-angle-right"></i> Projects</a></li>
+          <li><a href="contact.html"><i class="fa fa-angle-right"></i> Contact</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Contact Us</h4>
-      <p>Kishangarh, Rajasthan, India</p>
-      <a href="mailto:manankumarbohra11@gmail.com">manankumarbohra11@gmail.com</a>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="index.html">Home</a>
-      <a href="collections.html">Collections</a>
-      <a href="about.html">About Us</a>
-      <a href="products.html">Projects</a>
-      <a href="contact.html">Contact</a>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Marmor Designs &nbsp;|&nbsp; Kishangarh, Rajasthan &nbsp;|&nbsp; All Rights Reserved</p>
     </div>
   </div>
-  <div class="footer-bottom">&copy; 2024 Marmor Designs. All rights reserved. &nbsp;|&nbsp; Kishangarh, Rajasthan</div>
 </footer>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
 <script>
-  function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); }
-  function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const target = parseInt(e.target.getAttribute('data-target'));
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
-        const timer = setInterval(() => {
-          current = Math.min(current + step, target);
-          e.target.textContent = Math.floor(current) + (target >= 100 ? '+' : '');
-          if (current >= target) clearInterval(timer);
-        }, 16);
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-number').forEach(el => observer.observe(el));
+window.addEventListener('scroll',function(){var n=document.getElementById('mainNav');if(window.scrollY>60){n.classList.add('scrolled');}else{n.classList.remove('scrolled');}});
+function openSideMenu(){document.getElementById('sideMenu').classList.add('open');document.getElementById('overlayBg').classList.add('show');}
+function closeSideMenu(){document.getElementById('sideMenu').classList.remove('open');document.getElementById('overlayBg').classList.remove('show');}
+function filterStones(cat){
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+  event.target.classList.add('active');
+  document.querySelectorAll('.stone-item').forEach(function(item){
+    if(cat==='all'||item.dataset.cat===cat){item.classList.remove('hidden');}
+    else{item.classList.add('hidden');}
+  });
+}
 </script>
 </body>
 </html>
