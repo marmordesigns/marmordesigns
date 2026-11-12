@@ -1,351 +1,678 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
   <link rel="alternate icon" href="assets/logo-icon.svg" />
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Stone Architecture &amp; Design Journal | Marmor Designs</title>
+
   <meta name="description" content="Explore expert articles, luxury interior design tips, stone care advice and buying guides for Agate, Quartz, Malachite and exotic natural slabs." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="assets/style.css" />
+
   <style>
+
     .journal-featured {
+
       background: var(--bg-card);
+
       border: 1px solid var(--border-medium);
+
       border-radius: 24px;
+
       overflow: hidden;
+
       display: grid;
+
       grid-template-columns: 1.2fr 1fr;
+
       margin-bottom: 60px;
+
       transition: all var(--trans);
+
     }
+
     .journal-featured:hover {
+
       border-color: var(--gold);
+
       box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+
     }
+
     .jf-media {
+
       height: 420px;
+
       position: relative;
+
     }
+
     .jf-media img {
+
       width: 100%;
+
       height: 100%;
+
       object-fit: cover;
+
     }
+
     .jf-content {
+
       padding: 45px 40px;
+
       display: flex;
+
       flex-direction: column;
+
       justify-content: center;
+
     }
+
     .articles-grid {
+
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
+
       gap: 30px;
+
       margin-bottom: 80px;
+
     }
+
     @media (max-width: 992px) {
+
       .journal-featured { grid-template-columns: 1fr; }
+
       .jf-media { height: 280px; }
+
       .articles-grid { grid-template-columns: 1fr 1fr; }
+
     }
+
     @media (max-width: 640px) {
+
       .articles-grid { grid-template-columns: 1fr; }
+
     }
+
   </style>
+
 </head>
+
 <body>
 
+
+
   <!-- TOP BAR -->
+
   <div class="topbar" id="topbar">
+
     <div class="topbar-inner">
+
       <span class="topbar-msg">✦ Crafted Stone Surfaces — Pan-India Delivery &amp; Export to UAE · UK · USA</span>
+
       <div class="topbar-right">
-        <a href="tel:+919876543210" class="tb-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.33a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          +91 98765 43210
-        </a>
+
+        
+
         <span class="tb-sep">|</span>
-        <a href="mailto:info@marmordesigns.com" class="tb-link">
+
+        <a href="mailto:manankumarbohra11@gmail.com" class="tb-link">
+
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          info@marmordesigns.com
+
+          manankumarbohra11@gmail.com
+
         </a>
+
       </div>
+
     </div>
+
   </div>
 
+
+
   <!-- NAVIGATION -->
+
   <header class="site-header" id="site-header">
+
     <div class="nav-inner">
+
       <a class="logo" href="index.html">
+
         <img src="assets/logo-icon.svg" alt="Marmor Designs" class="logo-img" />
+
         <div class="logo-text-wrap">
+
           <span class="logo-name">Marmor Designs</span>
+
           <span class="logo-tagline">Premium Stone Slabs · Kishangarh</span>
-        </div>
-      </a>
-      <nav class="main-nav">
-        <a href="index.html" class="nav-link ">Home</a>
-        
-        <div class="nav-item">
-          <a href="products.html" class="nav-link ">
-            Collection <span class="nav-arrow"></span>
-          </a>
-          <div class="nav-dropdown mega-dropdown">
-            <div class="mega-col">
-              <div class="dropdown-col-title">By Category</div>
-              <a href="products.html?cat=Quartz" class="dropdown-link">Quartz Collection <span class="dropdown-badge">8</span></a>
-              <a href="products.html?cat=Agate" class="dropdown-link">Agate Collection <span class="dropdown-badge">8</span></a>
-              <a href="products.html?cat=Rare" class="dropdown-link">Rare &amp; Exotic <span class="dropdown-badge">10</span></a>
-              <a href="products.html" class="dropdown-link" style="font-weight:600;color:var(--gold);margin-top:6px;">View All 26 Slabs →</a>
-            </div>
-            <div class="mega-col">
-              <div class="dropdown-col-title">By Colour</div>
-              <a href="products.html?color=white" class="dropdown-link">White &amp; Statuario</a>
-              <a href="products.html?color=beige" class="dropdown-link">Beige &amp; Travertine</a>
-              <a href="products.html?color=grey" class="dropdown-link">Smoky Grey &amp; Silver</a>
-              <a href="products.html?color=black" class="dropdown-link">Nero Black &amp; Gold</a>
-              <a href="products.html?color=green" class="dropdown-link">Malachite &amp; Green</a>
-              <a href="products.html?color=blue" class="dropdown-link">Lapis &amp; Blue Agate</a>
-            </div>
-            <div class="mega-col">
-              <div class="dropdown-col-title">Signature Stones</div>
-              <a href="products.html?stone=Calacatta%20Gold" class="dropdown-link">Calacatta Gold</a>
-              <a href="products.html?stone=Statuario%20White" class="dropdown-link">Statuario White</a>
-              <a href="products.html?stone=Malachite%20Royal" class="dropdown-link">Malachite Royal</a>
-              <a href="products.html?stone=Blue%20Lapis%20Lazuli" class="dropdown-link">Lapis Lazuli</a>
-              <a href="products.html?stone=Amethyst%20Violet" class="dropdown-link">Amethyst Violet</a>
-            </div>
-          </div>
+
         </div>
 
+      </a>
+
+      <nav class="main-nav">
+
+        <a href="index.html" class="nav-link ">Home</a>
+
+        
+
         <div class="nav-item">
-          <a href="index.html#spaces-section" class="nav-link">
-            Spaces <span class="nav-arrow"></span>
+
+          <a href="products.html" class="nav-link ">
+
+            Collection <span class="nav-arrow"></span>
+
           </a>
-          <div class="nav-dropdown">
-            <a href="index.html#spaces-section" class="dropdown-link">Living Room Flooring</a>
-            <a href="index.html#spaces-section" class="dropdown-link">Kitchen Countertops</a>
-            <a href="index.html#spaces-section" class="dropdown-link">Master Bathroom Vanities</a>
-            <a href="index.html#spaces-section" class="dropdown-link">Backlit Feature Walls</a>
-            <a href="index.html#spaces-section" class="dropdown-link">Dining Table Tops</a>
+
+          <div class="nav-dropdown mega-dropdown">
+
+            <div class="mega-col">
+
+              <div class="dropdown-col-title">By Category</div>
+
+              <a href="products.html?cat=Quartz" class="dropdown-link">Quartz Collection <span class="dropdown-badge">8</span></a>
+
+              <a href="products.html?cat=Agate" class="dropdown-link">Agate Collection <span class="dropdown-badge">8</span></a>
+
+              <a href="products.html?cat=Rare" class="dropdown-link">Rare &amp; Exotic <span class="dropdown-badge">10</span></a>
+
+              <a href="products.html" class="dropdown-link" style="font-weight:600;color:var(--gold);margin-top:6px;">View All 26 Slabs →</a>
+
+            </div>
+
+            <div class="mega-col">
+
+              <div class="dropdown-col-title">By Colour</div>
+
+              <a href="products.html?color=white" class="dropdown-link">White &amp; Statuario</a>
+
+              <a href="products.html?color=beige" class="dropdown-link">Beige &amp; Travertine</a>
+
+              <a href="products.html?color=grey" class="dropdown-link">Smoky Grey &amp; Silver</a>
+
+              <a href="products.html?color=black" class="dropdown-link">Nero Black &amp; Gold</a>
+
+              <a href="products.html?color=green" class="dropdown-link">Malachite &amp; Green</a>
+
+              <a href="products.html?color=blue" class="dropdown-link">Lapis &amp; Blue Agate</a>
+
+            </div>
+
+            <div class="mega-col">
+
+              <div class="dropdown-col-title">Signature Stones</div>
+
+              <a href="products.html?stone=Calacatta%20Gold" class="dropdown-link">Calacatta Gold</a>
+
+              <a href="products.html?stone=Statuario%20White" class="dropdown-link">Statuario White</a>
+
+              <a href="products.html?stone=Malachite%20Royal" class="dropdown-link">Malachite Royal</a>
+
+              <a href="products.html?stone=Blue%20Lapis%20Lazuli" class="dropdown-link">Lapis Lazuli</a>
+
+              <a href="products.html?stone=Amethyst%20Violet" class="dropdown-link">Amethyst Violet</a>
+
+            </div>
+
           </div>
+
         </div>
+
+
+
+        <div class="nav-item">
+
+          <a href="index.html#spaces-section" class="nav-link">
+
+            Spaces <span class="nav-arrow"></span>
+
+          </a>
+
+          <div class="nav-dropdown">
+
+            <a href="index.html#spaces-section" class="dropdown-link">Living Room Flooring</a>
+
+            <a href="index.html#spaces-section" class="dropdown-link">Kitchen Countertops</a>
+
+            <a href="index.html#spaces-section" class="dropdown-link">Master Bathroom Vanities</a>
+
+            <a href="index.html#spaces-section" class="dropdown-link">Backlit Feature Walls</a>
+
+            <a href="index.html#spaces-section" class="dropdown-link">Dining Table Tops</a>
+
+          </div>
+
+        </div>
+
+
 
         <a href="index.html#studio-3d-section" class="nav-link">3D Studio</a>
+
         <a href="index.html#offers-section" class="nav-link">Cut To Size</a>
+
         <a href="index.html#tech-section" class="nav-link">Technology</a>
+
         <a href="about.html" class="nav-link ">About</a>
+
         <a href="blogs.html" class="nav-link active">Journal</a>
+
         <a href="contact.html" class="nav-link ">Contact</a>
+
       </nav>
+
       <div class="nav-right">
-        <a href="tel:+919876543210" class="nav-phone">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.33a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          +91 98765 43210
-        </a>
+
+        
+
         <a href="contact.html" class="btn-quote">Get a Quote</a>
+
         <button class="hamburger" id="hamburger" aria-label="Open Menu">
+
           <span></span><span></span><span></span>
+
         </button>
+
       </div>
+
     </div>
+
     <!-- MOBILE NAV -->
+
     <div class="mobile-nav" id="mobile-nav">
+
       <a href="index.html" class="mob-link">Home</a>
+
       <a href="products.html" class="mob-link">Collection</a>
+
       <a href="index.html#studio-3d-section" class="mob-link">3D Studio</a>
+
       <a href="index.html#spaces-section" class="mob-link">Spaces</a>
+
       <a href="index.html#offers-section" class="mob-link">Cut To Size</a>
+
       <a href="index.html#tech-section" class="mob-link">Technology</a>
+
       <a href="about.html" class="mob-link">About</a>
+
       <a href="blogs.html" class="mob-link active">Journal</a>
+
       <a href="contact.html" class="mob-link">Contact</a>
+
       <a href="contact.html" class="btn-quote" style="margin-top:12px;text-align:center;">Request Free Quote →</a>
+
     </div>
+
   </header>
 
+
+
   <!-- PAGE HERO -->
+
   <section class="page-hero">
+
     <div class="container">
+
       <div class="sec-eye">Stone Architecture &amp; Craft Journal</div>
+
       <h1 class="page-title">Curated Knowledge on<br /><em>Natural Stone &amp; Surfaces</em></h1>
+
       <p class="page-lead">Practical guides, architectural case studies and maintenance wisdom for interior designers, architects and homeowners across India.</p>
+
     </div>
+
   </section>
+
+
 
   <!-- BLOG DIRECTORY -->
+
   <section style="background:var(--bg-main);padding-top:40px;">
+
     <div class="container">
 
+
+
       <!-- FEATURED LEAD ARTICLE -->
+
       <a href="how-to-choose-the-right-stone-for-your-kitchen-countertop" class="journal-featured">
+
         <div class="jf-media">
+
           <img src="https://i.pinimg.com/736x/27/f7/fe/27f7fea910b7f5bec48de29ed6525883.jpg" alt="Kitchen countertop stone guide" />
+
           <span class="bc-cat" style="position:absolute;top:20px;left:20px;">Featured Guide</span>
+
         </div>
+
         <div class="jf-content">
+
           <span style="font-size:0.8rem;color:var(--text-dim);margin-bottom:8px;">Oct 20, 2026 · 6 min read</span>
+
           <h2 style="font-size: clamp(1.8rem, 2.5vw, 2.3rem);color:#111827;line-height:1.25;margin-bottom:14px;">How to Choose the Right Stone for Your Kitchen Countertop</h2>
+
           <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:24px;">Comparing Quartz, Agate and Granite for stain resistance, jointless installation, heat handling, and lifelong durability.</p>
+
           <span class="rm">Read Full Guide →</span>
+
         </div>
+
       </a>
 
+
+
       <!-- ALL 10 ARTICLES GRID -->
+
       <div class="articles-grid">
 
+
+
         <!-- 2 -->
+
         <a class="bc" href="blog-2.html">
+
           <div class="bc-img"><img src="https://i.pinimg.com/736x/a2/d6/ce/a2d6ce2f163f65ed84131ae133fe0892.jpg" alt="Backlit stone panels" /><div class="bc-cat">Design Inspiration</div></div>
+
           <div class="bc-body"><span class="bc-date">Oct 16, 2026 · 5 min read</span><h3>The Magic of Backlit Stone Panels in Modern Interiors</h3><p>How illuminated agate and onyx transform residential feature walls and hospitality spaces.</p><span class="rm">Read Article →</span></div>
+
         </a>
+
+
 
         <!-- 3 -->
+
         <a class="bc" href="blog-3.html">
+
           <div class="bc-img"><img src="https://i.pinimg.com/736x/7a/27/96/7a27964cde771dc315727d255fe1b1c4.jpg" alt="Malachite & Lapis" /><div class="bc-cat">Rare Gemstones</div></div>
+
           <div class="bc-body"><span class="bc-date">Oct 12, 2026 · 7 min read</span><h3>Malachite &amp; Lapis: The Ultimate Statement Stones</h3><p>An architectural exploration into ancient, rare semi-precious stone slabs for VIP residences.</p><span class="rm">Read Article →</span></div>
+
         </a>
+
+
 
         <!-- 4 -->
+
         <a class="bc" href="blog-4.html">
+
           <div class="bc-img"><img src="https://i.pinimg.com/736x/05/68/b8/0568b872582ecbf6eea2a896d74a7011.jpg" alt="Agate vs Quartz" /><div class="bc-cat">Material Comparison</div></div>
+
           <div class="bc-body"><span class="bc-date">Oct 9, 2026 · 5 min read</span><h3>Agate vs Quartz: Which One is Right for Your Interior?</h3><p>Understanding cost differentials, optical translucency, hardness, and ideal applications.</p><span class="rm">Read Article →</span></div>
+
         </a>
+
+
 
         <!-- 5 -->
+
         <a class="bc" href="blog-5.html">
+
           <div class="bc-img"><img src="https://i.pinimg.com/736x/f8/49/ed/f849ed0807c1ecf8ea3c009c8b1048f6.jpg" alt="Stone trends 2026" /><div class="bc-cat">Trends &amp; Forecast</div></div>
+
           <div class="bc-body"><span class="bc-date">Oct 5, 2026 · 6 min read</span><h3>Top 7 Stone Trends in Indian Luxury Interiors for 2026</h3><p>From monolithic island waterfalls to warm honey tones and integrated stone vanities.</p><span class="rm">Read Article →</span></div>
+
         </a>
+
+
 
         <!-- 6 -->
+
         <a class="bc" href="blog-6.html">
+
           <div class="bc-img"><img src="https://i.pinimg.com/736x/e4/71/63/e47163bbd9d0638e16d5a56b85ca61c3.jpg" alt="Jointless stone finish" /><div class="bc-cat">Engineering</div></div>
+
           <div class="bc-body"><span class="bc-date">Sep 29, 2026 · 4 min read</span><h3>Why Jointless Stone Finish is a Game Changer for Feature Walls</h3><p>How seamless edge-alignment eliminates ugly grout lines for a continuous gallery look.</p><span class="rm">Read Article →</span></div>
+
         </a>
+
+
 
         <!-- 7 -->
+
         <a class="bc" href="blog-7.html">
+
           <div class="bc-img"><img src="https://i.pinimg.com/736x/14/21/23/142123f612722c10850fabafdd8d57bc.jpg" alt="Natural stone maintenance" /><div class="bc-cat">Care &amp; Maintenance</div></div>
+
           <div class="bc-body"><span class="bc-date">Sep 25, 2026 · 5 min read</span><h3>How to Care for and Maintain Natural Stone Surfaces</h3><p>Daily cleaning dos and don'ts, sealing guidelines, and stain prevention for quartz and agate.</p><span class="rm">Read Article →</span></div>
+
         </a>
+
+
 
         <!-- 8 -->
+
         <a class="bc" href="blog-8.html">
+
           <div class="bc-img"><img src="https://i.pinimg.com/736x/ab/50/77/ab5077872cb922a61dab7d1607d2d49d.jpg" alt="Journey of stone Rajasthan" /><div class="bc-cat">Heritage Story</div></div>
+
           <div class="bc-body"><span class="bc-date">Sep 21, 2026 · 6 min read</span><h3>From Rajasthan to Your Home: The Journey of Natural Stone</h3><p>Follow a raw mineral boulder from quarry extraction in Kishangarh to finished slab installation.</p><span class="rm">Read Article →</span></div>
+
         </a>
+
+
 
         <!-- 9 -->
+
         <a class="bc" href="blog-9.html">
+
           <div class="bc-img"><img src="https://i.pinimg.com/736x/ad/4c/26/ad4c26febaca2138be172be8556df8ab.jpg" alt="Pooja room stone design" /><div class="bc-cat">Sacred Spaces</div></div>
+
           <div class="bc-body"><span class="bc-date">Sep 15, 2026 · 4 min read</span><h3>Stone for Pooja Rooms: Sacred Aesthetics with Natural Materials</h3><p>White Quartz and Onyx for spiritually uplifting, serene home mandirs and meditation niches.</p><span class="rm">Read Article →</span></div>
+
         </a>
+
+
 
         <!-- 10 -->
+
         <a class="bc" href="blog-10.html">
+
           <div class="bc-img"><img src="https://i.pinimg.com/736x/48/e4/f0/48e4f0469fb2bd902649b6a93435a86f.jpg" alt="Stone grades explained" /><div class="bc-cat">Buyer Education</div></div>
+
           <div class="bc-body"><span class="bc-date">Sep 10, 2026 · 5 min read</span><h3>Understanding Stone Grades: What Premium Really Means</h3><p>How density, resin quality, crystallization, and calibration determine real stone value.</p><span class="rm">Read Article →</span></div>
+
         </a>
 
+
+
       </div>
 
+
+
     </div>
+
   </section>
 
+
+
   <!-- FOOTER -->
+
   <footer class="site-footer">
+
     <div class="footer-main">
+
       <div class="container footer-grid">
+
         <div class="fcol fcol-brand">
+
           <div class="footer-logo">
+
             <img src="assets/logo.svg" alt="Marmor Designs" class="flogo-img" style="height:54px;width:auto;" />
+
           </div>
+
           <p>Premium natural agate, quartz and rare statement stone slabs. Fabricated and delivered across India from our Kishangarh, Rajasthan workshop.</p>
+
           <div class="f-socials">
+
             <a href="https://instagram.com/marmordesigns" target="_blank" class="fsoc" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+
             <a href="https://facebook.com/marmordesigns" target="_blank" class="fsoc" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+
             <a href="https://pinterest.com/marmordesigns" target="_blank" class="fsoc" aria-label="Pinterest"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
-            <a href="https://wa.me/919876543210" target="_blank" class="fsoc fsoc-wa" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.82.737 5.47 2.027 7.774L0 32l8.467-2.005A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0z"/></svg></a>
+
+            
+
           </div>
+
         </div>
+
         <div class="fcol">
+
           <h4>Navigate</h4>
+
           <a href="index.html">Home</a>
+
           <a href="about.html">About Us</a>
+
           <a href="products.html">Products &amp; Prices</a>
+
           <a href="blogs.html">Blog</a>
+
           <a href="contact.html">Contact Us</a>
+
         </div>
+
         <div class="fcol">
+
           <h4>Collections</h4>
+
           <a href="products.html?cat=Quartz">Quartz Range</a>
+
           <a href="products.html?cat=Agate">Agate Range</a>
+
           <a href="products.html?cat=Rare">Rare &amp; Statement</a>
+
           <a href="products.html">Jointless Finish Slabs</a>
+
           <a href="products.html">Full Price List</a>
+
         </div>
+
         <div class="fcol fcol-contact">
+
           <h4>Get In Touch</h4>
-          <a href="tel:+919876543210" class="fcontact-item">
+
+          <a href="tel:" class="fcontact-item">
+
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.33a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            +91 98765 43210
+
+            
+
           </a>
-          <a href="mailto:info@marmordesigns.com" class="fcontact-item">
+
+          <a href="mailto:manankumarbohra11@gmail.com" class="fcontact-item">
+
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            info@marmordesigns.com
+
+            manankumarbohra11@gmail.com
+
           </a>
+
           <div class="fcontact-item">
+
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+
             Kishangarh, Rajasthan — 305801, India
+
           </div>
-          <a href="https://wa.me/919876543210" target="_blank" class="wa-footer-btn">
-            <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.82.737 5.47 2.027 7.774L0 32l8.467-2.005A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0z"/></svg>
-            Chat on WhatsApp
-          </a>
+
+          
+
         </div>
+
       </div>
+
     </div>
+
     <div class="footer-btm">
+
       <div class="container fbtm-inner">
+
         <span>© 2026 Marmor Designs. All Rights Reserved. Kishangarh, Rajasthan, India.</span>
+
         <div class="fbtm-legal">
+
           <a href="#">Privacy Policy</a>
+
           <a href="#">Terms of Service</a>
+
           <a href="#">Sitemap</a>
+
         </div>
+
       </div>
+
     </div>
+
   </footer>
 
-  <a href="https://wa.me/919876543210" target="_blank" class="wa-fab" aria-label="WhatsApp">
-    <svg width="26" height="26" viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.82.737 5.47 2.027 7.774L0 32l8.467-2.005A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0z"/></svg>
-    <div class="wa-fab-tooltip">Chat with us!</div>
-  </a>
+
+
+  
+
   <button class="btt" id="btt" aria-label="Back to top">
+
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+
   </button>
 
+
+
   <script>
+
     const hamburger = document.getElementById('hamburger');
+
     const mobileNav = document.getElementById('mobile-nav');
+
     if (hamburger && mobileNav) {
+
       hamburger.addEventListener('click', () => {
+
         hamburger.classList.toggle('open');
+
         mobileNav.classList.toggle('open');
+
       });
+
     }
+
     const btt = document.getElementById('btt');
+
     window.addEventListener('scroll', () => {
+
       if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+
     });
+
     if (btt) {
+
       btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
     }
+
   </script>
+
 </body>
+
 </html>
+

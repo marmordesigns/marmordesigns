@@ -1,300 +1,530 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
   <link rel="alternate icon" href="assets/logo-icon.svg" />
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Contact &amp; Slab Consultation | Marmor Designs — Kishangarh, Rajasthan</title>
+
   <meta name="description" content="Get in touch with Marmor Designs. Request a bespoke natural stone quotation, inquire about slab availability or schedule a visit to our Kishangarh stone factory." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="assets/style.css" />
+
   <style>
+
     .contact-layout {
+
       display: grid;
+
       grid-template-columns: 1fr 1.3fr;
+
       gap: 60px;
+
       align-items: start;
+
       margin-bottom: 90px;
+
     }
+
     .info-card {
+
       background: var(--bg-card);
+
       border: 1px solid var(--border-light);
+
       border-radius: 20px;
+
       padding: 36px 30px;
+
       margin-bottom: 24px;
+
     }
+
     .info-row {
+
       display: flex;
+
       align-items: flex-start;
+
       gap: 16px;
+
       margin-bottom: 22px;
+
     }
+
     .info-row:last-child { margin-bottom: 0; }
+
     .info-ico {
+
       width: 44px;
+
       height: 44px;
+
       border-radius: 12px;
+
       background: rgba(200, 169, 110, 0.1);
+
       border: 1px solid rgba(200, 169, 110, 0.25);
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       color: var(--gold);
+
       flex-shrink: 0;
+
     }
+
     .info-content strong {
+
       display: block;
+
       color: #fff;
+
       font-size: 0.95rem;
+
       margin-bottom: 4px;
+
     }
+
     .info-content span, .info-content a {
+
       font-size: 0.88rem;
+
       color: var(--text-secondary);
+
       line-height: 1.5;
+
     }
+
     .info-content a:hover {
+
       color: var(--gold);
+
     }
+
     /* ESTIMATION CALCULATOR */
+
     .calc-card {
+
       background: linear-gradient(135deg, rgba(35, 31, 25, 0.9), var(--bg-card));
+
       border: 1px solid var(--border-medium);
+
       border-radius: 20px;
+
       padding: 30px;
+
       margin-top: 30px;
+
     }
+
     .calc-title {
+
       font-size: 1.3rem;
+
       color: #fff;
+
       margin-bottom: 14px;
+
       display: flex;
+
       align-items: center;
+
       gap: 10px;
+
     }
+
     .calc-output {
+
       background: rgba(14, 12, 9, 0.85);
+
       border: 1px solid var(--border-light);
+
       border-radius: 12px;
+
       padding: 16px;
+
       margin-top: 18px;
+
       text-align: center;
+
     }
+
     .calc-res-num {
+
       font-family: var(--serif);
+
       font-size: 2rem;
+
       color: var(--gold);
+
       font-weight: 700;
+
       line-height: 1;
+
     }
+
     /* FAQ ACCORDION */
+
     .faq-sec {
+
       max-width: 860px;
+
       margin: 0 auto 90px;
+
     }
+
     .faq-item {
+
       background: var(--bg-card);
+
       border: 1px solid var(--border-light);
+
       border-radius: 14px;
+
       margin-bottom: 14px;
+
       overflow: hidden;
+
       transition: all var(--trans);
+
     }
+
     .faq-q {
+
       padding: 20px 24px;
+
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
+
       cursor: pointer;
+
       font-weight: 500;
+
       color: #fff;
+
       font-size: 1.05rem;
+
     }
+
     .faq-q:hover {
+
       color: var(--gold);
+
     }
+
     .faq-chevron {
+
       color: var(--gold);
+
       transition: transform var(--trans);
+
     }
+
     .faq-item.open .faq-chevron {
+
       transform: rotate(180deg);
+
     }
+
     .faq-a {
+
       padding: 0 24px 20px;
+
       color: var(--text-secondary);
+
       font-size: 0.92rem;
+
       line-height: 1.65;
+
       display: none;
+
     }
+
     .faq-item.open .faq-a {
+
       display: block;
+
     }
+
   </style>
+
 </head>
+
 <body>
 
+
+
   <!-- TOP BAR -->
+
   <div class="topbar" id="topbar">
+
     <div class="topbar-inner">
+
       <span class="topbar-msg">✦ Crafted Stone Surfaces — Pan-India Delivery &amp; Export to UAE · UK · USA</span>
+
       <div class="topbar-right">
-        <a href="tel:+919876543210" class="tb-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.33a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          +91 98765 43210
-        </a>
+
+        
+
         <span class="tb-sep">|</span>
-        <a href="mailto:info@marmordesigns.com" class="tb-link">
+
+        <a href="mailto:manankumarbohra11@gmail.com" class="tb-link">
+
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          info@marmordesigns.com
+
+          manankumarbohra11@gmail.com
+
         </a>
+
       </div>
+
     </div>
+
   </div>
 
+
+
   <!-- NAVIGATION -->
+
   <header class="site-header" id="site-header">
+
     <div class="nav-inner">
+
       <a class="logo" href="index.html">
+
         <img src="assets/logo-icon.svg" alt="Marmor Designs" class="logo-img" />
+
         <div class="logo-text-wrap">
+
           <span class="logo-name">Marmor Designs</span>
+
           <span class="logo-tagline">Premium Stone Slabs · Kishangarh</span>
-        </div>
-      </a>
-      <nav class="main-nav">
-        <a href="index.html" class="nav-link ">Home</a>
-        
-        <div class="nav-item">
-          <a href="products.html" class="nav-link ">
-            Collection <span class="nav-arrow"></span>
-          </a>
-          <div class="nav-dropdown mega-dropdown">
-            <div class="mega-col">
-              <div class="dropdown-col-title">By Category</div>
-              <a href="products.html?cat=Quartz" class="dropdown-link">Quartz Collection <span class="dropdown-badge">8</span></a>
-              <a href="products.html?cat=Agate" class="dropdown-link">Agate Collection <span class="dropdown-badge">8</span></a>
-              <a href="products.html?cat=Rare" class="dropdown-link">Rare &amp; Exotic <span class="dropdown-badge">10</span></a>
-              <a href="products.html" class="dropdown-link" style="font-weight:600;color:var(--gold);margin-top:6px;">View All 26 Slabs →</a>
-            </div>
-            <div class="mega-col">
-              <div class="dropdown-col-title">By Colour</div>
-              <a href="products.html?color=white" class="dropdown-link">White &amp; Statuario</a>
-              <a href="products.html?color=beige" class="dropdown-link">Beige &amp; Travertine</a>
-              <a href="products.html?color=grey" class="dropdown-link">Smoky Grey &amp; Silver</a>
-              <a href="products.html?color=black" class="dropdown-link">Nero Black &amp; Gold</a>
-              <a href="products.html?color=green" class="dropdown-link">Malachite &amp; Green</a>
-              <a href="products.html?color=blue" class="dropdown-link">Lapis &amp; Blue Agate</a>
-            </div>
-            <div class="mega-col">
-              <div class="dropdown-col-title">Signature Stones</div>
-              <a href="products.html?stone=Calacatta%20Gold" class="dropdown-link">Calacatta Gold</a>
-              <a href="products.html?stone=Statuario%20White" class="dropdown-link">Statuario White</a>
-              <a href="products.html?stone=Malachite%20Royal" class="dropdown-link">Malachite Royal</a>
-              <a href="products.html?stone=Blue%20Lapis%20Lazuli" class="dropdown-link">Lapis Lazuli</a>
-              <a href="products.html?stone=Amethyst%20Violet" class="dropdown-link">Amethyst Violet</a>
-            </div>
-          </div>
+
         </div>
 
+      </a>
+
+      <nav class="main-nav">
+
+        <a href="index.html" class="nav-link ">Home</a>
+
+        
+
         <div class="nav-item">
-          <a href="index.html#spaces-section" class="nav-link">
-            Spaces <span class="nav-arrow"></span>
+
+          <a href="products.html" class="nav-link ">
+
+            Collection <span class="nav-arrow"></span>
+
           </a>
-          <div class="nav-dropdown">
-            <a href="index.html#spaces-section" class="dropdown-link">Living Room Flooring</a>
-            <a href="index.html#spaces-section" class="dropdown-link">Kitchen Countertops</a>
-            <a href="index.html#spaces-section" class="dropdown-link">Master Bathroom Vanities</a>
-            <a href="index.html#spaces-section" class="dropdown-link">Backlit Feature Walls</a>
-            <a href="index.html#spaces-section" class="dropdown-link">Dining Table Tops</a>
+
+          <div class="nav-dropdown mega-dropdown">
+
+            <div class="mega-col">
+
+              <div class="dropdown-col-title">By Category</div>
+
+              <a href="products.html?cat=Quartz" class="dropdown-link">Quartz Collection <span class="dropdown-badge">8</span></a>
+
+              <a href="products.html?cat=Agate" class="dropdown-link">Agate Collection <span class="dropdown-badge">8</span></a>
+
+              <a href="products.html?cat=Rare" class="dropdown-link">Rare &amp; Exotic <span class="dropdown-badge">10</span></a>
+
+              <a href="products.html" class="dropdown-link" style="font-weight:600;color:var(--gold);margin-top:6px;">View All 26 Slabs →</a>
+
+            </div>
+
+            <div class="mega-col">
+
+              <div class="dropdown-col-title">By Colour</div>
+
+              <a href="products.html?color=white" class="dropdown-link">White &amp; Statuario</a>
+
+              <a href="products.html?color=beige" class="dropdown-link">Beige &amp; Travertine</a>
+
+              <a href="products.html?color=grey" class="dropdown-link">Smoky Grey &amp; Silver</a>
+
+              <a href="products.html?color=black" class="dropdown-link">Nero Black &amp; Gold</a>
+
+              <a href="products.html?color=green" class="dropdown-link">Malachite &amp; Green</a>
+
+              <a href="products.html?color=blue" class="dropdown-link">Lapis &amp; Blue Agate</a>
+
+            </div>
+
+            <div class="mega-col">
+
+              <div class="dropdown-col-title">Signature Stones</div>
+
+              <a href="products.html?stone=Calacatta%20Gold" class="dropdown-link">Calacatta Gold</a>
+
+              <a href="products.html?stone=Statuario%20White" class="dropdown-link">Statuario White</a>
+
+              <a href="products.html?stone=Malachite%20Royal" class="dropdown-link">Malachite Royal</a>
+
+              <a href="products.html?stone=Blue%20Lapis%20Lazuli" class="dropdown-link">Lapis Lazuli</a>
+
+              <a href="products.html?stone=Amethyst%20Violet" class="dropdown-link">Amethyst Violet</a>
+
+            </div>
+
           </div>
+
         </div>
+
+
+
+        <div class="nav-item">
+
+          <a href="index.html#spaces-section" class="nav-link">
+
+            Spaces <span class="nav-arrow"></span>
+
+          </a>
+
+          <div class="nav-dropdown">
+
+            <a href="index.html#spaces-section" class="dropdown-link">Living Room Flooring</a>
+
+            <a href="index.html#spaces-section" class="dropdown-link">Kitchen Countertops</a>
+
+            <a href="index.html#spaces-section" class="dropdown-link">Master Bathroom Vanities</a>
+
+            <a href="index.html#spaces-section" class="dropdown-link">Backlit Feature Walls</a>
+
+            <a href="index.html#spaces-section" class="dropdown-link">Dining Table Tops</a>
+
+          </div>
+
+        </div>
+
+
 
         <a href="index.html#studio-3d-section" class="nav-link">3D Studio</a>
+
         <a href="index.html#offers-section" class="nav-link">Cut To Size</a>
+
         <a href="index.html#tech-section" class="nav-link">Technology</a>
+
         <a href="about.html" class="nav-link ">About</a>
+
         <a href="blogs.html" class="nav-link ">Journal</a>
+
         <a href="contact.html" class="nav-link active">Contact</a>
+
       </nav>
+
       <div class="nav-right">
-        <a href="tel:+919876543210" class="nav-phone">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.33a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          +91 98765 43210
-        </a>
+
+        
+
         <a href="contact.html" class="btn-quote">Get a Quote</a>
+
         <button class="hamburger" id="hamburger" aria-label="Open Menu">
+
           <span></span><span></span><span></span>
+
         </button>
+
       </div>
+
     </div>
+
     <!-- MOBILE NAV -->
+
     <div class="mobile-nav" id="mobile-nav">
+
       <a href="index.html" class="mob-link">Home</a>
+
       <a href="products.html" class="mob-link">Collection</a>
+
       <a href="index.html#studio-3d-section" class="mob-link">3D Studio</a>
+
       <a href="index.html#spaces-section" class="mob-link">Spaces</a>
+
       <a href="index.html#offers-section" class="mob-link">Cut To Size</a>
+
       <a href="index.html#tech-section" class="mob-link">Technology</a>
+
       <a href="about.html" class="mob-link">About</a>
+
       <a href="blogs.html" class="mob-link">Journal</a>
+
       <a href="contact.html" class="mob-link active">Contact</a>
+
       <a href="contact.html" class="btn-quote" style="margin-top:12px;text-align:center;">Request Free Quote →</a>
+
     </div>
+
   </header>
 
+
+
   <!-- PAGE HERO -->
+
   <section class="page-hero">
+
     <div class="container">
+
       <div class="sec-eye">Let’s Discuss Your Space</div>
+
       <h1 class="page-title">Direct Consultation &amp;<br /><em>Detailed Quotations</em></h1>
+
       <p class="page-lead">Whether you are an architect detailing a boutique hotel lobby or a homeowner crafting a dream feature wall, our Kishangarh stone consultants are ready to assist you with live slab photos, layout optimization and transparent quotes.</p>
+
     </div>
+
   </section>
 
+
+
   <!-- CONTACT & ESTIMATOR LAYOUT -->
+
   <section style="background:var(--bg-main);">
+
     <div class="container">
+
       <div class="contact-layout">
 
+
+
         <!-- LEFT COLUMN: DIRECT CONTACT & ESTIMATOR -->
+
         <div>
+
           <div class="info-card">
-            <h3 style="font-size:1.45rem;color:#111827;margin-bottom:24px;">Direct Channels</h3>
-
-            <div class="info-row">
-              <div class="info-ico">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.33a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-              </div>
-              <div class="info-content">
-                <strong>Phone &amp; Direct Desk</strong>
-                <a href="tel:+919876543210">+91 98765 43210</a><br />
-                <span style="font-size:0.75rem;color:var(--text-dim);">Mon – Sat: 10:00 AM – 7:00 PM IST</span>
-              </div>
-            </div>
-
-            <div class="info-row">
-              <div class="info-ico" style="background:rgba(37,211,102,0.1);border-color:rgba(37,211,102,0.3);color:#25D366;">
-                <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.82.737 5.47 2.027 7.774L0 32l8.467-2.005A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.3 19.35c-.4-.2-2.366-1.167-2.733-1.3-.367-.133-.633-.2-.9.2s-1.033 1.3-1.267 1.567c-.233.267-.467.3-.867.1-.4-.2-1.69-.622-3.22-1.987-1.19-1.061-1.993-2.372-2.227-2.772-.233-.4-.025-.617.175-.817.181-.18.4-.467.6-.7.2-.233.267-.4.4-.667.133-.267.067-.5-.033-.7-.1-.2-.9-2.167-1.233-2.967-.323-.778-.65-.672-.9-.684l-.767-.013c-.267 0-.7.1-1.067.5-.367.4-1.4 1.367-1.4 3.333s1.433 3.867 1.633 4.133c.2.267 2.817 4.3 6.824 6.033 4.007 1.733 4.007 1.155 4.73 1.083.723-.072 2.333-.952 2.667-1.872.333-.92.333-1.708.233-1.872-.1-.163-.367-.263-.767-.463z"/></svg>
-              </div>
-              <div class="info-content">
-                <strong>Instant WhatsApp Desk</strong>
-                <a href="https://wa.me/919876543210?text=Hello%20Marmor%20Designs%2C%20I%20would%20like%20to%20request%20slab%20photos%20and%20rates." target="_blank">Chat with Senior Stone Specialist →</a><br />
-                <span style="font-size:0.75rem;color:var(--text-dim);">Live slab photos &amp; videos sent within 15 mins</span>
-              </div>
-            </div>
+            <h3 style="font-size:1.45rem;color:#111827;margin-bottom:24px;">Direct Contact &amp; Enquiries</h3>
 
             <div class="info-row">
               <div class="info-ico">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
               <div class="info-content">
-                <strong>Email Inquiries</strong>
-                <a href="mailto:info@marmordesigns.com">info@marmordesigns.com</a><br />
-                <span style="font-size:0.75rem;color:var(--text-dim);">For architectural drawings, tenders and export</span>
+                <strong>Official Email</strong>
+                <a href="mailto:manankumarbohra11@gmail.com" style="color:var(--gold);font-weight:600;font-size:0.95rem;">manankumarbohra11@gmail.com</a><br />
+                <span style="font-size:0.75rem;color:var(--text-dim);">Dedicated response for custom stone specifications, quotations &amp; CAD cuts</span>
               </div>
             </div>
 
@@ -303,95 +533,160 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div class="info-content">
-                <strong>Works &amp; Stone Gallery</strong>
-                <span>Marmor Industrial Area, Heavy Stone Zone,<br />Kishangarh, Rajasthan — 305801, India</span>
+                <strong>Curator Gallery &amp; Yards</strong>
+                <span>Industrial Area Phase II, Kishangarh, Rajasthan 305801, India</span>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-ico">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="info-content">
+                <strong>Visiting &amp; Consultation Hours</strong>
+                <span>Monday – Saturday: 10:00 AM – 7:00 PM IST (By Prior Appointment)</span>
               </div>
             </div>
           </div>
+
+
 
           <!-- LIVE ESTIMATE CALCULATOR -->
+
           <div class="calc-card">
+
             <h3 class="calc-title">
+
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
+
               Quick Rate Estimator
+
             </h3>
+
             <p style="font-size:0.84rem;color:var(--text-secondary);margin-bottom:16px;">Calculate an approximate budget based on your required area and stone type:</p>
+
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+
               <div>
+
                 <label style="font-size:0.76rem;color:var(--text-dim);display:block;margin-bottom:4px;">Stone Family</label>
+
                 <select id="calc-stone" style="width:100%;background:#FFFFFF;border:1px solid var(--border-light);color:#111827;padding:8px 10px;border-radius:8px;">
+
                   <option value="1500">White Quartz (₹1,500/sq.ft)</option>
+
                   <option value="1800">Rose Quartz (₹1,800/sq.ft)</option>
+
                   <option value="1700">Ivory Quartz (₹1,700/sq.ft)</option>
+
                   <option value="1600">Beige Quartz (₹1,600/sq.ft)</option>
+
                   <option value="2100">Grey Veined Quartz (₹2,100/sq.ft)</option>
+
                   <option value="2300">Black Quartz (₹2,300/sq.ft)</option>
+
                   <option value="2600">Golden Quartz (₹2,600/sq.ft)</option>
+
                   <option value="2900">Calacatta Quartz (₹2,900/sq.ft)</option>
+
                   <option value="1500">Blue Agate (₹1,500/sq.ft)</option>
+
                   <option value="1700">Green Agate (₹1,700/sq.ft)</option>
+
                   <option value="1600">Brown Agate (₹1,600/sq.ft)</option>
+
                   <option value="1800">White Agate (₹1,800/sq.ft)</option>
+
                   <option value="2000">Red Agate (₹2,000/sq.ft)</option>
+
                   <option value="2300">Black Agate (₹2,300/sq.ft)</option>
+
                   <option value="2500">Honey Agate (₹2,500/sq.ft)</option>
+
                   <option value="3300">Purple Agate (₹3,300/sq.ft)</option>
+
                   <option value="2800">Malachite (₹2,800/sq.ft)</option>
+
                   <option value="3800">Lapis Lazuli (₹3,800/sq.ft)</option>
+
                   <option value="3300">Amethyst Slab (₹3,300/sq.ft)</option>
+
                   <option value="3100">Tiger Eye (₹3,100/sq.ft)</option>
+
                   <option value="4300">Onyx White (₹4,300/sq.ft)</option>
+
                   <option value="4800">Onyx Black (₹4,800/sq.ft)</option>
+
                   <option value="5300">Labradorite Slab (₹5,300/sq.ft)</option>
+
                   <option value="6300">Pyrite Slab (₹6,300/sq.ft)</option>
+
                   <option value="7800">Ocean Jasper (₹7,800/sq.ft)</option>
+
                   <option value="8300">Galaxy Black Statement (₹8,300/sq.ft)</option>
+
                 </select>
+
               </div>
+
               <div>
+
                 <label style="font-size:0.76rem;color:var(--text-dim);display:block;margin-bottom:4px;">Area (in Sq. Ft.)</label>
+
                 <input type="number" id="calc-area" value="120" min="10" max="10000" style="width:100%;background:#FFFFFF;border:1px solid var(--border-light);color:#111827;padding:8px 10px;border-radius:8px;" />
+
               </div>
+
             </div>
+
             <div class="calc-output">
+
               <span style="font-size:0.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;display:block;">Estimated Material Value</span>
+
               <div class="calc-res-num" id="calc-result">₹1,80,000</div>
+
               <span style="font-size:0.72rem;color:var(--text-dim);">*Incl. GST &amp; +₹300 premium fabrication. Transit estimated on order.</span>
+
             </div>
+
           </div>
+
         </div>
 
+
+
         <!-- RIGHT COLUMN: CONSULTATION & QUOTE FORM -->
+
         <div class="qform-wrap" style="padding:40px;">
+
           <div class="qf-head">
+
             <h3>Request Official Slab Quote</h3>
+
             <p>Our stone engineers review every request and respond with exact lot photographs and prices within 24 hours.</p>
+
           </div>
 
+
+
           <form id="contact-page-form" novalidate>
+
             <div class="frow">
               <div class="fg">
                 <label for="cp-name">Full Name *</label>
                 <input type="text" id="cp-name" placeholder="E.g. Vikram Singhania" required />
               </div>
               <div class="fg">
-                <label for="cp-phone">Mobile / WhatsApp Number *</label>
-                <input type="tel" id="cp-phone" placeholder="+91 98765 43210" required />
+                <label for="cp-email">Email Address *</label>
+                <input type="email" id="cp-email" placeholder="manankumarbohra11@gmail.com" required />
               </div>
             </div>
 
             <div class="frow">
-              <div class="fg">
-                <label for="cp-email">Email Address</label>
-                <input type="email" id="cp-email" placeholder="vikram@company.com" />
-              </div>
               <div class="fg">
                 <label for="cp-city">Delivery City / State *</label>
-                <input type="text" id="cp-city" placeholder="Mumbai, Hyderabad, Dubai..." required />
+                <input type="text" id="cp-city" placeholder="Mumbai, Hyderabad, Jaipur, Delhi..." required />
               </div>
-            </div>
-
-            <div class="frow">
               <div class="fg">
                 <label for="cp-stone">Selected Stone Variety</label>
                 <select id="cp-stone" style="width:100%;background:#FFFFFF;border:1px solid var(--border-light);color:#111827;padding:12px 14px;border-radius:8px;font-size:0.9rem;">
@@ -424,281 +719,609 @@
                   <option value="Galaxy Black Statement">Galaxy Black Statement (₹8,300/sq.ft)</option>
                 </select>
               </div>
-              <div class="fg">
-                <label for="cp-app">Application</label>
-                <select id="cp-app">
-                  <option>Feature Wall / Accent Wall</option>
-                  <option>Kitchen Island / Countertop</option>
-                  <option>Backlit Bar or Vanity</option>
-                  <option>Pooja Room / Temple</option>
-                  <option>Staircase / Flooring</option>
-                  <option>Bespoke Furniture / Table</option>
-                </select>
-              </div>
             </div>
+
+
+
+            <div class="frow">
+
+              <div class="fg">
+
+                <label for="cp-stone">Selected Stone Variety</label>
+
+                <select id="cp-stone" style="width:100%;background:#FFFFFF;border:1px solid var(--border-light);color:#111827;padding:12px 14px;border-radius:8px;font-size:0.9rem;">
+
+                  <option value="">Choose a slab variety (Optional)</option>
+
+                  <option value="White Quartz">White Quartz (₹1,500/sq.ft)</option>
+
+                  <option value="Rose Quartz">Rose Quartz (₹1,800/sq.ft)</option>
+
+                  <option value="Ivory Quartz">Ivory Quartz (₹1,700/sq.ft)</option>
+
+                  <option value="Beige Quartz">Beige Quartz (₹1,600/sq.ft)</option>
+
+                  <option value="Grey Veined Quartz">Grey Veined Quartz (₹2,100/sq.ft)</option>
+
+                  <option value="Black Quartz">Black Quartz (₹2,300/sq.ft)</option>
+
+                  <option value="Golden Quartz">Golden Quartz (₹2,600/sq.ft)</option>
+
+                  <option value="Calacatta Quartz">Calacatta Quartz (₹2,900/sq.ft)</option>
+
+                  <option value="Blue Agate">Blue Agate (₹1,500/sq.ft)</option>
+
+                  <option value="Green Agate">Green Agate (₹1,700/sq.ft)</option>
+
+                  <option value="Brown Agate">Brown Agate (₹1,600/sq.ft)</option>
+
+                  <option value="White Agate">White Agate (₹1,800/sq.ft)</option>
+
+                  <option value="Red Agate">Red Agate (₹2,000/sq.ft)</option>
+
+                  <option value="Black Agate">Black Agate (₹2,300/sq.ft)</option>
+
+                  <option value="Honey Agate">Honey Agate (₹2,500/sq.ft)</option>
+
+                  <option value="Purple Agate">Purple Agate (₹3,300/sq.ft)</option>
+
+                  <option value="Malachite">Malachite (₹2,800/sq.ft)</option>
+
+                  <option value="Lapis Lazuli">Lapis Lazuli (₹3,800/sq.ft)</option>
+
+                  <option value="Amethyst Slab">Amethyst Slab (₹3,300/sq.ft)</option>
+
+                  <option value="Tiger Eye">Tiger Eye (₹3,100/sq.ft)</option>
+
+                  <option value="Onyx White">Onyx White (₹4,300/sq.ft)</option>
+
+                  <option value="Onyx Black">Onyx Black (₹4,800/sq.ft)</option>
+
+                  <option value="Labradorite Slab">Labradorite Slab (₹5,300/sq.ft)</option>
+
+                  <option value="Pyrite Slab">Pyrite Slab (₹6,300/sq.ft)</option>
+
+                  <option value="Ocean Jasper">Ocean Jasper (₹7,800/sq.ft)</option>
+
+                  <option value="Galaxy Black Statement">Galaxy Black Statement (₹8,300/sq.ft)</option>
+
+                </select>
+
+              </div>
+
+              <div class="fg">
+
+                <label for="cp-app">Application</label>
+
+                <select id="cp-app">
+
+                  <option>Feature Wall / Accent Wall</option>
+
+                  <option>Kitchen Island / Countertop</option>
+
+                  <option>Backlit Bar or Vanity</option>
+
+                  <option>Pooja Room / Temple</option>
+
+                  <option>Staircase / Flooring</option>
+
+                  <option>Bespoke Furniture / Table</option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+
 
             <div class="fg">
+
               <label for="cp-details">Project Dimensions &amp; Specific Requirements</label>
+
               <textarea id="cp-details" rows="4" placeholder="Approximate area in sq. ft. (e.g. 150 sq.ft.), timeline, backlit LED requirement, or any custom edge profiles..."></textarea>
+
             </div>
+
+
 
             <button type="submit" class="btn-primary btn-full" id="cp-submit">
+
               <span>Submit Consultation Request</span>
+
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9 22,2"/></svg>
+
             </button>
 
+
+
             <div class="form-ok" id="cp-success" style="display:none;margin-top:18px;">
+
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2EA843" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+
               <div>
+
                 <strong>Thank you! Your inquiry has been received.</strong><br />
-                <span style="font-size:0.8rem;color:#D8F8DE;">Our stone curator will connect via WhatsApp/phone with slab options.</span>
+
+                <span style="font-size:0.8rem;color:#D8F8DE;">Our stone curator will email your itemized slab quote and lot specifications.</span>
+
               </div>
+
             </div>
+
           </form>
+
         </div>
 
+
+
       </div>
+
+
 
       <!-- FAQ ACCORDION -->
+
       <div class="faq-sec">
+
         <div class="sec-head" style="margin-bottom:30px;">
+
           <div class="sec-eye">Frequently Asked Questions</div>
+
           <h2 class="sec-h2">Everything You Need to Know</h2>
+
         </div>
+
+
 
         <div class="faq-item open">
+
           <div class="faq-q">
+
             <span>How does Pan-India delivery and slab crating work?</span>
+
             <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+
           </div>
+
           <div class="faq-a" style="display:block;">
+
             Every slab fabricated at our Kishangarh facility is encased in heavy-gauge fumigated wooden A-frames lined with high-density shock-absorbing foam. We provide dedicated transport insurance and door-to-door GPS tracked delivery across all 28 states in India.
+
           </div>
+
         </div>
 
+
+
         <div class="faq-item">
+
           <div class="faq-q">
+
             <span>What is the Jointless Finish and how is it achieved?</span>
+
             <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+
           </div>
+
           <div class="faq-a">
+
             Traditional stonework often suffers from mismatched unsightly grout lines. Our jointless finish involves dry-laying consecutive slab cuts at our factory, color-matching transparent structural resins to the stone's exact mineral pigment, and buffing the seam continuously so the entire wall reads as one continuous monolithic slab.
+
           </div>
+
         </div>
 
+
+
         <div class="faq-item">
+
           <div class="faq-q">
+
             <span>Can all agate slabs be backlit with LEDs?</span>
+
             <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+
           </div>
+
           <div class="faq-a">
+
             Yes! Natural agate, white onyx and crystalline quartz possess natural optical translucency. We calibrate slab thickness to approximately 20mm and provide guidance for back-diffuser acrylic sheets and 3000K–4000K warm LED light panels to achieve optimal glowing depth without hot spots.
+
           </div>
+
         </div>
 
+
+
         <div class="faq-item">
+
           <div class="faq-q">
+
             <span>Can I inspect the actual slab before purchase?</span>
+
             <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+
           </div>
+
           <div class="faq-a">
+
             Absolutely. We believe buying natural stone requires 100% confidence. Once you share your required dimensions, we send high-resolution 4K photos and 360-degree videos of the exact available lot numbers under natural sunlight and artificial gallery lighting before you place your deposit.
+
           </div>
+
         </div>
 
+
+
         <div class="faq-item">
+
           <div class="faq-q">
+
             <span>What are your payment terms and order lead times?</span>
+
             <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+
           </div>
+
           <div class="faq-a">
+
             Standard in-stock slabs are dispatched within 4 to 7 business days from Kishangarh following quality sign-off. Custom waterjet cutting and book-matched book assemblies typically take 10 to 14 days. We accept bank transfers, GST invoices, and international letters of credit for exports.
+
           </div>
+
         </div>
+
       </div>
 
+
+
     </div>
+
   </section>
 
+
+
   <!-- FOOTER -->
+
   <footer class="site-footer">
+
     <div class="footer-main">
+
       <div class="container footer-grid">
+
         <div class="fcol fcol-brand">
+
           <div class="footer-logo">
+
             <img src="assets/logo.svg" alt="Marmor Designs" class="flogo-img" style="height:54px;width:auto;" />
+
           </div>
+
           <p>Premium natural agate, quartz and rare statement stone slabs. Fabricated and delivered across India from our Kishangarh, Rajasthan workshop.</p>
+
           <div class="f-socials">
+
             <a href="https://instagram.com/marmordesigns" target="_blank" class="fsoc" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+
             <a href="https://facebook.com/marmordesigns" target="_blank" class="fsoc" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+
             <a href="https://pinterest.com/marmordesigns" target="_blank" class="fsoc" aria-label="Pinterest"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
-            <a href="https://wa.me/919876543210" target="_blank" class="fsoc fsoc-wa" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.82.737 5.47 2.027 7.774L0 32l8.467-2.005A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0z"/></svg></a>
+
+            
+
           </div>
+
         </div>
+
         <div class="fcol">
+
           <h4>Navigate</h4>
+
           <a href="index.html">Home</a>
+
           <a href="about.html">About Us</a>
+
           <a href="products.html">Products &amp; Prices</a>
+
           <a href="blogs.html">Blog</a>
+
           <a href="contact.html">Contact Us</a>
+
         </div>
+
         <div class="fcol">
+
           <h4>Collections</h4>
+
           <a href="products.html?cat=Quartz">Quartz Range</a>
+
           <a href="products.html?cat=Agate">Agate Range</a>
+
           <a href="products.html?cat=Rare">Rare &amp; Statement</a>
+
           <a href="products.html">Jointless Finish Slabs</a>
+
           <a href="products.html">Full Price List</a>
+
         </div>
+
         <div class="fcol fcol-contact">
+
           <h4>Get In Touch</h4>
-          <a href="tel:+919876543210" class="fcontact-item">
+
+          <a href="tel:" class="fcontact-item">
+
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.33a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            +91 98765 43210
+
+            
+
           </a>
-          <a href="mailto:info@marmordesigns.com" class="fcontact-item">
+
+          <a href="mailto:manankumarbohra11@gmail.com" class="fcontact-item">
+
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            info@marmordesigns.com
+
+            manankumarbohra11@gmail.com
+
           </a>
+
           <div class="fcontact-item">
+
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+
             Kishangarh, Rajasthan — 305801, India
+
           </div>
-          <a href="https://wa.me/919876543210" target="_blank" class="wa-footer-btn">
-            <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.82.737 5.47 2.027 7.774L0 32l8.467-2.005A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0z"/></svg>
-            Chat on WhatsApp
-          </a>
+
+          
+
         </div>
+
       </div>
+
     </div>
+
     <div class="footer-btm">
+
       <div class="container fbtm-inner">
+
         <span>© 2026 Marmor Designs. All Rights Reserved. Kishangarh, Rajasthan, India.</span>
+
         <div class="fbtm-legal">
+
           <a href="#">Privacy Policy</a>
+
           <a href="#">Terms of Service</a>
+
           <a href="#">Sitemap</a>
+
         </div>
+
       </div>
+
     </div>
+
   </footer>
 
-  <a href="https://wa.me/919876543210" target="_blank" class="wa-fab" aria-label="WhatsApp">
-    <svg width="26" height="26" viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.82.737 5.47 2.027 7.774L0 32l8.467-2.005A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0z"/></svg>
-    <div class="wa-fab-tooltip">Chat with us!</div>
-  </a>
+
+
+  
+
   <button class="btt" id="btt" aria-label="Back to top">
+
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+
   </button>
 
+
+
   <script>
+
     // Live Rate Estimator
+
     const calcStone = document.getElementById('calc-stone');
+
     const calcArea = document.getElementById('calc-area');
+
     const calcResult = document.getElementById('calc-result');
 
+
+
     function updateCalc() {
+
       const rate = parseFloat(calcStone.value) || 0;
+
       const area = parseFloat(calcArea.value) || 0;
+
       const total = rate * area;
+
       calcResult.textContent = '₹' + total.toLocaleString('en-IN');
+
     }
+
     calcStone.addEventListener('change', updateCalc);
+
     calcArea.addEventListener('input', updateCalc);
 
+
+
     // Pre-fill Stone selection if coming from catalogue
+
     const urlParams = new URLSearchParams(window.location.search);
+
     const selectedStone = urlParams.get('stone');
+
     const stoneSelect = document.getElementById('cp-stone');
+
     if (selectedStone && stoneSelect) {
+
       for (let i = 0; i < stoneSelect.options.length; i++) {
+
         if (stoneSelect.options[i].text.toLowerCase().includes(selectedStone.toLowerCase())) {
+
           stoneSelect.selectedIndex = i;
+
           break;
+
         }
+
       }
+
     }
 
+
+
     // Contact Form Handler
+
     const cForm = document.getElementById('contact-page-form');
+
     const cSuccess = document.getElementById('cp-success');
+
     const cSubmit = document.getElementById('cp-submit');
 
-    cForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('cp-name').value.trim();
-      const phone = document.getElementById('cp-phone').value.trim();
-      const city = document.getElementById('cp-city').value.trim();
 
-      if (!name || !phone || !city) {
-        alert('Please fill in your Name, Phone Number, and Delivery City.');
+
+    cForm.addEventListener('submit', (e) => {
+
+      e.preventDefault();
+
+      const name = document.getElementById('cp-name').value.trim();
+
+            const email = document.getElementById('cp-email').value.trim();
+      if (!name || !email || !email.includes('@')) {
+        alert('Please provide your name and email address so our curator can send quotation details.');
         return;
       }
 
+
+
       cSubmit.disabled = true;
+
       cSubmit.querySelector('span').textContent = 'Submitting Request...';
 
+
+
       setTimeout(() => {
+
         cForm.reset();
+
         cSubmit.disabled = false;
+
         cSubmit.querySelector('span').textContent = 'Submit Consultation Request';
+
         cSuccess.style.display = 'flex';
+
         setTimeout(() => cSuccess.style.display = 'none', 8000);
+
       }, 1400);
+
     });
+
+
 
     // FAQ Accordion
+
     document.querySelectorAll('.faq-q').forEach(q => {
+
       q.addEventListener('click', () => {
+
         const item = q.parentElement;
+
         item.classList.toggle('open');
+
       });
+
     });
+
+
 
     // Mobile nav & Back to top
+
     const hamburger = document.getElementById('hamburger');
+
     const mobileNav = document.getElementById('mobile-nav');
+
     if (hamburger && mobileNav) {
+
       hamburger.addEventListener('click', () => {
+
         hamburger.classList.toggle('open');
+
         mobileNav.classList.toggle('open');
+
       });
+
     }
+
     const btt = document.getElementById('btt');
+
     window.addEventListener('scroll', () => {
+
       if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+
     });
+
     if (btt) {
+
       btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
     }
+
   
+
     // Pre-populate stone and service from URL query params
+
     const preStone = urlParams.get('stone');
+
     const preService = urlParams.get('service');
+
     const preReq = urlParams.get('request');
 
+
+
     if (preStone) {
+
       const msgField = document.getElementById('cp-msg');
+
       if (msgField) msgField.value = `I am interested in inspecting and receiving a quotation for ${preStone} slabs. Please share available lot videos and pricing.`;
+
       const calcStone = document.getElementById('calc-stone');
+
       if (calcStone) {
+
         for (let i = 0; i < calcStone.options.length; i++) {
+
           if (calcStone.options[i].text.toLowerCase().includes(preStone.toLowerCase())) {
+
             calcStone.selectedIndex = i;
+
             if (typeof updateCalc === 'function') updateCalc();
+
             break;
+
           }
+
         }
+
       }
+
     } else if (preService) {
+
       const msgField = document.getElementById('cp-msg');
+
       if (msgField) msgField.value = `I would like to inquire about your ${preService} service for an upcoming architectural project.`;
+
     } else if (preReq === 'SampleBox') {
+
       const msgField = document.getElementById('cp-msg');
+
       if (msgField) msgField.value = `I would like to order a Curated Stone Sample Box delivered to my project address.`;
+
     }
+
   </script>
+
 </body>
+
 </html>
+
